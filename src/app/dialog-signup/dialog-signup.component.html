@@ -1,0 +1,68 @@
+
+<form class="example-form">
+ 
+    <h1>SignUp</h1>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. John Sam">
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">
+        Please enter your Full Name
+      </mat-error>
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+               placeholder="password">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+          Please enter your password
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input type="password" matInput [formControl]="confirm_passwordFormControl" [errorStateMatcher]="matcher"
+               placeholder="confirm_password">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="confirm_passwordFormControl.hasError('confirm_password') && !confirm_passwordFormControl.hasError('required')">
+          Please confirm your password
+        </mat-error>
+        <mat-error *ngIf="confirm_passwordFormControl.hasError('required')">
+          Password Confirmation is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <section>
+        <div class="example-label"></div>
+        <div class="example-button-row">
+          <button mat-raised-button>Cancel</button>
+          <button mat-raised-button color="primary">Submit</button>
+          
+        </div>
+      </section>
+    </form>
+    
+    
