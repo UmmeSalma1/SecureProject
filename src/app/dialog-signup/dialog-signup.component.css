@@ -13,3 +13,6 @@
   .example-full-width {
     width: 100%;
   }
+  button, h1, label{
+    font-family: 'Times New Roman', Times, serif;
+  }

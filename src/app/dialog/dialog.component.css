@@ -17,3 +17,6 @@
   .example-form{
     background-image:repeating-linear-gradient(rgba(241, 31, 66, 0.945) rgb(226, 90, 158) rgb(243, 33, 96));
   }
+  button, h1, label{
+    font-family: 'Times New Roman', Times, serif;
+  }
