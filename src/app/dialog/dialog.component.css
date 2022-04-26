@@ -13,3 +13,7 @@
   .example-full-width {
     width: 100%;
   }
+
+  .example-form{
+    background-image:repeating-linear-gradient(rgba(241, 31, 66, 0.945) rgb(226, 90, 158) rgb(243, 33, 96));
+  }

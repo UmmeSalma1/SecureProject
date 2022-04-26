@@ -1,0 +1,15 @@
+p{
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    color: rgb(143, 16, 41);
+}
+
+h1{
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bolder;
+    color: red;
+}

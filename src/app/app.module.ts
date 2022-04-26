@@ -17,6 +17,17 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { DialogSignupComponent } from './dialog-signup/dialog-signup.component';
+import { HomeComponent } from './home/home.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 
@@ -27,7 +38,12 @@ import { DialogSignupComponent } from './dialog-signup/dialog-signup.component';
     SignupComponent,
     SigninComponent,
     DialogComponent,
-    DialogSignupComponent
+    DialogSignupComponent,
+    HomeComponent,
+    AboutusComponent,
+    MyDashboardComponent,
+    NavigationComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +56,13 @@ import { DialogSignupComponent } from './dialog-signup/dialog-signup.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

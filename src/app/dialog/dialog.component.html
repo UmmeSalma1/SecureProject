@@ -1,7 +1,18 @@
 
 <form class="example-form">
  
-<h1>SignIn</h1>
+<!-- <h1>SignIn</h1> -->
+
+<div class="row">
+  <div class="col sm-11" >
+    <h1>SignUp</h1>
+
+  </div>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+  
+</div>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Email</mat-label>
     <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
@@ -28,13 +39,14 @@
     </mat-error>
   </mat-form-field>
 
-  <section>
-    <div class="example-label"></div>
-    <div class="example-button-row">
-      <button mat-raised-button>Cancel</button>
-      <button mat-raised-button color="primary">Submit</button>
-      
+  <div class="row">
+    <div class="col sm-8" >
+      <button mat-raised-button color="primary" type="submit">Signup</button>
     </div>
-  </section>
+      <button mat-icon-button aria-label="reset" color="primary" style="margin-right:10px;">
+        Clear
+      </button>
+   
+      </div>
 </form>
 
