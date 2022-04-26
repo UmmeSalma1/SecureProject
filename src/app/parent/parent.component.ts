@@ -21,4 +21,12 @@ export class ParentComponent implements OnInit {
       width:'30%'
     });
   }
+  openP_CDailog() 
+  {
+    // this.signup.signup=false;
+    // this.signin=true;
+    this.dialog.open(PUserDailogComponent,{
+      width:'30%'
+    });
+  }
 }

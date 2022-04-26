@@ -9,6 +9,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
+interface Gender {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-p-user-dailog',
@@ -16,12 +20,23 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./p-user-dailog.component.css']
 })
 export class PUserDailogComponent implements OnInit {
+
+  // selectedValue: string;
+
+  gender: Gender[] = [
+    {value: 'male-0', viewValue: 'Male'},
+    {value: 'female-1', viewValue: 'Female'},
+    {value: 'others-2', viewValue: 'Others'},
+  ];
+
   nameFormControl:any = new FormControl('', [Validators.required, Validators.required]);
   phone_numberFormControl:any = new FormControl('', [Validators.required, Validators.required]);
   emailFormControl:any = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl:any = new FormControl('', [Validators.required, Validators.required]);
   panFormControl:any = new FormControl('', [Validators.required, Validators.required]);
-  addressFormControl:any = new FormControl('', [Validators.required, Validators.required])
+  addressFormControl:any = new FormControl('', [Validators.required, Validators.required]);
+  genderFormControl:any = new FormControl('', [Validators.required, Validators.required]);
+
   matcher = new MyErrorStateMatcher();
   constructor() { }
 

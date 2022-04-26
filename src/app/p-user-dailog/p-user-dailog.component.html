@@ -5,7 +5,7 @@
     
     <div class="row">
       <div class="col sm-11" >
-        <h1>Signin</h1>
+        <h1>User KYC</h1>
     
       </div>
       <button mat-icon-button aria-label="close dialog" mat-dialog-close>
@@ -51,6 +51,26 @@
           Password is required
         </mat-error>
       </mat-form-field>
+
+      <form>
+        <!-- <h4>Basic mat-select</h4> -->
+<mat-form-field  class="example-full-width" appearance="fill">
+  <mat-label>Gender</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let gender of gender" [value]="gender.value" matInput [formControl]="genderFormControl" >
+      {{gender.viewValue}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="genderFormControl.hasError('gender') && !genderFormControl.hasError('required')">
+    Please Select your Gender
+  </mat-error>
+  <mat-error *ngIf="genderFormControl.hasError('required')">
+    Password is required
+  </mat-error>
+</mat-form-field>
+        <!-- <p> Selected gender: {{selectedValue}} </p> -->
+        
+      </form>
     
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Phone Number</mat-label>
@@ -64,6 +84,8 @@
             Phone Number is required
         </mat-error>
       </mat-form-field>
+
+
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Pan Card</mat-label>
         <input type="text" name="txtPANCard" id="txtPANCard" matInput [formControl]="panFormControl" [errorStateMatcher]="matcher"
