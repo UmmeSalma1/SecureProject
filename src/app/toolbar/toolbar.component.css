@@ -4,14 +4,12 @@
     background-color: black;
   }
   button{
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: rgb(230, 21, 136);
     color: white;
+    size: 20px;
   }
   button:hover{
-    background-color: red;
-    text-transform: capitalize;
+    background-color: rgb(49, 46, 46);
+    text-transform: uppercase;
   }
 
   .mat-toolbar {
@@ -19,7 +17,17 @@
     color: #fff
  }
 
- span{
+ .span{
    font-size: larger;
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   opacity: 0.7;
+   margin-right: 3rem;
  }
+ span.some{
+  font-size:3rem;
+  font-family: fantasy;
+  font-weight: bolder;
+  opacity: 1;
+  color: rgb(0, 0, 255);
+
+}
