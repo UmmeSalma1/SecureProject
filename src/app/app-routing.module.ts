@@ -5,9 +5,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '/', component: HomeComponent },
-  { path: '/aboutus', component: AboutusComponent },
-  { path: '/contact', component: ContactusComponent },
+  { path: '', component: HomeComponent },
+  { path: 'aboutus', component: AboutusComponent },
+  { path: 'contact', component: ContactusComponent },
   
 ];
 
