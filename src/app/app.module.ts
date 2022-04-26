@@ -28,6 +28,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ContactusComponent } from './contactus/contactus.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { HeaderComponent } from './header/header.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { PUserDailogComponent } from './p-user-dailog/p-user-dailog.component';
 
 
 
@@ -43,7 +48,12 @@ import { ContactusComponent } from './contactus/contactus.component';
     AboutusComponent,
     MyDashboardComponent,
     NavigationComponent,
-    ContactusComponent
+    ContactusComponent,
+    SideNavComponent,
+    HeaderComponent,
+    ParentComponent,
+    ChildComponent,
+    PUserDailogComponent
   ],
   imports: [
     BrowserModule,

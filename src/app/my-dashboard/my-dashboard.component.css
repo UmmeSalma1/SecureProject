@@ -1,21 +1,38 @@
-.grid-container {
-  margin: 20px;
-}
+@import "../home/home.component.css";
+.page {
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-}
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
 }
-
-.dashboard-card-content {
-  text-align: center;
+.page__box {
+  min-height: 120px;
+  background: darkred;
+  margin: 0 -1rem;
+  font-size: 36px;
+}
+.page__content {
+  min-height: calc(100vh - 178px);
+  border-radius: 10px;
+  margin-top: -2rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+.page__content-data {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+h1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+  font-weight: bolder;
+  font-style: italic;
+  color: darkred;
+}
+div{
+  font-family: 'Times New Roman', Times, serif;
 }

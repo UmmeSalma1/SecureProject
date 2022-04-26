@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<!-- <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -22,6 +22,19 @@
       </button>
       <span>Secure</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    Add Content Here
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+
+
+<mat-drawer-container>
+  <mat-drawer mode="side" opened="true">
+    <app-side-nav></app-side-nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header></app-header>
+    <app-my-dashboard></app-my-dashboard>
+    
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+  </mat-drawer-container>

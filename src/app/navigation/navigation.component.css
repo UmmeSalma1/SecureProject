@@ -19,3 +19,17 @@
   background:darkred;
   /* color: #fff */
 }
+:host
+{
+display: flex;
+flex-direction: column;
+height: 100%;
+background-color: antiquewhite;
+}
+mat-drawer{
+width: 260px;
+background-color:darkred;
+}
+mat-drawer-container{
+height: 100%;
+}

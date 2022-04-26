@@ -1,3 +1,7 @@
 button{
     margin-left: 20px;
 }
+button:hover{
+    background-color: rgb(241, 62, 122);
+    text-transform: uppercase;
+  }

@@ -9,7 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
-
+  opened:boolean =false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -18,5 +18,8 @@ export class NavigationComponent {
 
     
   constructor(private breakpointObserver: BreakpointObserver) {}
+  open(){
+    this.opened = !this.opened;
+  }
 
 }
