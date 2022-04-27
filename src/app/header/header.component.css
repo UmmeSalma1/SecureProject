@@ -45,4 +45,8 @@ mat-toolbar {
   'opsz' 48
 }
 
+.mat-button:hover{
+  background-color: red;
+}
+
   
