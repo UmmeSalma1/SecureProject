@@ -42,6 +42,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
+import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
 
 
 
@@ -68,6 +69,7 @@ import {MatTableModule} from '@angular/material/table';
     PUserDailogComponent,
     PChildDailogComponent,
     ViewChildDailogComponent,
+    ViewTransactionComponent,
     
   ],
   imports: [

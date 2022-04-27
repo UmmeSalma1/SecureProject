@@ -4,6 +4,7 @@ import {MatTable} from '@angular/material/table';
 
 
 export interface PeriodicElement {
+  SlNo: number;
   FirstName: string;
   LastName: string;
   DOB: string;
@@ -15,6 +16,7 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
+    SlNo: 1,
     FirstName: 'Umme', 
     LastName: 'Salma', 
     DOB: '22/12/1998',
@@ -32,7 +34,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./view-child-dailog.component.css']
 })
 export class ViewChildDailogComponent implements OnInit {
-  displayedColumns: string[] = ['FirstName', 'LastName', 'DOB', 'Email', 'PhoneNumber', 'Gender', 'MonthlyLimit'];
+  displayedColumns: string[] = [ 'SlNo','FirstName', 'LastName', 'DOB', 'Email', 'PhoneNumber', 'Gender', 'MonthlyLimit'];
   dataSource = [...ELEMENT_DATA];
 
   @ViewChild(MatTable) table: any;

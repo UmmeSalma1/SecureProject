@@ -13,6 +13,12 @@
   
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
     <!-- Position Column -->
+
+    <ng-container matColumnDef="SlNo">
+      <th mat-header-cell *matHeaderCellDef>SlNo</th>
+      <td mat-cell *matCellDef="let element">{{element.SlNo}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="FirstName">
       <th mat-header-cell *matHeaderCellDef>FirstName.</th>
       <td mat-cell *matCellDef="let element">{{element.FirstName}}</td>

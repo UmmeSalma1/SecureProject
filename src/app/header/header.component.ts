@@ -20,4 +20,8 @@ logout(){
     this.router.navigate(['']);
   
 }
+Back_to_dashboard(){
+  this.router.navigate(['dashboard']);
+}
+
 }
