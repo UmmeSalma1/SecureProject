@@ -20,6 +20,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { PChildDailogComponent } from './p-child-dailog/p-child-dailog.component';
 import { PUserDailogComponent } from './p-user-dailog/p-user-dailog.component';
+import { ViewChildDailogComponent } from './view-child-dailog/view-child-dailog.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +40,8 @@ import { MatListModule } from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -64,6 +67,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ChildComponent,
     PUserDailogComponent,
     PChildDailogComponent,
+    ViewChildDailogComponent,
     
   ],
   imports: [
@@ -86,7 +90,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatListModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTabsModule,
+    MatTableModule
     
   ],
   providers: [],
