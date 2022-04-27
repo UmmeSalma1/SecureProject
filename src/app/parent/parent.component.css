@@ -18,6 +18,10 @@
     background: white;
     color: black;
     font-size: 2rem;
+    background-image: url("../../assets/p1_info.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 40%;
   }
   .page__content-data {
     top: 50%;
@@ -73,5 +77,8 @@
   }button:hover{
     background-color: rgb(241, 62, 122);
     text-transform: uppercase;
+  }
+  button{
+    margin-left: 1rem;
   }
   
