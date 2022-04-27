@@ -1,1 +1,150 @@
-<p>p-child-dailog works!</p>
+
+<form class="example-form">
+ 
+    <!-- <h1>SignIn</h1> -->
+    
+    <div class="row">
+      <div class="col sm-11" >
+        <h1>Adding Child</h1>
+    
+      </div>
+      <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+      </button>
+      
+    </div>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label> First Name</mat-label>
+        <input type="text" matInput [formControl]="fnameFormControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. John Sam">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="fnameFormControl.hasError('fname') && !fnameFormControl.hasError('required')">
+          Please enter  First Name
+        </mat-error>
+        <mat-error *ngIf="fnameFormControl.hasError('required')">
+         First Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput [formControl]="lnameFormControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. John Sam">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="lnameFormControl.hasError('lname') && !lnameFormControl.hasError('required')">
+          Please enter last Name
+        </mat-error>
+        <mat-error *ngIf="lnameFormControl.hasError('required')">
+         Last Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+               placeholder="password">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+          Please enter your password
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field> -->
+
+      <form>
+        <!-- <h4>Basic mat-select</h4> -->
+<mat-form-field  class="example-full-width" appearance="fill">
+  <mat-label>Gender</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let gender of gender" [value]="gender.value" matInput [formControl]="genderFormControl" >
+      {{gender.viewValue}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="genderFormControl.hasError('gender') && !genderFormControl.hasError('required')">
+    Please Select your Gender
+  </mat-error>
+  <mat-error *ngIf="genderFormControl.hasError('required')">
+    Password is required
+  </mat-error>
+</mat-form-field>
+        <!-- <p> Selected gender: {{selectedValue}} </p> -->
+        
+      </form>
+    
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input type="number" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+               placeholder="phone Number" min="0" >
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="passwordFormControl.hasError('phone_number') && !phone_numberFormControl.hasError('required')">
+          Please enter your Number
+        </mat-error>
+        <mat-error *ngIf="phone_numberFormControl.hasError('required')">
+            Phone Number is required
+        </mat-error>
+      </mat-form-field>
+
+
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Pan Card</mat-label>
+        <input type="text" name="txtPANCard" id="txtPANCard" matInput [formControl]="panFormControl" [errorStateMatcher]="matcher"
+               placeholder="Pan Card Number">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="panFormControl.hasError('txtPANCard') && !panFormControl.hasError('required')">
+          Please enter your Pan Card Number
+        </mat-error>
+        <mat-error  id="lblPANCard" *ngIf="panFormControl.hasError('required')">
+          Pan Card Number is required
+        </mat-error>
+      </mat-form-field> -->
+     
+
+<mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Monthly Limit</mat-label>
+        <input type="number" matInput [formControl]="limitFormControl" [errorStateMatcher]="matcher"
+               placeholder="Monthly Limit">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="limitFormControl.hasError('limit') && !limitFormControl.hasError('required')">
+          Please Enter Monthly limit for child
+        </mat-error>
+        <mat-error *ngIf="limitFormControl.hasError('required')">
+          limit is required
+        </mat-error>
+      </mat-form-field>
+
+    
+      <div class="row">
+        <div class="col sm-8" >
+          <button mat-raised-button color="primary" type="submit" >Signin</button>
+        </div>
+          <button mat-icon-button aria-label="reset" type="reset" color="primary" style="margin-right:10px;">
+            Clear
+          </button>
+       
+          </div>
+    </form>
+    
+    

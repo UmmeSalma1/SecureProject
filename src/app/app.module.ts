@@ -18,9 +18,10 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
-
-
+import { PChildDailogComponent } from './p-child-dailog/p-child-dailog.component';
 import { PUserDailogComponent } from './p-user-dailog/p-user-dailog.component';
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -36,7 +37,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
-import { PChildDailogComponent } from './p-child-dailog/p-child-dailog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -81,7 +82,8 @@ import { PChildDailogComponent } from './p-child-dailog/p-child-dailog.component
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule
     
   ],
   providers: [],

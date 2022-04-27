@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {PUserDailogComponent} from '../p-user-dailog/p-user-dailog.component';
+import {PChildDailogComponent} from '../p-child-dailog/p-child-dailog.component';
 
 @Component({
   selector: 'app-parent',
@@ -25,7 +26,7 @@ export class ParentComponent implements OnInit {
   {
     // this.signup.signup=false;
     // this.signin=true;
-    this.dialog.open(PUserDailogComponent,{
+    this.dialog.open(PChildDailogComponent,{
       width:'30%'
     });
   }
