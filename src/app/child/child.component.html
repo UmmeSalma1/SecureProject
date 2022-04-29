@@ -5,17 +5,17 @@
   
     <div class="d-flex page__box p-3 mt-2">Child Dashboard</div>
     <div class="page__content shadow p-3 position-relative">
-      <div class="page__content-data position-absolute text-center">
-        <div class="row">
+      <div class="page__content-data position-relative text-left">
+        <div class="col">
 
-<button mat-raised-button color="accent" (click)="openP_UDailog()" >User-Profile</button>
+<!-- <button mat-raised-button color="accent" (click)="openP_UDailog()" >User-Profile</button> -->
+
+<!-- <button mat-raised-button color="accent" (click)="openP_CDailog()" >Add Child</button> -->
+<button mat-raised-button color="accent" (click)="openViewChildDailog()" >View Child</button>
+<button mat-raised-button color="accent" (click)="openViewTransactionDailog()" >View Transactions</button>
 
         </div>
-        <div class="row">
-
-          <button mat-raised-button color="accent" (click)="openP_CDailog()" >Child Details</button>
-
-        </div>
+       
       </div>
     </div>
   </div>

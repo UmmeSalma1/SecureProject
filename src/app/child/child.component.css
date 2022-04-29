@@ -1,77 +1,83 @@
 .page {
-    color: white;
-    padding: 0 1rem;
-    background: #f1f5f9;
-  
-  
-  }
-  .page__box {
-    min-height: 120px;
-    background: darkred;
-    margin: 0 -1rem;
-    font-size: 36px;
-  }
-  .page__content {
-    min-height: calc(100vh - 178px);
-    border-radius: 10px;
-    margin-top: -2rem;
-    background: white;
-    color: black;
-    font-size: 2rem;
-  }
-  .page__content-data {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
 
-  .logo{
-    text-align: center;
-    padding: 2.6rem 1rem;
-  }
-  img{
-    width: 200px;
-  }
+
+}
+.page__box {
+  min-height: 120px;
+  background: darkred;
+  margin: 0 -1rem;
+  font-size: 36px;
+}
+.page__content {
+  min-height: calc(100vh - 178px);
+  border-radius: 10px;
+  margin-top: -2rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+  /* background-image: url("../../assets/cardissue.jpg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40%;
+}
+.page__content-data {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo{
+  text-align: center;
+  padding: 2.6rem 1rem;
+}
+img{
+  width: 200px;
+}
+
+mat-icon{
+vertical-align: center;
+margin-right: 1rem;
+}
+
+mat-divider{
+border-top-width: 2px ;
+border-color: white;
+}
+
+.mat-list-item{
+/* color: rgb(195, 146, 245) !important; */
+color: blanchedalmond;
+height: 44px !important;
+margin-bottom: 4px;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bolder;
+font-size: larger;
+border-radius: 5px;
+margin: 0 8px;
+}
+.mat-list-item:hover{
+background-color:red !important;
+font-size: 1rem;
+}
+.list-item-active{
+color: rgb(7, 1, 19) !important;
+}
+.mat-subheader{
+color: blanchedalmond;
+font-size: 0.6;
+font-weight: bolder;
+letter-spacing:1px;
+font-family: 'Times New Roman', Times, serif;
+}
+a{
   
-  mat-icon{
-  vertical-align: center;
-  margin-right: 1rem;
-  }
-  
-  mat-divider{
-  border-top-width: 2px ;
-  border-color: white;
-  }
-  
-  .mat-list-item{
-  /* color: rgb(195, 146, 245) !important; */
- color: blanchedalmond;
-  height: 44px !important;
-  margin-bottom: 4px;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bolder;
-  font-size: larger;
-  border-radius: 5px;
-  margin: 0 8px;
-  }
-  .mat-list-item:hover{
-  background-color:red !important;
-  font-size: 1rem;
-  }
-  .list-item-active{
-  color: rgb(7, 1, 19) !important;
-  }
-  .mat-subheader{
-  color: blanchedalmond;
-  font-size: 0.6;
-  font-weight: bolder;
-  letter-spacing:1px;
-  font-family: 'Times New Roman', Times, serif;
-  }
-  a{
-    
-  }button:hover{
-    background-color: rgb(241, 62, 122);
-    text-transform: uppercase;
-  }
-  
+}button:hover{
+  background-color: rgb(241, 62, 122);
+  text-transform: uppercase;
+}
+button{
+  margin-left: 1rem;
+}

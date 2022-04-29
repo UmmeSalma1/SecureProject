@@ -4,6 +4,9 @@ import {MatDialog} from '@angular/material/dialog';
 import {PUserDailogComponent} from '../p-user-dailog/p-user-dailog.component';
 import {PChildDailogComponent} from '../p-child-dailog/p-child-dailog.component';
 
+import { ViewChildDailogComponent } from '../view-child-dailog/view-child-dailog.component';
+import { ViewTransactionComponent } from '../view-transaction/view-transaction.component';
+
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
@@ -15,20 +18,23 @@ export class ChildComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  openP_UDailog() 
+  
+
+  openViewChildDailog() 
   {
     // this.signup.signup=false;
     // this.signin=true;
-    this.dialog.open(PUserDailogComponent,{
-      width:'30%'
+    this.dialog.open(ViewChildDailogComponent,{
+      width:'70%'
     });
   }
-  openP_CDailog() 
+
+  openViewTransactionDailog() 
   {
     // this.signup.signup=false;
     // this.signin=true;
-    this.dialog.open(PChildDailogComponent,{
-      width:'30%'
+    this.dialog.open(ViewTransactionComponent,{
+      width:'70%'
     });
   }
 }

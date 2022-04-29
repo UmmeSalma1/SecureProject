@@ -1,5 +1,5 @@
 
-<form class="example-form">
+<form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
  
   <div class="row">
     <div class="col sm-11" >
@@ -16,7 +16,7 @@
    -->
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Name</mat-label>
-      <input type="text" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher"
+      <input type="text" matInput [formControl]="nameFormControl"  formControlName="name" [errorStateMatcher]="matcher"
              placeholder="Ex. John Sam">
       <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
       <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">
@@ -29,7 +29,7 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+        <input type="email" matInput [formControl]="emailFormControl" formControlName="email" [errorStateMatcher]="matcher"
                placeholder="Ex. pat@example.com">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -42,7 +42,7 @@
     
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+        <input type="password" matInput [formControl]="passwordFormControl" formControlName="password" [errorStateMatcher]="matcher"
                placeholder="password">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
@@ -55,13 +55,13 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Confirm Password</mat-label>
-        <input type="password" matInput [formControl]="confirm_passwordFormControl" [errorStateMatcher]="matcher"
+        <input type="password" matInput [formControl]="password_confirmationFormControl" formControlName="password_confirmation" [errorStateMatcher]="matcher"
                placeholder="confirm_password">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="confirm_passwordFormControl.hasError('confirm_password') && !confirm_passwordFormControl.hasError('required')">
+        <mat-error *ngIf="password_confirmationFormControl.hasError('password_confirmation') && !password_confirmationFormControl.hasError('required')">
           Please confirm your password
         </mat-error>
-        <mat-error *ngIf="confirm_passwordFormControl.hasError('required')">
+        <mat-error *ngIf="password_confirmationFormControl.hasError('required')">
           Password Confirmation is <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -85,7 +85,7 @@
 
       <div class="row">
         <div class="col sm-8" >
-          <button mat-raised-button color="primary" type="submit">Signup</button>
+          <button mat-raised-button color="primary" type="submit" >Signup</button>
         </div>
           <button mat-icon-button aria-label="reset" type="reset" color="primary" style="margin-right:10px;">
             Clear

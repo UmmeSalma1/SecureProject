@@ -1,5 +1,5 @@
 
-<form class="example-form">
+<form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
  
 <!-- <h1>SignIn</h1> -->
 
@@ -15,7 +15,7 @@
 </div>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+    <input type="email" matInput [formControl]="emailFormControl" formControlName="email" [errorStateMatcher]="matcher"
            placeholder="Ex. pat@example.com">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -28,7 +28,7 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Password</mat-label>
-    <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+    <input type="password" matInput [formControl]="passwordFormControl" formControlName="password" [errorStateMatcher]="matcher"
            placeholder="password">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
     <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
@@ -41,7 +41,7 @@
 
   <div class="row">
     <div class="col sm-8" >
-      <button mat-raised-button color="primary" type="submit" (click)="navigate()">Signin</button>
+      <button mat-raised-button color="primary" type="submit" >Signin</button>
     </div>
       <button mat-icon-button aria-label="reset" type="reset" color="primary" style="margin-right:10px;">
         Clear
