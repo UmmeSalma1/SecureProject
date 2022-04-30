@@ -16,7 +16,7 @@
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label> First Name</mat-label>
-        <input type="text" matInput [formControl]="fnameFormControl" [errorStateMatcher]="matcher"
+        <input type="text" matInput [formControl]="fnameFormControl" formControlName="fname" [errorStateMatcher]="matcher"
                placeholder="Ex. John Sam">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="fnameFormControl.hasError('fname') && !fnameFormControl.hasError('required')">
@@ -29,7 +29,7 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Last Name</mat-label>
-        <input type="text" matInput [formControl]="lnameFormControl" [errorStateMatcher]="matcher"
+        <input type="text" matInput [formControl]="lnameFormControl" formControlName="lname" [errorStateMatcher]="matcher"
                placeholder="Ex. John Sam">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="lnameFormControl.hasError('lname') && !lnameFormControl.hasError('required')">
@@ -42,13 +42,13 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" formControlName="date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="fill" formControlName="email">
         <mat-label>Email</mat-label>
         <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
                placeholder="Ex. pat@example.com">
@@ -76,7 +76,7 @@
 
       <form>
         <!-- <h4>Basic mat-select</h4> -->
-<mat-form-field  class="example-full-width" appearance="fill">
+<mat-form-field  class="example-full-width" appearance="fill" formControlName="gender">
   <mat-label>Gender</mat-label>
   <mat-select>
     <mat-option *ngFor="let gender of gender" [value]="gender.value" matInput [formControl]="genderFormControl" >
@@ -94,7 +94,7 @@
         
       </form>
     
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="fill" formControlName="phone_number">
         <mat-label>Phone Number</mat-label>
         <input type="number" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
                placeholder="phone Number" min="0" >
@@ -122,7 +122,7 @@
       </mat-form-field> -->
      
 
-<mat-form-field class="example-full-width" appearance="fill">
+<mat-form-field class="example-full-width" appearance="fill" formControlName="number">
         <mat-label>Monthly Limit</mat-label>
         <input type="number" matInput [formControl]="limitFormControl" [errorStateMatcher]="matcher"
                placeholder="Monthly Limit">
