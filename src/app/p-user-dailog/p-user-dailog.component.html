@@ -1,5 +1,5 @@
 
-<form class="example-form">
+<form class="example-form" [formGroup]="parentForm"  (ngSubmit)="onSubmit()" >
  
     <!-- <h1>SignIn</h1> -->
     
@@ -26,11 +26,11 @@
           Name is required
         </mat-error>
       </mat-form-field>
-
-
       <mat-form-field class="example-full-width" appearance="fill">
+
+        
         <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl"formControlName="email" [errorStateMatcher]="matcher"
+        <input type="email" matInput [formControl]="emailFormControl"  [errorStateMatcher]="matcher"
                placeholder="Ex. pat@example.com">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -43,7 +43,7 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input type="password" matInput [formControl]="passwordFormControl" formControlName="password" [errorStateMatcher]="matcher"
+        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
                placeholder="password">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
@@ -59,7 +59,7 @@
 <mat-form-field  class="example-full-width" appearance="fill">
   <mat-label>Gender</mat-label>
   <mat-select>
-    <mat-option *ngFor="let gender of gender" [value]="gender.value" formControlName="gender" matInput [formControl]="genderFormControl" >
+    <mat-option *ngFor="let gender of gender" [value]="gender.value" matInput [formControl]="genderFormControl" >
       {{gender.viewValue}}
     </mat-option>
   </mat-select>
@@ -76,7 +76,7 @@
     
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Phone Number</mat-label>
-        <input type="number" matInput [formControl]="passwordFormControl"  formControlName="phone_number" [errorStateMatcher]="matcher"
+        <input type="number" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
                placeholder="phone Number" min="0" >
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="passwordFormControl.hasError('phone_number') && !phone_numberFormControl.hasError('required')">
@@ -90,7 +90,7 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Pan Card</mat-label>
-        <input type="text" name="txtPANCard" id="txtPANCard" formControlName="Pan" matInput [formControl]="panFormControl" [errorStateMatcher]="matcher"
+        <input type="text" name="txtPANCard" id="txtPANCard" matInput [formControl]="panFormControl" [errorStateMatcher]="matcher"
                placeholder="Pan Card Number">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="panFormControl.hasError('txtPANCard') && !panFormControl.hasError('required')">
@@ -104,7 +104,7 @@
 
 <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Address</mat-label>
-        <textarea type="textarea" matInput [formControl]="addressFormControl" formControlName="address" [errorStateMatcher]="matcher"
+        <textarea type="textarea" matInput [formControl]="addressFormControl" [errorStateMatcher]="matcher"
                placeholder="Address"></textarea>
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="addressFormControl.hasError('address') && !addressFormControl.hasError('required')">

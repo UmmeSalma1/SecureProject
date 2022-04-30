@@ -1,0 +1,34 @@
+{
+  "AddChild": [
+    {
+      "FirstName": "Umme ",
+      "LastName": "Salma",
+      "DOB": "22/12/1998",
+      "Email": "ummesalma@gmail.com",
+      "Gender": "Female",
+      "Phone_Number": 9876543210,
+      "PAN": "ASDF1234GH",
+      "Address": "Bengaluru"
+    },
+    {
+      "FirstName": "Umme ",
+      "LastName": "Salma",
+      "DOB": "22/12/1998",
+      "Email": "ummesalma@gmail.com",
+      "Gender": "Female",
+      "Phone_Number": 9876543210,
+      "PAN": "ASDF1234GH",
+      "Address": "Bengaluru"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

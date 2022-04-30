@@ -22,6 +22,8 @@ import { PChildDailogComponent } from './p-child-dailog/p-child-dailog.component
 import { PUserDailogComponent } from './p-user-dailog/p-user-dailog.component';
 import { ViewChildDailogComponent } from './view-child-dailog/view-child-dailog.component';
 import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
+import { ChildDetailsComponent } from './child-details/child-details.component';
+import { AddChildComponent } from './add-child/add-child.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,7 +48,9 @@ import {MatTableModule} from '@angular/material/table';
 
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from 'auth.interceptor';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -70,6 +74,8 @@ import { AuthInterceptor } from 'auth.interceptor';
     PChildDailogComponent,
     ViewChildDailogComponent,
     ViewTransactionComponent,
+    ChildDetailsComponent,
+    AddChildComponent,
     
   ],
   imports: [
@@ -95,7 +101,11 @@ import { AuthInterceptor } from 'auth.interceptor';
     MatNativeDateModule,
     MatTabsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatRadioModule
+    
     
   ],
   providers: [

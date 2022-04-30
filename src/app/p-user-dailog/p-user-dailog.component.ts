@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ErrorStateMatcher} from '@angular/material/core';
 // import { MyErrorStateMatcher } from '../dialog/dialog.component';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormBuilder,FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -38,9 +38,17 @@ export class PUserDailogComponent implements OnInit {
   genderFormControl:any = new FormControl('', [Validators.required, Validators.required]);
 
   matcher = new MyErrorStateMatcher();
-  constructor() { }
+  parentForm:FormGroup;
+  
+  constructor(
+    public fb: FormBuilder,
+  ) { 
+    this.parentForm =this.fb.group({});
+  }
 
   ngOnInit(): void {
   }
-
+onSubmit(){
+  console.log(this.parentForm.value);
+}
 }

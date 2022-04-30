@@ -5,9 +5,12 @@
     </div>
     <mat-divider></mat-divider>
     <!-- <h2 matSubheader class="mt-2">Application </h2> -->
-    <a mat-list-item routerLink="/parent" routerLinkActive="list-item-active"><mat-icon>supervisor_account</mat-icon> Parent</a>
-    <a mat-list-item routerLink="/child" routerLinkActive="list-item-active"><mat-icon>supervisor_account</mat-icon> Child</a>
-    <a mat-list-item routerLink="/contact" routerLinkActive="list-item-active"><mat-icon>dashboard</mat-icon> link</a>
+    <div class="row">
+
+        <button mat-button  routerLink="/dashboard" (click)="openparent_profileDailog()">Profile</button>
+        <button mat-button  routerLink="/dashboard" (click)="openchild_detailsDailog()">Add Child </button>
+        <!-- <button mat-button  routerLink="/contact">Contact</button> -->
+      </div>
     <!-- <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link1</a>
     <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link2</a>
     <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link3</a>
