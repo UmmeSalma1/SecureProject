@@ -1,130 +1,60 @@
+<h1 mat-dialog-title>Parent KYC</h1>
+<div mat-dialog-content>
+  <form [formGroup]="childForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Enter Full Name">
+    </mat-form-field>
 
-<form class="example-form" [formGroup]="parentForm"  (ngSubmit)="onSubmit()" >
- 
-    <!-- <h1>SignIn</h1> -->
     
-    <div class="row">
-      <div class="col sm-11" >
-        <h1>User KYC</h1>
+    <mat-form-field appearance="outline">
+      <mat-label> Email</mat-label>
+      <input formControlName="email" matInput placeholder="Enter email address ">
+    </mat-form-field>
     
-      </div>
-      <button mat-icon-button aria-label="close dialog" mat-dialog-close>
-        <mat-icon>close</mat-icon>
-      </button>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput placeholder="Enter Password ">
+    </mat-form-field>
+
+    
+    <!-- <mat-form-field appearance="outline">
+      <mat-label>DOB</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select placeholder="select gender" formControlName="gender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+      <mat-option value="others">Others</mat-option>
       
-    </div>
+      </mat-select>
+    </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input type="text" matInput [formControl]="nameFormControl" formControlName="name" [errorStateMatcher]="matcher"
-               placeholder="Ex. John Sam">
-        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">
-          Please enter your Full Name
-        </mat-error>
-        <mat-error *ngIf="nameFormControl.hasError('required')">
-          Name is required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput type="number" formControlName="phone_number" placeholder="Enter your Phone Number" min="0 ">
+    </mat-form-field>
 
-        
-        <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl"  [errorStateMatcher]="matcher"
-               placeholder="Ex. pat@example.com">
-        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is required
-        </mat-error>
-      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>PAN Card</mat-label>
+      <input formControlName="pan_card" matInput placeholder="Enter Pan Card Number ">
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Password</mat-label>
-        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
-               placeholder="password">
-        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
-          Please enter your password
-        </mat-error>
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
-          Password is required
-        </mat-error>
-      </mat-form-field>
-
-      <form>
-        <!-- <h4>Basic mat-select</h4> -->
-<mat-form-field  class="example-full-width" appearance="fill">
-  <mat-label>Gender</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let gender of gender" [value]="gender.value" matInput [formControl]="genderFormControl" >
-      {{gender.viewValue}}
-    </mat-option>
-  </mat-select>
-  <!-- <mat-error *ngIf="genderFormControl.hasError('gender') && !genderFormControl.hasError('required')">
-    Please Select your Gender
-  </mat-error>
-  <mat-error *ngIf="genderFormControl.hasError('required')">
-    gender is required
-  </mat-error> -->
-</mat-form-field>
-        <!-- <p> Selected gender: {{selectedValue}} </p> -->
-        
-      </form>
-    
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Phone Number</mat-label>
-        <input type="number" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
-               placeholder="phone Number" min="0" >
-        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="passwordFormControl.hasError('phone_number') && !phone_numberFormControl.hasError('required')">
-          Please enter your Number
-        </mat-error>
-        <mat-error *ngIf="phone_numberFormControl.hasError('required')">
-            Phone Number is required
-        </mat-error>
-      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <textarea formControlName="address" matInput placeholder="Enter Address "></textarea>
+    </mat-form-field>
 
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Pan Card</mat-label>
-        <input type="text" name="txtPANCard" id="txtPANCard" matInput [formControl]="panFormControl" [errorStateMatcher]="matcher"
-               placeholder="Pan Card Number">
-        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="panFormControl.hasError('txtPANCard') && !panFormControl.hasError('required')">
-          Please enter your Pan Card Number
-        </mat-error>
-        <mat-error  id="lblPANCard" *ngIf="panFormControl.hasError('required')">
-          Pan Card Number is required
-        </mat-error>
-      </mat-form-field>
-     
+  </form>
+   </div>
 
-<mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Address</mat-label>
-        <textarea type="textarea" matInput [formControl]="addressFormControl" [errorStateMatcher]="matcher"
-               placeholder="Address"></textarea>
-        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-        <mat-error *ngIf="addressFormControl.hasError('address') && !addressFormControl.hasError('required')">
-          Please enter your Complete Address
-        </mat-error>
-        <mat-error *ngIf="addressFormControl.hasError('required')">
-          Password is required
-        </mat-error>
-      </mat-form-field>
-
-    
-      <div class="row">
-        <div class="col sm-8" >
-          <button mat-raised-button color="primary" type="submit" >Submit</button>
-        </div>
-          <button mat-icon-button aria-label="reset" type="reset" color="primary" style="margin-right:10px;">
-            Clear
-          </button>
-       
-          </div>
-    </form>
-    
-    
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button [color]="'warn'" mat-dialog-close>Close</button>
+  <button mat-raised-button [color]="'primary'" (click)="addChild()" >{{ actionBtn }}</button>
+</div>

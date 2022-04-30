@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChildDetailsComponent } from '../child-details/child-details.component';
 import { PUserDailogComponent } from '../p-user-dailog/p-user-dailog.component';
 import {MatDialog} from '@angular/material/dialog';
+import { ViewTransactionComponent } from '../view-transaction/view-transaction.component';
+import { ViewtransactionComponent } from '../viewtransaction/viewtransaction.component';
 
 @Component({
   selector: 'app-side-nav',
@@ -27,5 +29,10 @@ export class SideNavComponent implements OnInit {
     this.dialog.open(ChildDetailsComponent,{
       width:'60%'
     });
+}
+opentransactionDailog(){
+  this.dialog.open(ViewtransactionComponent,{
+    width:'60%'
+  });
 }
 }

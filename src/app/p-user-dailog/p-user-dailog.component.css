@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
 }
 
 .example-form {
@@ -26,3 +25,22 @@ input::-webkit-inner-spin-button {
 -webkit-appearance: none;
 margin: 0;
 }
+
+mat-form-field{
+width: 100%;
+}
+span{
+  padding: 10px;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+

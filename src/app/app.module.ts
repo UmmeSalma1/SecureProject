@@ -51,6 +51,7 @@ import { AuthInterceptor } from 'auth.interceptor';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
+import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import {MatRadioModule} from '@angular/material/radio';
     ViewTransactionComponent,
     ChildDetailsComponent,
     AddChildComponent,
+    ViewtransactionComponent,
     
   ],
   imports: [
