@@ -43,10 +43,10 @@ export class PChildDailogComponent implements OnInit {
 
   // matcher = new MyErrorStateMatcher();
 
-  reshnessList: string[] = ["Brand New", "Second Hand", "Refurbished"];
+  
 
   //should be like your form name
-  productForm !: FormGroup;
+  childForm !: FormGroup;
 
   actionBtn: string = 'Save'
   
@@ -55,56 +55,58 @@ export class PChildDailogComponent implements OnInit {
     private dialogRef: MatDialogRef<PChildDailogComponent>) { }
 
   ngOnInit(): void {
-    this.productForm = this.formBuilder.group({
-      productName: ['', Validators.required],
-      category: ['', Validators.required],
+    this.childForm = this.formBuilder.group({
+      fName: ['', Validators.required],
+      lName: ['', Validators.required],
       date: ['', Validators.required],
-      freshness: ['', Validators.required],
-      productPrice: ['', Validators.required],
-      comment: ['', Validators.required]
+      email: ['', Validators.required],
+      gender: ['', Validators.required],
+      phone_number: ['', Validators.required],
+      monthly_limits: ['', Validators.required]
     })
     if (this.editData) {
       this.actionBtn = 'update'
-      this.productForm.controls['productName'].setValue(this.editData.productName);
-      this.productForm.controls['category'].setValue(this.editData.category);
-      this.productForm.controls['date'].setValue(this.editData.date);
-      this.productForm.controls['freshness'].setValue(this.editData.freshness);
-      this.productForm.controls['productPrice'].setValue(this.editData.productPrice);
-      this.productForm.controls['comment'].setValue(this.editData.comment);
+      this.childForm.controls['fName'].setValue(this.editData.fName);
+      this.childForm.controls['lName'].setValue(this.editData.lName);
+      this.childForm.controls['date'].setValue(this.editData.date);
+      this.childForm.controls['email'].setValue(this.editData.email);
+      this.childForm.controls['gender'].setValue(this.editData.gender);
+      this.childForm.controls['phone_number'].setValue(this.editData.phone_number);
+      this.childForm.controls['monthly_limits'].setValue(this.editData.monthly_limits);
 
     }
 
   }
-  addProduct() {
+  addChild() {
     // console.log(this.productForm.value);Best Laptop !
     if (!this.editData) {
-      if (this.productForm.valid) {
-        this.api.postProductData(this.productForm.value)
+      if (this.childForm.valid) {
+        this.api.postChildData(this.childForm.value)
           .subscribe({
             // next is the observer type
             next: (response) => {
-              alert("Product Added !!!");
-              this.productForm.reset();
+              alert("Child Added !!!");
+              this.childForm.reset();
               this.dialogRef.close("Save");
             },
             error: () => {
-              alert('Error While Added Product !!! ');
+              alert('Error While Adding a child  !!! ');
             }
           });
       }
     }
     else {
-      this.updateProduct();
+      this.updateChild();
     }
 
 
   }
-  updateProduct() {
-    return this.api.putProduct(this.productForm.value, this.editData.id)
+  updateChild() {
+    return this.api.putChild(this.childForm.value, this.editData.id)
       .subscribe({
         next: (response) => {
           alert("data updated Succcessfully !!");
-          this.productForm.reset();
+          this.childForm.reset();
           this.dialogRef.close("update");
         },
         error: () => {

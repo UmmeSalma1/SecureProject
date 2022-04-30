@@ -23,6 +23,13 @@
     <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      
       <ng-container matColumnDef="FirstName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </th>
         <td mat-cell *matCellDef="let row"> {{row.FirstName}} </td>
@@ -58,21 +65,18 @@
         <td mat-cell *matCellDef="let row"> {{row.Phone_Number}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="PAN">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> PAN </th>
-        <td mat-cell *matCellDef="let row"> {{row.PAN}} </td>
+      <ng-container matColumnDef="Monthly_Limits">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Monthly_Limits </th>
+        <td mat-cell *matCellDef="let row"> {{row.Monthly_Limits}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address  </th>
-        <td mat-cell *matCellDef="let row"> {{row.Address}} </td>
-      </ng-container>
+     
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary" (click)="editProduct(row)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button color="warn"  (click)="deleteProduct(row.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button color="primary" (click)="editChild(row)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="warn"  (click)="deleteChild(row.id)"><mat-icon>delete</mat-icon></button>
         </td>
       </ng-container>
   

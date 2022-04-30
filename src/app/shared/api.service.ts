@@ -8,24 +8,24 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/productList';
+  url: string = 'http://localhost:3000/addchild';
 
   // post product data
-  postProductData(data: any) {
+  postChildData(data: any) {
     return this.http.post<any>(this.url, data);
   }
 
   //get product data
-  getProductData() {
+  getChildData() {
     return this.http.get<any>(this.url);
   }
 
-  putProduct(data: any, id: number) {
-    return this.http.put<any>("http://localhost:3000/productList/" + id, data);
+  putChild(data: any, id: number) {
+    return this.http.put<any>("http://localhost:3000/addchild/" + id, data);
   }
 
 
-  deleteProduct(id: number) {
-    return this.http.delete<any>("http://localhost:3000/productList/" + id)
+  deleteChild(id: number) {
+    return this.http.delete<any>("http://localhost:3000/addchild/" + id)
   }
 }

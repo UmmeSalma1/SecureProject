@@ -13,7 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ChildDetailsComponent implements OnInit {
 
-  displayedColumns: string[] = ['FirstName', 'LastName', 'DOB', 'Email','Gender','Phone_Number','PAN','Address', 'action'];
+  displayedColumns: string[] = ['id','FirstName', 'LastName', 'DOB', 'Email','Gender','Phone_Number','Monthly_Limits', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -35,28 +35,28 @@ export class ChildDetailsComponent implements OnInit {
       width: '30%',
     }).afterClosed().subscribe(val=>{
       if(val==='Save'){
-        this.getAllProducts();
+        this.getAllChild();
       }
     });
   }
 
-  editProduct(row:any){
+  editChild(row:any){
     this.dialog.open(PChildDailogComponent,{
     width:'30%',
     data:row
     }).afterClosed().subscribe(val=>{
       if(val=='update'){
-        this.getAllProducts();
+        this.getAllChild();
       }
     });
   }
 
-  deleteProduct(id:number){
-      this.api.deleteProduct(id)
+  deleteChild(id:number){
+      this.api.deleteChild(id)
       .subscribe({
         next:(response)=>{
         alert("deleted Successfully !!");
-        this.getAllProducts();
+        this.getAllChild();
         },
         error:()=>{
           alert("error while deleting the records");
@@ -64,8 +64,8 @@ export class ChildDetailsComponent implements OnInit {
       });
   }
 
-  getAllProducts(){
-    this.api.getProductData().
+  getAllChild(){
+    this.api.getChildData().
     subscribe({
       next:(response)=>{
         // console.log(response);
