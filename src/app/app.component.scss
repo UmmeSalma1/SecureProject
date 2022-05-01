@@ -1,5 +1,5 @@
 mat-toolbar {
-  background: #004a9f;
+  background:darkred;
   color: white;
 }
 
@@ -7,7 +7,7 @@ mat-sidenav {
   margin: 16px;
   width: 200px;
   border-right: none;
-  background: #002b5c;
+  background: #16A085;
   color: white;
   border-radius: 10px;
   padding: 16px;
@@ -35,11 +35,11 @@ mat-sidenav-container {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-
+}
   mat-icon {
     margin-right: 8px;
   }
-}
+
 
 .avatar {
   margin-top: 16px;
@@ -63,4 +63,106 @@ mat-divider {
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+ul [li] {
+  list-style: none;
+}
+button {
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+.user {
+  font-size: 14px;
+}
+mat-toolbar {
+  background:darkred;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+.user-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.user-image-icon {
+  height: 18px;
+  font-size: 16px;
+}
+
+::ng-deep[mat-menu-content] {
+    width: 160px;
+
+}
+
+
+.material-symbols-outlined {
+font-variation-settings:
+'FILL' 0,
+'wght' 400,
+'GRAD' 0,
+'opsz' 48
+}
+
+.mat-button:hover{
+background-color: red;
+}
+
+.logo{
+  text-align: center;
+  padding: 1.6rem 0.7rem;
+}
+img{
+  width: 130px;
+}
+
+mat-icon{
+vertical-align: center;
+margin-right: 1rem;
+}
+
+mat-divider{
+border-top-width: 2px ;
+border-color: white;
+}
+
+.mat-list-item{
+/* color: rgb(195, 146, 245) !important; */
+color: blanchedalmond;
+height: 44px !important;
+margin-bottom: 4px;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bolder;
+font-size: larger;
+border-radius: 5px;
+margin: 0 8px;
+}
+.mat-list-item:hover{
+background-color:red !important;
+font-size: 1rem;
+}
+.list-item-active{
+color: rgb(7, 1, 19) !important;
+}
+.mat-subheader{
+color: blanchedalmond;
+font-size: 0.6;
+font-weight: bolder;
+letter-spacing:1px;
+font-family: 'Times New Roman', Times, serif;
+}
+button{
+  color: white;
+  size: 20px;
+}
+button:hover{
+  background-color: rgb(241, 62, 122);
+  text-transform: uppercase;
 }

@@ -1,50 +1,64 @@
 <mat-toolbar class="mat-elevation-z8">
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
-  Responsive side navigation
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <img
-      class="avatar mat-elevation-z8"
-      src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
-    />
-
-    <h4 class="name">John Smith</h4>
-    <p class="designation">Software Engineer</p>
-
-    <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button" routerLink="/home">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
     </button>
-    <button mat-button class="menu-button" routerLink="/profile">
-      <mat-icon>person</mat-icon>
-      <span>Profile</span>
-    </button>
-    <button mat-button class="menu-button" routerLink="/about">
-      <mat-icon>info</mat-icon>
-      <span>About</span>
-    </button>
+    Admin Dashboard
 
-    <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button" routerLink="/help">
-      <mat-icon>help</mat-icon>
-      <span>Help</span>
-    </button>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content mat-elevation-z8">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <div class="row mr-2 ml-auto" style="position: fixed; right: 0;">
+        <ul class="row m-0 align-items-center">
+  
+            <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+              <img src="../../assets/login.png" alt="" class="user-image mr-1 p-2" />
+              <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item  (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+        </ul>
+      </div>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <div class="logo py-4" style="background-image:linear-gradient(200deg,   blanchedalmond 30%, #D1F2E8 100%, #85929E ,blanchedalmond 20%); border: solid blanchedalmond; border-radius: 50%;">
+        <!-- <h1 style="text-align: center;">$ecure</h1> -->
+        <img class="pic" src="../../assets/secure_pic.gif" alt="pic">
+        </div>
+  
+      <mat-divider></mat-divider>
+  
+      <!-- <button mat-button class="menu-button" routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button> -->
+      <button mat-button class="menu-button" routerLink="/profile">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/about">
+        <mat-icon>info</mat-icon>
+        <span>Requests</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/help">
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

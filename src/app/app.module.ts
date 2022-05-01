@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -14,9 +14,17 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatTableModule } from '@angular/material/table';
+import { RequestsComponent } from './requests/requests.component' 
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent],
+  declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +34,13 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule
+
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

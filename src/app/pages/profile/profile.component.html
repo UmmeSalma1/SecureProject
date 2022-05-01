@@ -1,4 +1,63 @@
-<h2>Profile page</h2>
-<p>Some text here</p>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<h3>Some footer text</h3>
+<div class="demo-button-container">
+    <button mat-raised-button (click)="addData()" class="demo-button">
+      Add data
+    </button>
+    <button
+        mat-raised-button
+        [disabled]="!dataSource.length"
+        (click)="removeData()"
+        class="demo-button">
+      Remove data
+    </button>
+  </div>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+
+    <ng-container matColumnDef="SlNo">
+      <th mat-header-cell *matHeaderCellDef>SlNo</th>
+      <td mat-cell *matCellDef="let element">{{element.SlNo}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.Name}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{element.Email}}</td>
+    </ng-container>
+    <ng-container matColumnDef="PhoneNumber">
+        <th mat-header-cell *matHeaderCellDef>PhoneNumber</th>
+        <td mat-cell *matCellDef="let element">{{element.PhoneNumber}}</td>
+      </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="Password">
+      <th mat-header-cell *matHeaderCellDef>Password</th>
+      <td mat-cell *matCellDef="let element">{{element.Password}}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="DOB">
+      <th mat-header-cell *matHeaderCellDef>DOB</th>
+      <td mat-cell *matCellDef="let element">{{element.DOB}}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+
+
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{element.Address}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="DOJ">
+        <th mat-header-cell *matHeaderCellDef>Date of Joining</th>
+        <td mat-cell *matCellDef="let element">{{element.DOJ}}</td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
