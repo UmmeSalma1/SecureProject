@@ -22,6 +22,7 @@ class CreateParentUsersTable extends Migration
             $table->string('address');
             $table->string('pan_card')->unique();
             $table->string('gender');
+            $table->string('is_approved');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -29,7 +29,7 @@ class TransactionSeeder extends Seeder
         $card=Card::all()->random();
         $vendor = vendor::all()->random();
         $transaction = new Transaction();
-        $transaction->card_number = "3589314723200729";
+        $transaction->card_number = "5339232725752141";
         $transaction->vendor_name = $vendor->name;
        $t= $transaction->transaction_amount = $faker->numberBetween(1000,5000);
         $ts= $transaction->transaction_status=rand(0,1);

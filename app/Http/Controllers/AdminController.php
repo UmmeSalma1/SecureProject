@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreadminRequest;
@@ -12,6 +13,7 @@ use App\Models\ParentUser;
 use App\Models\refunds;
 use App\Models\Transaction;
 use App\Models\vendor;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -173,5 +175,47 @@ class AdminController extends Controller
     {
         $vendors = Vendor::findOrFail($vendor);
         return response()->json($vendors);
+    }
+    public function approve(Request $request){
+        $r = ParentUser::all()->where('id','=',$request->get('user_id'))->first();
+//        return $r;
+        $rs =$r->is_approved;
+//        return $rs;
+//        die();
+        if($rs == "not-approved"){
+            DB::table('parent_users')->
+            where('id','=',$request->get('user_id'))
+                ->update(['is_approved'=>"approved"]);
+
+            return response()->json("Request Approved");
+        }else{
+            return response()->json("User is already Appeoved");
+        }
+
+    }
+
+    public function reject(Request $request){
+        $r = ParentUser::all()->where('id','=',$request->get('user_id'))->first();
+//        return $r;
+        $rs =$r->is_approved;
+//        return $rs;
+//        die();
+        if($rs == "approved"){
+            DB::table('parent_users')->
+            where('id','=',$request->get('user_id'))
+                ->update(['is_approved'=>"not-approved"]);
+
+            return response()->json("User Temp not approved");
+        }else{
+            return response()->json("Request pending  ");
+        }
+
+    }
+    public function requestStatus(){
+        $users = DB::table('parent_users')
+            ->where('is_approved' , '=' , 'not-approved')
+            ->get();
+
+        return $users;
     }
 }

@@ -18,6 +18,7 @@ class ParentUser extends Model
         'address',
         'gender',
         'pan_card',
+        'is_approved',
     ];
     protected $hidden =[
         'password',

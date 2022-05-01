@@ -29,6 +29,7 @@ class ParentUserSeeder extends Seeder
         $parent->address = $faker->address;
         $parent->pan_card = $faker->regexify('/^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/');
         $parent->gender = ['Male', 'Female'][rand(0, 1)];
+        $parent->is_approved=['approved','not_approved'][rand(0,1)];
         $parent->save();
 
     }

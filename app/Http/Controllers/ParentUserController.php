@@ -62,6 +62,7 @@ class ParentUserController extends Controller
             'email'=>$request->get('email'),
             'password'=>$request->get('password'),
             'gender'=>$request->get('gender'),
+            'is_approved'=>'not-approved',
         ]);
 
         $newUser->save();

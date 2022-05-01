@@ -35,6 +35,10 @@ Route::post('/transaction/save',[\App\Http\Controllers\TransactionController::cl
 Route::post('/vendor/save',[\App\Http\Controllers\VendorController::class,'store']);
 Route::post('/admin/save',[\App\Http\Controllers\AdminController::class,'store']);
 Route::post('/refund/save',[\App\Http\Controllers\RefundController::class,'store']);
+Route::post('/admin/approve',[\App\Http\Controllers\AdminController::class,'approve']);
+Route::post('/admin/reject',[\App\Http\Controllers\AdminController::class,'reject']);
+Route::get('/admin/request-status',[\App\Http\Controllers\AdminController::class,'requestStatus']);
+
 
 Route::get('/parents/transaction/child/{first_name}',[\App\Http\Controllers\ParentUserController::class,'showtransaction']);
 Route::get('/parents/child/{first_name}',[\App\Http\Controllers\ParentUserController::class,'showchild']);
