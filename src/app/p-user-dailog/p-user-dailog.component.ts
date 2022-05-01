@@ -43,7 +43,7 @@ export class PUserDailogComponent implements OnInit {
   // matcher = new MyErrorStateMatcher();
   // parentForm:FormGroup;
   
-  childForm !: FormGroup;
+  parentForm !: FormGroup;
 
   actionBtn: string = 'Save'
   
@@ -52,7 +52,7 @@ export class PUserDailogComponent implements OnInit {
     private dialogRef: MatDialogRef<PUserDailogComponent>) { }
 
   ngOnInit(): void {
-    this.childForm = this.formBuilder.group({
+    this.parentForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -64,27 +64,27 @@ export class PUserDailogComponent implements OnInit {
     })
     if (this.editData) {
       this.actionBtn = 'update'
-      this.childForm.controls['fName'].setValue(this.editData.fName);
-      this.childForm.controls['lName'].setValue(this.editData.lName);
-      this.childForm.controls['date'].setValue(this.editData.date);
-      this.childForm.controls['email'].setValue(this.editData.email);
-      this.childForm.controls['gender'].setValue(this.editData.gender);
-      this.childForm.controls['phone_number'].setValue(this.editData.phone_number);
-      this.childForm.controls['monthly_limits'].setValue(this.editData.monthly_limits);
-
+      this.parentForm.controls['name'].setValue(this.editData.name);
+      this.parentForm.controls['email'].setValue(this.editData.email);
+      this.parentForm.controls['password'].setValue(this.editData.password);
+      this.parentForm.controls['date'].setValue(this.editData.date);
+      this.parentForm.controls['gender'].setValue(this.editData.gender);
+      this.parentForm.controls['phone_number'].setValue(this.editData.phone_number);
+      this.parentForm.controls['pan_card'].setValue(this.editData.pan_card);
+      this.parentForm.controls['address'].setValue(this.editData.address);
     }
 
   }
   addChild() {
     // console.log(this.productForm.value);Best Laptop !
     if (!this.editData) {
-      if (this.childForm.valid) {
-        this.api.postChildData(this.childForm.value)
+      if (this.parentForm.valid) {
+        this.api.postChildData(this.parentForm.value)
           .subscribe({
             // next is the observer type
             next: (response) => {
               alert("Child Added !!!");
-              this.childForm.reset();
+              this.parentForm.reset();
               this.dialogRef.close("Save");
             },
             error: () => {
@@ -100,11 +100,11 @@ export class PUserDailogComponent implements OnInit {
 
   }
   updateChild() {
-    return this.api.putChild(this.childForm.value, this.editData.id)
+    return this.api.putChild(this.parentForm.value, this.editData.id)
       .subscribe({
         next: (response) => {
           alert("data updated Succcessfully !!");
-          this.childForm.reset();
+          this.parentForm.reset();
           this.dialogRef.close("update");
         },
         error: () => {
