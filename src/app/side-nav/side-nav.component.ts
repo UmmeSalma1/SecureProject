@@ -4,6 +4,7 @@ import { PUserDailogComponent } from '../p-user-dailog/p-user-dailog.component';
 import {MatDialog} from '@angular/material/dialog';
 import { ViewTransactionComponent } from '../view-transaction/view-transaction.component';
 import { ViewtransactionComponent } from '../viewtransaction/viewtransaction.component';
+import { ParentDetailsComponent } from '../parent-details/parent-details.component';
 
 @Component({
   selector: 'app-side-nav',
@@ -21,8 +22,8 @@ export class SideNavComponent implements OnInit {
   {
     // this.signup.signup=false;
     // this.signin=true;
-    this.dialog.open(PUserDailogComponent,{
-      width:'30%'
+    this.dialog.open(ParentDetailsComponent,{
+      width:'60%'
     });
   }
   openchild_detailsDailog(){

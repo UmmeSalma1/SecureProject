@@ -5,6 +5,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+// import { ParentDetailsComponent } from '../parent-details/parent-details.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -77,6 +78,7 @@ export class PUserDailogComponent implements OnInit {
   }
   addChild() {
     // console.log(this.productForm.value);Best Laptop !
+    // this.p.status= true;
     if (!this.editData) {
       if (this.parentForm.valid) {
         this.api.postChildData(this.parentForm.value)

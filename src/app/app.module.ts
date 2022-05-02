@@ -52,6 +52,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
 import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
+import { ParentDetailsComponent } from './parent-details/parent-details.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { ViewtransactionComponent } from './viewtransaction/viewtransaction.comp
     ChildDetailsComponent,
     AddChildComponent,
     ViewtransactionComponent,
+    ParentDetailsComponent,
     
   ],
   imports: [
