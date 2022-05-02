@@ -6,15 +6,15 @@ import { ApiService } from '../shared/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-
-
+// import { PUserDailogComponent } from '../p-user-dailog/p-user-dailog.component';
 
 @Component({
-  selector: 'app-requests',
-  templateUrl: './requests.component.html',
-  styleUrls: ['./requests.component.scss']
+  selector: 'app-card-dialog',
+  templateUrl: './card-dialog.component.html',
+  styleUrls: ['./card-dialog.component.scss']
 })
-export class RequestsComponent implements OnInit {
+export class CardDialogComponent implements OnInit {
+  status: any= false;
   displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
   dataSource!: MatTableDataSource<any>;
 
@@ -26,8 +26,9 @@ export class RequestsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // openadd_childDailog(){
-  //   this.dialog.open(PChildDailogComponent,{
+  // openpuserDailog(){
+  //   this.status=true;
+  //   this.dialog.open(PUserDailogComponent,{
   //     width:'30%'
   //   });
   // }

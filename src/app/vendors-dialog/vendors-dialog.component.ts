@@ -6,15 +6,14 @@ import { ApiService } from '../shared/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-
-
-
 @Component({
-  selector: 'app-requests',
-  templateUrl: './requests.component.html',
-  styleUrls: ['./requests.component.scss']
+  selector: 'app-vendors-dialog',
+  templateUrl: './vendors-dialog.component.html',
+  styleUrls: ['./vendors-dialog.component.scss']
 })
-export class RequestsComponent implements OnInit {
+export class VendorsDialogComponent implements OnInit {
+
+  status: any= false;
   displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
   dataSource!: MatTableDataSource<any>;
 
@@ -26,8 +25,9 @@ export class RequestsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // openadd_childDailog(){
-  //   this.dialog.open(PChildDailogComponent,{
+  // openpuserDailog(){
+  //   this.status=true;
+  //   this.dialog.open(PUserDailogComponent,{
   //     width:'30%'
   //   });
   // }
@@ -88,5 +88,6 @@ export class RequestsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 
 }

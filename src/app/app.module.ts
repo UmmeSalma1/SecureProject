@@ -19,12 +19,22 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { RequestsComponent } from './requests/requests.component' 
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+
 
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule, } from '@angular/material/form-field';
+import { ViewComponent } from './view/view.component';
+import { ParentDialogComponent } from './parent-dialog/parent-dialog.component';
+import { ChildDialogComponent } from './child-dialog/child-dialog.component';
+import { CardDialogComponent } from './card-dialog/card-dialog.component';
+import { TransactionDialogComponent } from './transaction-dialog/transaction-dialog.component';
+import { VendorsDialogComponent } from './vendors-dialog/vendors-dialog.component';
+import { RefundsDialogComponent } from './refunds-dialog/refunds-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent],
+  declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent, ViewComponent, ParentDialogComponent, ChildDialogComponent, CardDialogComponent, TransactionDialogComponent, VendorsDialogComponent, RefundsDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +47,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule
 
     
     

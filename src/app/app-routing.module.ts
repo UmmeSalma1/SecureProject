@@ -5,6 +5,8 @@ import { HelpComponent } from './pages/help/help.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { RequestsComponent } from './requests/requests.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   {
@@ -21,8 +23,12 @@ const routes: Routes = [
     component: ProfileComponent,
   },
   {
-    path: 'about',
-    component: AboutComponent,
+    path: 'requestkyc',
+    component: RequestsComponent,
+  },
+  {
+    path: 'view',
+    component: ViewComponent,
   },
   {
     path: 'help',

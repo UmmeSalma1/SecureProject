@@ -7,15 +7,15 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
-
-
 @Component({
-  selector: 'app-requests',
-  templateUrl: './requests.component.html',
-  styleUrls: ['./requests.component.scss']
+  selector: 'app-child-dialog',
+  templateUrl: './child-dialog.component.html',
+  styleUrls: ['./child-dialog.component.scss']
 })
-export class RequestsComponent implements OnInit {
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+export class ChildDialogComponent implements OnInit {
+
+  status: any= false;
+  displayedColumns: string[] = ['id','FirstName', 'LastName', 'DOB', 'Email','Gender','Phone_Number','Monthly_Limits', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -26,8 +26,9 @@ export class RequestsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // openadd_childDailog(){
-  //   this.dialog.open(PChildDailogComponent,{
+  // openpuserDailog(){
+  //   this.status=true;
+  //   this.dialog.open(PUserDailogComponent,{
   //     width:'30%'
   //   });
   // }
@@ -88,5 +89,6 @@ export class RequestsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 
 }

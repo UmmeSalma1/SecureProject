@@ -6,6 +6,7 @@ export interface PeriodicElement {
   Name: string;
   Email: string;
   PhoneNumber: number;
+  Password: string;
   DOB: string;
   Address: string;
   DOJ: string;
@@ -17,6 +18,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     Name: 'Umme Salma',  
     Email:'ummesalma@gmail.com',
     PhoneNumber:9876543210,
+    Password: 'salma123',
     DOB: '22/12/1998',
     Address:"Bengaluru",
     DOJ:'22/12/2021'
