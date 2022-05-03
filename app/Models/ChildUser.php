@@ -16,6 +16,7 @@ class ChildUser extends Model
         'phone_number',
         'gender',
         'monthly_limit',
+        'is_approved',
         'parent_id'
     ];
 }

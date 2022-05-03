@@ -57,6 +57,7 @@ class ChildUserController extends Controller
             'phone_number' => $request->get('phone_number'),
             'gender'=>$request->get('gender'),
             'monthly_limit'=>$request->get('monthly_limit'),
+            'is_approved'=>'not-approved',
             'parent_id'=>ParentUser::all()->pluck('id')->random()
         ]);
         $newUser->save();

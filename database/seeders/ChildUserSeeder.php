@@ -28,6 +28,7 @@ class ChildUserSeeder extends Seeder
         $child->phone_number = $faker->phoneNumber;
         $child->gender = ['Male', 'Female'][rand(0,1)];
         $child->monthly_limit = [3000, 4000, 5000][rand(0,2)];
+        $child->is_approved=['approved','not_approved'][rand(0,1)];
         $child->parent_id = $parent->id;
         $child->save();
     }

@@ -56,7 +56,7 @@ class RefundController extends Controller
 //        $newRefund->save();
 //        return response()->json($newRefund);
 //    }
-    public function store(Request $request)
+    public function store(\Illuminate\Http\request $request)
     {
         $faker=Factory::create();
         $request->validate([
@@ -128,7 +128,7 @@ class RefundController extends Controller
      *
      * @param  \App\Http\Requests\UpdaterefundsRequest  $request
      * @param  \App\Models\refunds  $refunds
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdaterefundsRequest $request, refunds $refunds)
     {

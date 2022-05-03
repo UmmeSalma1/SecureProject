@@ -23,6 +23,7 @@ class CreateChildUsersTable extends Migration
             $table->string('phone_number');
             $table->string('gender');
             $table->integer('monthly_limit');
+            $table->string('is_approved');
             $table->timestamps();
         });
     }

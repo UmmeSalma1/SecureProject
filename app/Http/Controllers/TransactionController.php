@@ -79,7 +79,9 @@ class TransactionController extends Controller
         $rt = DB::table('transactions')->select('limit_balance')
             ->where('card_number','=',$request->get('card_number'))
             ->orderBy('transaction_date','desc')->first();
+
         $r = $rt->limit_balance;
+
 
         DB::table('transactions')->insert([
             'card_number' =>$request->get('card_number'),

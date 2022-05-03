@@ -163,8 +163,11 @@ class AdminController extends Controller
     public function showcard($card)
     {
         //$user = Card::findOrFail($card);
-        $user = Card::where('card_number', '=', $card)->firstOrFail();
-        return response()->json($user);
+        $user = Card::where('card_number', '=', $card)->first();
+        $cid=$user->child_id;
+        $t = ChildUser::all()->where('id','=',$cid)->first();
+        $n = $t->first_name;
+        return response()->json(["Child_Name"=>$n,"Card-Details"=>$user]);
     }
     public function showrefund( $refund_id)
     {
@@ -176,25 +179,25 @@ class AdminController extends Controller
         $vendors = Vendor::findOrFail($vendor);
         return response()->json($vendors);
     }
-    public function approve(Request $request){
+    public function approve(\Illuminate\Http\Request $request){
         $r = ParentUser::all()->where('id','=',$request->get('user_id'))->first();
-//        return $r;
+//       return $r;
         $rs =$r->is_approved;
 //        return $rs;
 //        die();
-        if($rs == "not-approved"){
+        if($rs == "not_approved"){
             DB::table('parent_users')->
             where('id','=',$request->get('user_id'))
                 ->update(['is_approved'=>"approved"]);
 
             return response()->json("Request Approved");
         }else{
-            return response()->json("User is already Appeoved");
+            return response()->json("User is already Approved");
         }
 
     }
 
-    public function reject(Request $request){
+    public function reject(\Illuminate\Http\Request $request){
         $r = ParentUser::all()->where('id','=',$request->get('user_id'))->first();
 //        return $r;
         $rs =$r->is_approved;
@@ -203,7 +206,7 @@ class AdminController extends Controller
         if($rs == "approved"){
             DB::table('parent_users')->
             where('id','=',$request->get('user_id'))
-                ->update(['is_approved'=>"not-approved"]);
+                ->update(['is_approved'=>"not_approved"]);
 
             return response()->json("User Temp not approved");
         }else{
@@ -213,7 +216,50 @@ class AdminController extends Controller
     }
     public function requestStatus(){
         $users = DB::table('parent_users')
-            ->where('is_approved' , '=' , 'not-approved')
+            ->where('is_approved' , '=' , 'not_approved')
+            ->get();
+
+        return $users;
+    }
+
+    public function childapprove(\Illuminate\Http\Request $request){
+        $r = ChildUser::all()->where('id','=',$request->get('child_id'))->first();
+//       return $r;
+        $rs =$r->is_approved;
+//        return $rs;
+//        die();
+        if($rs == "not_approved"){
+            DB::table('child_users')->
+            where('id','=',$request->get('child_id'))
+                ->update(['is_approved'=>"approved"]);
+
+            return response()->json("Request Approved");
+        }else{
+            return response()->json("User is already Approved");
+        }
+
+    }
+
+    public function childreject(Request $request){
+        $r = ChildUser::all()->where('id','=',$request->get('child_id'))->first();
+//        return $r;
+        $rs =$r->is_approved;
+//        return $rs;
+//        die();
+        if($rs == "approved"){
+            DB::table('child_users')->
+            where('id','=',$request->get('child_id'))
+                ->update(['is_approved'=>"not_approved"]);
+
+            return response()->json("User Temp not approved");
+        }else{
+            return response()->json("Request pending  ");
+        }
+
+    }
+    public function childrequestStatus(\Illuminate\Http\Request $request){
+        $users = DB::table('child_users')
+            ->where('is_approved' , '=' , 'not_approved')
             ->get();
 
         return $users;

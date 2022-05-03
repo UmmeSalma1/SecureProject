@@ -37,9 +37,13 @@ Route::post('/admin/save',[\App\Http\Controllers\AdminController::class,'store']
 Route::post('/refund/save',[\App\Http\Controllers\RefundController::class,'store']);
 Route::post('/admin/approve',[\App\Http\Controllers\AdminController::class,'approve']);
 Route::post('/admin/reject',[\App\Http\Controllers\AdminController::class,'reject']);
+Route::post('/admin/childapprove',[\App\Http\Controllers\AdminController::class,'childapprove']);
+Route::post('/admin/childreject',[\App\Http\Controllers\AdminController::class,'childreject']);
+
+
+Route::get('/admin/childrequest-status',[\App\Http\Controllers\AdminController::class,'childrequestStatus']);
+
 Route::get('/admin/request-status',[\App\Http\Controllers\AdminController::class,'requestStatus']);
-
-
 Route::get('/parents/transaction/child/{first_name}',[\App\Http\Controllers\ParentUserController::class,'showtransaction']);
 Route::get('/parents/child/{first_name}',[\App\Http\Controllers\ParentUserController::class,'showchild']);
 Route::get('transaction/card/{card_number}',[\App\Http\Controllers\TransactionController::class,'showcard']);
@@ -51,6 +55,8 @@ Route::get('/admin/refund/{id}',[\App\Http\Controllers\AdminController::class,'s
 Route::get('/admin/card/{card_number}',[\App\Http\Controllers\AdminController::class,'showcard']);
 Route::get('/admin/child/{id}',[\App\Http\Controllers\AdminController::class,'showchild']);
 Route::get('/admin/parent/{id}',[\App\Http\Controllers\AdminController::class,'showparent']);
+
+Route::get('/showchild/{card_number}',[\App\Http\Controllers\CardController::class,'showchild']);
 
 
 Route::put('/parent/update/{id}',[\App\Http\Controllers\ParentUserController::class,'update']);

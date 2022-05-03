@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCardRequest;
 use App\Http\Requests\UpdateCardRequest;
 use App\Models\Card;
+use App\Models\ChildUser;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ChildUserController;
 
 class CardController extends Controller
 {
@@ -41,8 +43,10 @@ class CardController extends Controller
         $request->validate([
             'card_number' => 'required|integer|digits_between:16,16',
             'exp_date' => 'date',
-            'cvv' => 'required|integer|digits_between:3,3'
+            'cvv' => 'required|integer|digits_between:3,3',
+
         ]);
+        $x = CardController::showchild($request->get('card_number'));
 
         $newCard = new Card([
             'card_number'=>$request->get('card_number'),
@@ -51,8 +55,9 @@ class CardController extends Controller
         ]);
 
         $newCard->save();
+        $r = array($newCard,$x);
 
-        return response()->json($newCard);
+        return response()->json($r);
     }
     /**
      * Display the specified resource.
@@ -60,10 +65,14 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show(Card $card)
+    public function show($id)
     {
-        $user = Card::findOrFail($card);
-        return response()->json($user);
+        $user = Card::all()->where('id','=',$id)->first();
+        $rt = $user->card_number;
+        $x = $user->child_id;
+        $t = ChildUser::all()->where('id','=',$x)->first();
+        $n = $t->first_name;
+        return response()->json(["Child_Name"=>$n,"Card_Details"=>$user]);
     }
 
     /**
@@ -114,5 +123,13 @@ class CardController extends Controller
         $user->delete();
 
         return response()->json($user::all());
+    }
+    public function showchild($cn){
+        $r = Card::all()->where('card_number','=',$cn)->first();
+        $x = $r->child_id;
+        $t = ChildUser::all()->where('id','=',$x)->first();
+        $n = $t->first_name;
+        return ($n);
+
     }
 }
