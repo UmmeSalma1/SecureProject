@@ -10,6 +10,14 @@
     margin-left: 8px;
   }
   td, th {
-    width: auto;
+    height: 50px;
+    width: 350px;
+    padding-left: 10px;
   }
-  
+  th{
+    font-weight: bold;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: navy;
+  }
+ 

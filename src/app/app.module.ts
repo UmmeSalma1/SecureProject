@@ -21,7 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RequestsComponent } from './requests/requests.component' 
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatFormFieldModule, } from '@angular/material/form-field';
@@ -50,7 +50,8 @@ import { ChildRequestComponent } from './child-request/child-request.component';
     MatPaginatorModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
 
     
     

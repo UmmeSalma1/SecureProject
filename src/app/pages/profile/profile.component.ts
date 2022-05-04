@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTable} from '@angular/material/table';
+import { ApiService } from 'src/app/shared/api.service';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 export interface PeriodicElement {
-  SlNo: number;
+  id: number;
   Name: string;
   Email: string;
   PhoneNumber: number;
@@ -12,19 +15,19 @@ export interface PeriodicElement {
   DOJ: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    SlNo: 1,
-    Name: 'Umme Salma',  
-    Email:'ummesalma@gmail.com',
-    PhoneNumber:9876543210,
-    Password: 'salma123',
-    DOB: '22/12/1998',
-    Address:"Bengaluru",
-    DOJ:'22/12/2021'
-}
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   {
+//     SlNo: 1,
+//     Name: 'Umme Salma',  
+//     Email:'ummesalma@gmail.com',
+//     PhoneNumber:9876543210,
+//     Password: 'salma123',
+//     DOB: '22/12/1998',
+//     Address:"Bengaluru",
+//     DOJ:'22/12/2021'
+// }
 
-];
+// ];
 
 @Component({
   selector: 'app-profile',
@@ -33,24 +36,38 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ProfileComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'SlNo','Name',  'Email', 'PhoneNumber','Password', 'DOB', 'Address', 'DOJ'];
-  dataSource = [...ELEMENT_DATA];
+  displayedColumns: string[] = [ 'id','name',  'email', 'phone_number','password','address', 'dob', 'joined_date'];
+  dataSource!: MatTableDataSource<any>;
+
 
   @ViewChild(MatTable) table: any;
 
-  addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
-    this.table.renderRows();
-  }
 
-  removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
-  }
+adminDetails(){
+  this.api.adminDetails().subscribe({
+    next:(response)=>{
+      this.dataSource= new MatTableDataSource(response);
+    },
+    error:(error)=>{
+      console.log("Error while fatching Records !! ");
+      alert('"Error while fatching Records !! "');
+    }
+  });
+}
+  // addData() {
+  //   const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
+  //   this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
+  //   this.table.renderRows();
+  // }
 
-  constructor() { }
+  // removeData() {
+  //   this.dataSource.pop();
+  //   this.table.renderRows();
+  // }
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.adminDetails();
   }
 }
