@@ -73,7 +73,7 @@ class RefundController extends Controller
         $rt = DB::table('transactions')->select('limit_balance')
             ->where('card_number','=',$cdnum)
             ->orderBy('transaction_date','desc')->first();
-        $rs = $rt->credit_balance;
+        $rs = $rt->limit_balance;
         echo($rs);
         DB::table('transactions')->insert([
             'id'=>$rid,

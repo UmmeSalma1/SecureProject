@@ -31,6 +31,7 @@ Route::resource('/refunds',\App\Http\Controllers\RefundController::class);
 
 Route::post('/parent/child',[\App\Http\Controllers\ParentUserController::class,'storechild']);
 Route::post('/parent/save',[\App\Http\Controllers\ParentUserController::class,'store']);
+Route::post('/card/save',[\App\Http\Controllers\CardController::class,'store']);
 Route::post('/transaction/save',[\App\Http\Controllers\TransactionController::class,'store']);
 Route::post('/vendor/save',[\App\Http\Controllers\VendorController::class,'store']);
 Route::post('/admin/save',[\App\Http\Controllers\AdminController::class,'store']);

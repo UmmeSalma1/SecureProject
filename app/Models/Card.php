@@ -12,6 +12,6 @@ class Card extends Model
         'card_number',
         'exp_date',
         'cvv',
-
+        'child_id'
     ];
 }

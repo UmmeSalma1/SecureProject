@@ -6,6 +6,7 @@ use App\Http\Requests\StoreChildURequest;
 use App\Http\Requests\UpdateChildURequest;
 use App\Models\ChildUser;
 use App\Models\ParentUser;
+use App\Models\Transaction;
 use http\Env\Request;
 
 class ChildUserController extends Controller
@@ -69,7 +70,7 @@ class ChildUserController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\ChildUser  $childU
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(ChildUser $childU)
     {
@@ -101,7 +102,7 @@ class ChildUserController extends Controller
      *
      * @param  \App\Http\Requests\UpdateChildURequest  $request
      * @param  \App\Models\ChildUser  $childU
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateChildURequest $request, ChildUser $childU)
     {
@@ -135,7 +136,7 @@ class ChildUserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\ChildUser  $childU
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(ChildUser $childU)
     {
