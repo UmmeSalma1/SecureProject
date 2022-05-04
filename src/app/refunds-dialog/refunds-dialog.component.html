@@ -14,10 +14,10 @@
   </div>
   <div class="container">
     <div style="margin-top:10px">
-    <!-- <mat-form-field appearance="standard">
+    <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field> -->
+  </mat-form-field>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
@@ -30,46 +30,25 @@
       </ng-container>
   
       
-      <ng-container matColumnDef="Name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
+      <ng-container matColumnDef="Transaction_ID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction_ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.Transaction_ID}} </td>
       </ng-container>
   
       <!-- Product Column -->
-      <ng-container matColumnDef="Email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-        <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
+      <ng-container matColumnDef="Refund_Amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Refund_Amount </th>
+        <td mat-cell *matCellDef="let row"> {{row.Refund_Amount}} </td>
       </ng-container>
   
       <!-- Category  Column -->
-      <ng-container matColumnDef="Password">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
-        <td mat-cell *matCellDef="let row"> {{row.Password}} </td>
+      <ng-container matColumnDef="Refund_Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Refund_Date </th>
+        <td mat-cell *matCellDef="let row"> {{row.date | date}} </td>
       </ng-container>
   
       <!-- Freshness Column -->
-      <ng-container matColumnDef="Gender">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
-        <td mat-cell *matCellDef="let row"> {{row.Gender}} </td>
-      </ng-container>
-     
-      <ng-container matColumnDef="Phone_Number">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone_Number  </th>
-        <td mat-cell *matCellDef="let row"> {{row.Phone_Number}} </td>
-      </ng-container>
-  
-      <!-- Date Column  -->
-      <ng-container matColumnDef="Pan_Card">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pan_Card </th>
-        <td mat-cell *matCellDef="let row"> {{row.Pan_Card}} </td>
-      </ng-container>
-  
-      <!-- Price Column -->
-  
-      <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-        <td mat-cell *matCellDef="let row"> {{row.Address}} </td>
-      </ng-container>
+      
   
      
   

@@ -1,7 +1,3 @@
-mat-toolbar {
-  background:darkred;
-  color: white;
-}
 
 mat-sidenav {
   margin: 16px;
@@ -10,7 +6,9 @@ mat-sidenav {
   background: #16A085;
   color: white;
   border-radius: 10px;
-  padding: 16px;
+  padding: 16px;  
+  background:#42C2FF;
+
   text-align: center;
 }
 
@@ -83,8 +81,12 @@ button {
   font-size: 14px;
 }
 mat-toolbar {
-  background:darkred;
-  color: white;
+  // background:#42C2FF;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  
+  color:white;
+  font-weight: bolder;
+  font-size: x-large;
   font-family: 'Times New Roman', Times, serif;
 }
 .user-image {
@@ -112,7 +114,7 @@ font-variation-settings:
 }
 
 .mat-button:hover{
-background-color: darkred;
+background-color: rgb(54, 202, 247);
 }
 
 .logo{
@@ -145,7 +147,7 @@ border-radius: 5px;
 margin: 0 8px;
 }
 .mat-list-item:hover{
-background-color:red !important;
+background-color:rgb(128, 231, 231) !important;
 font-size: 1rem;
 }
 .list-item-active{
@@ -163,6 +165,8 @@ button{
   size: 20px;
 }
 button:hover{
-  background-color: rgb(241, 62, 122);
+  background-color: rgb(175, 205, 212);
   text-transform: uppercase;
 }
+
+

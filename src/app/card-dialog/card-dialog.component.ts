@@ -15,7 +15,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class CardDialogComponent implements OnInit {
   status: any= false;
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+  displayedColumns: string[] = ['id','Child_ID', 'Card_No', 'Expiry_Date', 'CVV', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;

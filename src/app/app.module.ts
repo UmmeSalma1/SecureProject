@@ -32,9 +32,10 @@ import { CardDialogComponent } from './card-dialog/card-dialog.component';
 import { TransactionDialogComponent } from './transaction-dialog/transaction-dialog.component';
 import { VendorsDialogComponent } from './vendors-dialog/vendors-dialog.component';
 import { RefundsDialogComponent } from './refunds-dialog/refunds-dialog.component';
+import { ChildRequestComponent } from './child-request/child-request.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent, ViewComponent, ParentDialogComponent, ChildDialogComponent, CardDialogComponent, TransactionDialogComponent, VendorsDialogComponent, RefundsDialogComponent],
+  declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent, ViewComponent, ParentDialogComponent, ChildDialogComponent, CardDialogComponent, TransactionDialogComponent, VendorsDialogComponent, RefundsDialogComponent, ChildRequestComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

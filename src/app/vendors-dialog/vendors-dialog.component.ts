@@ -14,7 +14,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class VendorsDialogComponent implements OnInit {
 
   status: any= false;
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+  displayedColumns: string[] = ['id','Name', 'Email', 'Password','Phone_Number','Address', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;

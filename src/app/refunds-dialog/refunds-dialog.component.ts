@@ -16,7 +16,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class RefundsDialogComponent implements OnInit {
 
   status: any= false;
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+  displayedColumns: string[] = ['id','Transaction_ID', 'Refund_Amount', 'Refund_Date',  'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;

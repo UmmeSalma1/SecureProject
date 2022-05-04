@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChildRequestComponent } from './child-request/child-request.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HelpComponent } from './pages/help/help.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'requestkyc',
     component: RequestsComponent,
+  },
+  {
+    path: 'childrequest',
+    component: ChildRequestComponent,
   },
   {
     path: 'view',

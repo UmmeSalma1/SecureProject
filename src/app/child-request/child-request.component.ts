@@ -6,16 +6,14 @@ import { ApiService } from '../shared/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-
 @Component({
-  selector: 'app-transaction-dialog',
-  templateUrl: './transaction-dialog.component.html',
-  styleUrls: ['./transaction-dialog.component.scss']
+  selector: 'app-child-request',
+  templateUrl: './child-request.component.html',
+  styleUrls: ['./child-request.component.scss']
 })
-export class TransactionDialogComponent implements OnInit {
+export class ChildRequestComponent implements OnInit {
 
-  status: any= false;
-  displayedColumns: string[] = ['id','CardNumber', 'VendorName', 'Transaction_Amount', 'Limit_Balance','Transaction_Date','Transaction_Status','Transaction_Type', 'action'];
+  displayedColumns: string[] = ['id','FirstName', 'LastName', 'DOB', 'Email','Gender','Phone_Number','Monthly_Limits', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -26,9 +24,8 @@ export class TransactionDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // openpuserDailog(){
-  //   this.status=true;
-  //   this.dialog.open(PUserDailogComponent,{
+  // openadd_childDailog(){
+  //   this.dialog.open(PChildDailogComponent,{
   //     width:'30%'
   //   });
   // }

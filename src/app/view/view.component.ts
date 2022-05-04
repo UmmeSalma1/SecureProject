@@ -20,7 +20,7 @@ export class ViewComponent implements OnInit {
   }
   viewParent(){
     this.dialog.open(ParentDialogComponent,{
-      width:'60%'
+      width:'70%', 
     });
 
   }
@@ -31,7 +31,7 @@ export class ViewComponent implements OnInit {
   }
   viewCard(){
     this.dialog.open(CardDialogComponent,{
-      width:'70%'
+      width:'60%'
     });
   }
   viewTransaction(){

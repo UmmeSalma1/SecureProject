@@ -30,28 +30,33 @@
       </ng-container>
   
       
-      <ng-container matColumnDef="Name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
+      <ng-container matColumnDef="FirstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </th>
+        <td mat-cell *matCellDef="let row"> {{row.FirstName}} </td>
       </ng-container>
   
       <!-- Product Column -->
+      <ng-container matColumnDef="LastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> LastName </th>
+        <td mat-cell *matCellDef="let row"> {{row.LastName}} </td>
+      </ng-container>
+  
+      <!-- Category  Column -->
+      <ng-container matColumnDef="DOB">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DOB </th>
+        <td mat-cell *matCellDef="let row"> {{row.date | date}} </td>
+      </ng-container>
+  
+      <!-- Freshness Column -->
       <ng-container matColumnDef="Email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
         <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
       </ng-container>
-  
-      <!-- Category  Column -->
-      <ng-container matColumnDef="Password">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
-        <td mat-cell *matCellDef="let row"> {{row.Password}} </td>
-      </ng-container>
-  
-      <!-- Freshness Column -->
-      <!-- <ng-container matColumnDef="Gender">
+      
+      <ng-container matColumnDef="Gender">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
         <td mat-cell *matCellDef="let row"> {{row.Gender}} </td>
-      </ng-container> -->
+      </ng-container>
      
       <ng-container matColumnDef="Phone_Number">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone_Number  </th>
@@ -59,16 +64,12 @@
       </ng-container>
   
       <!-- Date Column  -->
-      <!-- <ng-container matColumnDef="Pan_Card">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pan_Card </th>
-        <td mat-cell *matCellDef="let row"> {{row.Pan_Card}} </td>
-      </ng-container> -->
   
       <!-- Price Column -->
   
-      <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-        <td mat-cell *matCellDef="let row"> {{row.Address}} </td>
+      <ng-container matColumnDef="Monthly_Limits">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Monthly_Limits </th>
+        <td mat-cell *matCellDef="let row"> {{row.Monthly_Limits}} </td>
       </ng-container>
   
      
@@ -78,6 +79,7 @@
         <td mat-cell *matCellDef="let row">
           <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button>
           <button mat-icon-button color="warn"  ><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button color="accent" >Generate Card</button>
         </td>
       </ng-container>
   
