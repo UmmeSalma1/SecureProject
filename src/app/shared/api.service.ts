@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class ApiService {
 
   url: string = 'http://localhost:3000/addchild';
 
+  baseurl:string= "http://127.0.0.1:8000";
   // post product data
   postChildData(data: any) {
     return this.http.post<any>(this.url, data);
@@ -28,4 +30,15 @@ export class ApiService {
   deleteChild(id: number) {
     return this.http.delete<any>("http://localhost:3000/addchild/" + id)
   }
+  postparentdata(user: any): Observable<any> {
+    return this.http.post<any>(this.baseurl+'/api/parent/save', user);
+  }
+
+  postchilddata(user: any): Observable<any> {
+    return this.http.post<any>(this.baseurl+'/api/parent/child', user);
+  }
+
+
+
+
 }

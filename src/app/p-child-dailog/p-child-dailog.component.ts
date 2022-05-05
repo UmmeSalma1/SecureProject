@@ -49,6 +49,7 @@ export class PChildDailogComponent implements OnInit {
   childForm !: FormGroup;
 
   actionBtn: string = 'Save'
+  errors: any=null;
   
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
@@ -56,64 +57,79 @@ export class PChildDailogComponent implements OnInit {
 
   ngOnInit(): void {
     this.childForm = this.formBuilder.group({
-      fName: ['', Validators.required],
-      lName: ['', Validators.required],
-      date: ['', Validators.required],
-      email: ['', Validators.required],
-      gender: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      monthly_limits: ['', Validators.required]
+      'first_name': ['', Validators.required],
+      'last_name': ['', Validators.required],
+      'dob': ['', Validators.required],
+      'email': ['', Validators.required],
+      'gender': ['', Validators.required],
+      'phone_number': ['', Validators.required],
+      'monthly_limit': ['', Validators.required]
     })
-    if (this.editData) {
-      this.actionBtn = 'update'
-      this.childForm.controls['fName'].setValue(this.editData.fName);
-      this.childForm.controls['lName'].setValue(this.editData.lName);
-      this.childForm.controls['date'].setValue(this.editData.date);
-      this.childForm.controls['email'].setValue(this.editData.email);
-      this.childForm.controls['gender'].setValue(this.editData.gender);
-      this.childForm.controls['phone_number'].setValue(this.editData.phone_number);
-      this.childForm.controls['monthly_limits'].setValue(this.editData.monthly_limits);
+    // if (this.editData) {
+    //   this.actionBtn = 'update'
+    //   this.childForm.controls['fName'].setValue(this.editData.fName);
+    //   this.childForm.controls['lName'].setValue(this.editData.lName);
+    //   this.childForm.controls['date'].setValue(this.editData.date);
+    //   this.childForm.controls['email'].setValue(this.editData.email);
+    //   this.childForm.controls['gender'].setValue(this.editData.gender);
+    //   this.childForm.controls['phone_number'].setValue(this.editData.phone_number);
+    //   this.childForm.controls['monthly_limits'].setValue(this.editData.monthly_limits);
 
-    }
-
-  }
-  addChild() {
-    // console.log(this.productForm.value);Best Laptop !
-    if (!this.editData) {
-      if (this.childForm.valid) {
-        this.api.postChildData(this.childForm.value)
-          .subscribe({
-            // next is the observer type
-            next: (response) => {
-              alert("Child Added !!!");
-              this.childForm.reset();
-              this.dialogRef.close("Save");
-            },
-            error: () => {
-              alert('Error While Adding a child  !!! ');
-            }
-          });
-      }
-    }
-    else {
-      this.updateChild();
-    }
-
+    // }
 
   }
-  updateChild() {
-    return this.api.putChild(this.childForm.value, this.editData.id)
-      .subscribe({
-        next: (response) => {
-          alert("data updated Succcessfully !!");
-          this.childForm.reset();
-          this.dialogRef.close("update");
-        },
-        error: () => {
-          alert("Error While Update");
-        }
-      });
-  }
+  // addChild() {
+  //   // console.log(this.productForm.value);Best Laptop !
+  //   if (!this.editData) {
+  //     if (this.childForm.valid) {
+  //       this.api.postChildData(this.childForm.value)
+  //         .subscribe({
+  //           // next is the observer type
+  //           next: (response) => {
+  //             alert("Child Added !!!");
+  //             this.childForm.reset();
+  //             this.dialogRef.close("Save");
+  //           },
+  //           error: () => {
+  //             alert('Error While Adding a child  !!! ');
+  //           }
+  //         });
+  //     }
+  //   }
+  //   else {
+  //     this.updateChild();
+  //   }
+
+
+  // }
+  // updateChild() {
+  //   return this.api.putChild(this.childForm.value, this.editData.id)
+  //     .subscribe({
+  //       next: (response) => {
+  //         alert("data updated Succcessfully !!");
+  //         this.childForm.reset();
+  //         this.dialogRef.close("update");
+  //       },
+  //       error: () => {
+  //         alert("Error While Update");
+  //       }
+  //     });
+  // }
+
+
+
+  addchild(){
+    console.log(this.childForm.value);
+this.api.postchilddata(this.childForm.value).subscribe({
+next :(response) => {
+console.log(response);
+alert('Child Added Successfullly');
+},
+error:(error)=>{
+}
+})
 
 
 }
+}
+

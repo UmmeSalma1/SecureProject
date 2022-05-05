@@ -43,11 +43,12 @@ export class PUserDailogComponent implements OnInit {
 
   // matcher = new MyErrorStateMatcher();
   // parentForm:FormGroup;
-  
+
   parentForm !: FormGroup;
 
   actionBtn: string = 'Save'
-  
+  errors: any=null;
+
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<PUserDailogComponent>) { }
@@ -76,42 +77,60 @@ export class PUserDailogComponent implements OnInit {
     }
 
   }
-  addChild() {
-    // console.log(this.productForm.value);Best Laptop !
-    // this.p.status= true;
-    if (!this.editData) {
-      if (this.parentForm.valid) {
-        this.api.postChildData(this.parentForm.value)
-          .subscribe({
-            // next is the observer type
-            next: (response) => {
-              alert("Child Added !!!");
-              this.parentForm.reset();
-              this.dialogRef.close("Save");
-            },
-            error: () => {
-              alert('Error While Adding a child  !!! ');
-            }
-          });
-      }
-    }
-    else {
-      this.updateChild();
-    }
+  // addparent() {
+  //   // console.log(this.productForm.value);Best Laptop !
+  //   // this.p.status= true;
+  //   if (!this.editData) {
+  //     if (this.parentForm.valid) {
+  //       this.api.poststoreData(this.parentForm.value)
+  //         .subscribe({
+  //           // next is the observer type
+  //           next: (response) => {
+  //             alert("KYC is done !!!");
+  //             this.parentForm.reset();
+  //             this.dialogRef.close("Save");
+  //           },
+  //           error: () => {
+  //             alert('Error While verifying  !!! ');
+  //           }
+  //         });
+  //     }
+  //   }
+  //   else {
+  //     this.updateChild();
+  //   }
 
 
-  }
-  updateChild() {
-    return this.api.putChild(this.parentForm.value, this.editData.id)
-      .subscribe({
-        next: (response) => {
-          alert("data updated Succcessfully !!");
-          this.parentForm.reset();
-          this.dialogRef.close("update");
-        },
-        error: () => {
-          alert("Error While Update");
-        }
-      });
-  }
+  // }
+  // updateChild() {
+  //   return this.api.putChild(this.parentForm.value, this.editData.id)
+  //     .subscribe({
+  //       next: (response) => {
+  //         alert("data updated Succcessfully !!");
+  //         this.parentForm.reset();
+  //         this.dialogRef.close("update");
+  //       },
+  //       error: () => {
+  //         alert("Error While Update");
+  //       }
+  //     });
+  // }
+
+  addparent(){
+    console.log(this.parentForm.value);
+this.api.postparentdata(this.parentForm.value).subscribe(
+(result: any) => {
+console.log(result);
+alert('kyc is done');
+},
+(error: any) => {
+this.errors = error.error;
+},
+() => {
+this.parentForm.reset();
 }
+);
+
+}
+  }
+

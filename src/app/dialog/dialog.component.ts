@@ -50,6 +50,7 @@ export class DialogComponent implements OnInit {
     this.authService.signin(this.loginForm.value).subscribe(
       (result) => {
         this.responseHandler(result);
+        // obj = new DialogComponent()
       },
       (error) => {
         this.errors = error.error;

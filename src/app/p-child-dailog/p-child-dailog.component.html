@@ -3,12 +3,12 @@
   <form [formGroup]="childForm">
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
-      <input formControlName="fName" matInput placeholder="Enter First Name">
+      <input formControlName="first_name" matInput placeholder="Enter First Name">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
-      <input formControlName="lName" matInput placeholder="Enter Last Name">
+      <input formControlName="last_name" matInput placeholder="Enter Last Name">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -20,7 +20,7 @@
     
     <mat-form-field appearance="outline">
       <mat-label>DOB</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
+      <input matInput [matDatepicker]="picker" formControlName="dob">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -42,7 +42,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Monthly Limit</mat-label>
-      <input matInput type="number" formControlName="monthly_limits" placeholder="monthly limits" min="0 ">
+      <input matInput type="number" formControlName="monthly_limit" placeholder="monthly limits" min="0 ">
     </mat-form-field>
 
 
@@ -51,5 +51,5 @@
 
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button [color]="'warn'" mat-dialog-close>Close</button>
-  <button mat-raised-button [color]="'primary'" (click)="addChild()" >{{ actionBtn }}</button>
+  <button mat-raised-button [color]="'primary'" (click)="addchild()" >{{ actionBtn }}</button>
 </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
 // User interface
 export class User {
   name: any;
@@ -35,7 +36,7 @@ export class MyDashboardComponent {
   );
   UserProfile!: User;
   constructor(private breakpointObserver: BreakpointObserver,
-    public authService: AuthService) {
+    public authService: AuthService ) {
       this.authService.profileUser().subscribe((data: any) => {
         this.UserProfile = data;
       });

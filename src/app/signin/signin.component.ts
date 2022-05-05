@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit {
     // this.signup.signup=false;
     // this.signin=true;
     this.dialog.open(DialogComponent,{
-      width:'30%'
+      width:'30%',
     });
   }
 

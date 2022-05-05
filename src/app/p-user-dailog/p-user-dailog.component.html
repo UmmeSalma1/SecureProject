@@ -6,32 +6,32 @@
       <input formControlName="name" matInput placeholder="Enter Full Name">
     </mat-form-field>
 
-    
+
     <mat-form-field appearance="outline">
       <mat-label> Email</mat-label>
-      <input formControlName="email" matInput placeholder="Enter email address ">
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input formControlName="password" matInput placeholder="Enter Password ">
+      <input formControlName="email" type="email" matInput placeholder="Enter email address ">
     </mat-form-field>
 
-    
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput placeholder="Enter Password ">
+    </mat-form-field>
+
+
     <!-- <mat-form-field appearance="outline">
       <mat-label>DOB</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field> -->
-    
+
     <mat-form-field appearance="outline">
       <mat-label>Gender</mat-label>
-      <mat-select placeholder="select gender" formControlName="gender">
+      <mat-select placeholder="select gender" formControlName="gender" >
       <mat-option value="male">Male</mat-option>
       <mat-option value="female">Female</mat-option>
       <mat-option value="others">Others</mat-option>
-      
+
       </mat-select>
     </mat-form-field>
 
@@ -47,7 +47,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Address</mat-label>
-      <textarea formControlName="address" matInput placeholder="Enter Address "></textarea>
+      <textarea formControlName="address" matInput placeholder="Enter Address"></textarea>
     </mat-form-field>
 
 
@@ -56,5 +56,5 @@
 
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button [color]="'warn'" mat-dialog-close>Close</button>
-  <button mat-raised-button [color]="'primary'" (click)="addChild()" >{{ actionBtn }}</button>
+  <button mat-raised-button [color]="'primary'" (click)="addparent()" >{{ actionBtn }}</button>
 </div>
