@@ -16,7 +16,7 @@ import {MatTable} from '@angular/material/table';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','status', 'action'];
+  displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','is_approved', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -97,7 +97,7 @@ export class RequestsComponent implements OnInit {
     this.api.requestKyc().subscribe({
       next:(response)=>{
         this.dataSource= new MatTableDataSource(response);
-        // console.log(this.dataSource);
+        console.log(this.dataSource);
       },
       error:(error)=>{
         console.log("Error while fetching Records !! ");

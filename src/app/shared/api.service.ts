@@ -7,12 +7,12 @@ import { Observable } from 'rxjs'
 })
 export class ApiService {
 
-  baseurl:string= "http://127.0.0.1:8000";
+  baseurl:string= "http://127.0.0.1:8000/api";
 
   constructor(private http: HttpClient) { }
 
   adminDetails(): Observable<any> {
-    return this.http.get<any>(this.baseurl+'/api/admin');
+    return this.http.get<any>(this.baseurl+'/admin');
   }
 
   requestKyc(): Observable<any>{
