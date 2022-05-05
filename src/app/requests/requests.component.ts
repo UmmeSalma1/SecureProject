@@ -19,6 +19,11 @@ export class RequestsComponent implements OnInit {
   displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','is_approved', 'action'];
   dataSource!: MatTableDataSource<any>;
 
+  // convertString(val:any){
+  //    return val.toString();
+
+  // }
+
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
@@ -28,6 +33,19 @@ export class RequestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestKyc();
+  }
+
+  approve(id:any){
+    this.api.approve(id).subscribe({
+      next:(response)=>{
+        alert("Request Accepted ");
+        this.requestKyc();
+      },
+      error:(error)=>{
+        console.log(error);
+        alert("Something wrong ");
+      }
+    })
   }
 
   // openadd_childDailog(){

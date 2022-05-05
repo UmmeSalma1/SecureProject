@@ -18,7 +18,7 @@ export interface PeriodicElement {
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {
 //     SlNo: 1,
-//     Name: 'Umme Salma',  
+//     Name: 'Umme Salma',
 //     Email:'ummesalma@gmail.com',
 //     PhoneNumber:9876543210,
 //     Password: 'salma123',

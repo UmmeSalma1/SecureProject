@@ -27,62 +27,62 @@
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      <td mat-cell *matCellDef="let row" > <span *ngIf="row.is_approved=='pending'">{{row.id }}</span>  </td>
     </ng-container>
 
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='pending'"> {{row.name}} </span></td>
     </ng-container>
 
     <!-- Product Column -->
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-      <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.is_approved=='pending'">{{row.email}} </span> </td>
     </ng-container>
 
     <!-- Category  Column -->
     <ng-container matColumnDef="password">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
-      <td mat-cell *matCellDef="let row"> {{row.password}} </td>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.is_approved=='pending'">{{row.password}}</span>  </td>
     </ng-container>
 
     <!-- Freshness Column -->
     <ng-container matColumnDef="gender">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
-      <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+      <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='pending'">{{row.gender}}</span>  </td>
     </ng-container>
 
     <ng-container matColumnDef="phone_number">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone_Number  </th>
-      <td mat-cell *matCellDef="let row"> {{row.phone_number}} </td>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.is_approved=='pending'">{{row.phone_number}}</span>  </td>
     </ng-container>
 
     <!-- Date Column  -->
     <ng-container matColumnDef="pan_card">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Pan_Card </th>
-      <td mat-cell *matCellDef="let row"> {{row.pan_card}} </td>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.is_approved=='pending'">{{row.pan_card}}</span>  </td>
     </ng-container>
 
     <!-- Price Column -->
 
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-      <td mat-cell *matCellDef="let row"> {{row.address}} </td>
+      <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='pending'"> {{row.address}} </span></td>
     </ng-container>
 
     <ng-container matColumnDef="is_approved">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-      <td mat-cell *matCellDef="let row"> {{row.is_approved}} </td>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.is_approved=='pending'">{{row.is_approved}}</span>  </td>
     </ng-container>
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="primary" ><mat-icon>check_circle</mat-icon>
+        <button mat-icon-button color="primary" (click)="approve(row.id)" ><span *ngIf="row.is_approved=='pending'"><mat-icon>check_circle</mat-icon></span>
         </button>
-        <button mat-icon-button color="warn"  ><mat-icon>clear</mat-icon>
+        <button mat-icon-button color="warn"  > <span *ngIf="row.is_approved=='pending'"><mat-icon>clear</mat-icon></span>
 </button>
       </td>
     </ng-container>

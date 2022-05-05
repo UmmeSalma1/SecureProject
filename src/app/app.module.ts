@@ -18,7 +18,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
-import { RequestsComponent } from './requests/requests.component' 
+import { RequestsComponent } from './requests/requests.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
@@ -53,8 +53,8 @@ import { ChildRequestComponent } from './child-request/child-request.component';
     MatInputModule,
     HttpClientModule
 
-    
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent],

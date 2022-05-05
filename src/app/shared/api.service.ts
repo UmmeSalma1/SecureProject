@@ -18,5 +18,8 @@ export class ApiService {
   requestKyc(): Observable<any>{
     return this.http.get<any>(this.baseurl+'/admin/request-status');
   }
+  approve(id:any):Observable<any>{
+    return this.http.get<any>(this.baseurl+'/admin/approve/'+id);
+  }
 
 }
