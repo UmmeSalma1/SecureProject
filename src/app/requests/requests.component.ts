@@ -6,6 +6,7 @@ import { ApiService } from '../shared/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatTable} from '@angular/material/table';
 
 
 
@@ -15,15 +16,18 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+  displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','status', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
+  @ViewChild(MatTable) table: any;
+
   constructor(private dialog: MatDialog, public api : ApiService) { }
 
   ngOnInit(): void {
+    this.requestKyc();
   }
 
   // openadd_childDailog(){
@@ -60,7 +64,7 @@ export class RequestsComponent implements OnInit {
   //       alert("deleted Successfully !!");
   //       this.getAllChild();
   //       },
-  //       error:()=>{
+  //       error:()=>{dataSource
   //         alert("error while deleting the records");
   //       }
   //     });
@@ -87,6 +91,18 @@ export class RequestsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
 
+  }
+  requestKyc(){
+    this.api.requestKyc().subscribe({
+      next:(response)=>{
+        this.dataSource= new MatTableDataSource(response);
+        // console.log(this.dataSource);
+      },
+      error:(error)=>{
+        console.log("Error while fetching Records !! ");
+        alert("Error while fetching Records !! ");
+      }
+    });
+  }
 }

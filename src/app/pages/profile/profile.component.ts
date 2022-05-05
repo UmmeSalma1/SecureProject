@@ -65,7 +65,7 @@ adminDetails(){
   //   this.table.renderRows();
   // }
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,) { }
 
   ngOnInit(): void {
     this.adminDetails();
