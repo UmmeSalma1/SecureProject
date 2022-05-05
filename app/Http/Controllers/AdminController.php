@@ -216,10 +216,13 @@ class AdminController extends Controller
     }
     public function requestStatus(){
         $users = DB::table('parent_users')
-            ->where('is_approved' , '=' , 'not_approved')
-            ->get();
-
+            ->where('is_approved' , '=' , 'pending')
+            ->get()->all();
+        if($users){
         return $users;
+        }else{
+            return back()->with('fail','Something went wrong  or User not available!!');
+        }
     }
 
     public function childapprove(\Illuminate\Http\Request $request){

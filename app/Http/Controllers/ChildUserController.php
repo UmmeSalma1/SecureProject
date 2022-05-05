@@ -120,8 +120,8 @@ class ChildUserController extends Controller
         ]);
 
 
-        $user->first_name = $request->get('name');
-        $user->last_name = $request->get('name');
+        $user->first_name = $request->get('first_name');
+        $user->last_name = $request->get('last_name');
         $user->dob = $request->get('dob');
         $user->email = $request->get('email');
         $user->phone_number= $request->get('phone_number');

@@ -48,7 +48,7 @@ class ParentUserController extends Controller
             'phone_number' => 'required|integer|digits_between:12,12',
             'address' => 'required|string',
             'pan_card' => 'required|regex:/^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/',
-            'email' => 'required|string|unique:users|email',
+            'email' => 'required|string',
             'password' => 'required|string|max:25',
             'gender'=>'required|String',
 
@@ -62,7 +62,7 @@ class ParentUserController extends Controller
             'email'=>$request->get('email'),
             'password'=>$request->get('password'),
             'gender'=>$request->get('gender'),
-            'is_approved'=>'not-approved',
+            'is_approved'=>'pending',
         ]);
 
         $newUser->save();
@@ -124,7 +124,7 @@ class ParentUserController extends Controller
             'phone_number' => 'integer|digits_between:12,12',
             'address' => 'string',
             'pan_card' =>'regex:/^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/',
-            'email' => 'string|unique:users|email',
+            'email' => 'string',
             'password' => 'string|max:25',
             'gender'=>'string',
 
@@ -173,18 +173,21 @@ class ParentUserController extends Controller
     public function storechild(\Illuminate\Http\Request $request)
     {
         $request->validate([
+            'email_id'=>'required|email',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'dob' => 'date',
-            'email' => 'required|string|unique:users|email',
+            'email' => 'required|string',
             'phone_number' => 'required|integer|digits_between:12,12',
-            'gender'=>'required|String',
+            'gender'=>'required|string',
             'monthly_limit'=>'required|integer',
-            'parent_id'=>ParentUser::all()->random()->pluck('id')
 
         ]);
+        $rt = $request->get('email_id');
 
-        $newUser = new ChildUser([
+        $p = ParentUser::all()->where('email','=',$rt)->first();
+        $r = $p->id;
+        $newUser = DB::table('child_users')->insert([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
             'dob'=>$request->get('dob'),
@@ -192,10 +195,10 @@ class ParentUserController extends Controller
             'phone_number' => $request->get('phone_number'),
             'gender'=>$request->get('gender'),
             'monthly_limit'=>$request->get('monthly_limit'),
-            'parent_id'=>$request->get('parent_id')
+            'is_approved'=>'pending',
+            'parent_id'=>$r
         ]);
 
-        $newUser->save();
 
         return response()->json($newUser);
     }

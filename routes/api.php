@@ -1,9 +1,10 @@
 <?php
-
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\admin;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,15 @@ Route::get('/showchild/{card_number}',[\App\Http\Controllers\CardController::cla
 
 Route::put('/parent/update/{id}',[\App\Http\Controllers\ParentUserController::class,'update']);
 Route::put('/admin/update/{id}',[\App\Http\Controllers\AdminController::class,'updateData']);
+
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+});
