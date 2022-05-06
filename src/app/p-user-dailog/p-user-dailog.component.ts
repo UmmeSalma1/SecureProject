@@ -58,7 +58,7 @@ export class PUserDailogComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      date: ['', Validators.required],
+      // date: ['', Validators.required],
       gender: ['', Validators.required],
       phone_number: ['', Validators.required],
       pan_card: ['', Validators.required],

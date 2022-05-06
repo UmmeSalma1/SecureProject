@@ -11,7 +11,7 @@ export class ApiService {
 
   url: string = 'http://localhost:3000/addchild';
 
-  baseurl:string= "http://127.0.0.1:8000/api";
+  baseurl:string= "http://127.0.0.1:8000/api/";
   // post product data
   postChildData(data: any) {
     return this.http.post<any>(this.url, data);
@@ -31,14 +31,14 @@ export class ApiService {
     return this.http.delete<any>("http://localhost:3000/addchild/" + id)
   }
   postparentdata(user: any): Observable<any> {
-    return this.http.post<any>(this.baseurl+'/api/parent/save', user);
+    return this.http.post<any>(this.baseurl+'parent/save', user);
   }
 
   postchilddata(user: any): Observable<any> {
-    return this.http.post<any>(this.baseurl+'/api/parent/child', user);
+    return this.http.post<any>(this.baseurl+'parent/child', user);
   }
   showParentDetails(): Observable<any>{
-    return this.http.get<any>(this.baseurl+'/admin/approval');
+    return this.http.get<any>(this.baseurl+'parents');
   }
 
 
