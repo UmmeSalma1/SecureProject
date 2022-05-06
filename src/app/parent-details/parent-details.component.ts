@@ -15,7 +15,7 @@ import { PUserDailogComponent } from '../p-user-dailog/p-user-dailog.component';
 })
 export class ParentDetailsComponent implements OnInit {
   status: any= false;
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+  displayedColumns: string[] = ['id','name', 'email','phone_number', 'password','address', 'pan_card','gender', 'is_approved'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -24,6 +24,8 @@ export class ParentDetailsComponent implements OnInit {
   constructor(private dialog: MatDialog, public api : ApiService) { }
 
   ngOnInit(): void {
+    this.requestKyc();
+
   }
 
   openpuserDailog(){
@@ -89,5 +91,17 @@ export class ParentDetailsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  requestKyc(){
+    this.api.showParentDetails().subscribe({
+      next:(response)=>{
+        this.dataSource= new MatTableDataSource(response);
+        console.log(this.dataSource);
+      },
+      error:(error)=>{
+        console.log("Error while fetching Records !! ");
+        alert("Error while fetching Records !! ");
+      }
+    });
   }
 }

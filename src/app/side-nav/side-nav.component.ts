@@ -18,22 +18,22 @@ export class SideNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openparent_profileDailog() 
+  openparent_profileDailog()
   {
     // this.signup.signup=false;
     // this.signin=true;
     this.dialog.open(ParentDetailsComponent,{
-      width:'60%'
+      width:'70%'
     });
   }
   openchild_detailsDailog(){
     this.dialog.open(ChildDetailsComponent,{
-      width:'60%'
+      width:'70%'
     });
 }
 opentransactionDailog(){
   this.dialog.open(ViewtransactionComponent,{
-    width:'60%'
+    width:'70%'
   });
 }
 }
