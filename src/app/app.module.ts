@@ -33,6 +33,7 @@ import { TransactionDialogComponent } from './transaction-dialog/transaction-dia
 import { VendorsDialogComponent } from './vendors-dialog/vendors-dialog.component';
 import { RefundsDialogComponent } from './refunds-dialog/refunds-dialog.component';
 import { ChildRequestComponent } from './child-request/child-request.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent, ViewComponent, ParentDialogComponent, ChildDialogComponent, CardDialogComponent, TransactionDialogComponent, VendorsDialogComponent, RefundsDialogComponent, ChildRequestComponent],
@@ -51,7 +52,8 @@ import { ChildRequestComponent } from './child-request/child-request.component';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSortModule
 
 
 

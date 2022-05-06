@@ -48,6 +48,18 @@ export class RequestsComponent implements OnInit {
     })
   }
 
+  reject(id:any){
+    this.api.reject(id).subscribe({
+      next:(response)=>{
+        alert("Request Rejected ");
+        this.requestKyc();
+      },
+      error:(error)=>{
+        console.log(error);
+        alert("Something wrong ");
+      }
+    })
+  }
   // openadd_childDailog(){
   //   this.dialog.open(PChildDailogComponent,{
   //     width:'30%'
