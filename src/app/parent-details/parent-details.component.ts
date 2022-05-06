@@ -33,54 +33,54 @@ export class ParentDetailsComponent implements OnInit {
     });
   }
 
-  openDialog() {
-    this.dialog.open(PChildDailogComponent, {
-      width: '30%',
-    }).afterClosed().subscribe(val=>{
-      if(val==='Save'){
-        this.getAllChild();
-      }
-    });
-  }
+  // openDialog() {
+  //   this.dialog.open(PChildDailogComponent, {
+  //     width: '30%',
+  //   }).afterClosed().subscribe(val=>{
+  //     if(val==='Save'){
+  //       this.getAllChild();
+  //     }
+  //   });
+  // }
 
-  editChild(row:any){
-    this.dialog.open(PChildDailogComponent,{
-    width:'30%',
-    data:row
-    }).afterClosed().subscribe(val=>{
-      if(val=='update'){
-        this.getAllChild();
-      }
-    });
-  }
+  // editChild(row:any){
+  //   this.dialog.open(PChildDailogComponent,{
+  //   width:'30%',
+  //   data:row
+  //   }).afterClosed().subscribe(val=>{
+  //     if(val=='update'){
+  //       this.getAllChild();
+  //     }
+  //   });
+  // }
 
-  deleteChild(id:number){
-      this.api.deleteChild(id)
-      .subscribe({
-        next:(response)=>{
-        alert("deleted Successfully !!");
-        this.getAllChild();
-        },
-        error:()=>{
-          alert("error while deleting the records");
-        }
-      });
-  }
+  // deleteChild(id:number){
+  //     this.api.deleteChild(id)
+  //     .subscribe({
+  //       next:(response)=>{
+  //       alert("deleted Successfully !!");
+  //       this.getAllChild();
+  //       },
+  //       error:()=>{
+  //         alert("error while deleting the records");
+  //       }
+  //     });
+  // }
 
-  getAllChild(){
-    this.api.getChildData().
-    subscribe({
-      next:(response)=>{
-        // console.log(response);
-        this.dataSource=new MatTableDataSource(response);
-        this.dataSource.paginator= this.paginator;
-        this.dataSource.sort=this.sort;
-      },
-      error:(error)=>{
-      alert("Error while fatching Records !!");
-      }
-    });
-  }
+  // getAllChild()
+  // {
+  //   this.api.getChildData().
+  //   subscribe({
+  //     next:(response)=>{
+  //       this.dataSource=new MatTableDataSource(response);
+  //       this.dataSource.paginator= this.paginator;
+  //       this.dataSource.sort=this.sort;
+  //     },
+  //     error:(error)=>{
+  //     alert("Error while fatching Records !!");
+  //     }
+  //   });
+  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
