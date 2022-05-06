@@ -54,9 +54,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatInputModule,
     HttpClientModule,
     MatSortModule
-
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],
