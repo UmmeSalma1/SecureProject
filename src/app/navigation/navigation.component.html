@@ -27,14 +27,14 @@
 </mat-sidenav-container> -->
 
 
+<app-header></app-header>
 <mat-drawer-container>
   <mat-drawer mode="side" opened="true">
     <app-side-nav></app-side-nav>
   </mat-drawer>
   <mat-drawer-content>
-    <app-header></app-header>
     <app-my-dashboard></app-my-dashboard>
-    
+
     <router-outlet></router-outlet>
   </mat-drawer-content>
   </mat-drawer-container>

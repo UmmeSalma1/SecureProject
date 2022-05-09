@@ -8,7 +8,7 @@
 }
 .page__box {
   min-height: 120px;
-  background: #16A085;
+  background: #0c0e0d;
   margin: 0 -1rem;
   font-size: 36px;
 }
@@ -16,7 +16,7 @@
   min-height: calc(100vh - 178px);
   border-radius: 10px;
   margin-top: -2rem;
-  background: white;
+  background: rgb(244, 248, 248);
   color: black;
   font-size: 2rem;
   font-family: 'Times New Roman', Times, serif;
@@ -40,15 +40,15 @@ div{
 .container {
   background: #f9f9f9;
   }
-  
+
   .flex-column {
       max-width: 260px;
   }
-  
+
   img {
       margin: 5px;
   }
-  
+
   .scale {
       transform: scaleY(1.05);
       padding-top: 5px;

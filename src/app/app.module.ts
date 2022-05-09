@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from 'auth.interceptor';
 
 
 import { AppComponent } from './app.component';
@@ -24,6 +26,8 @@ import { ViewChildDailogComponent } from './view-child-dailog/view-child-dailog.
 import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
 import { ChildDetailsComponent } from './child-details/child-details.component';
 import { AddChildComponent } from './add-child/add-child.component';
+import { ParentDetailsComponent } from './parent-details/parent-details.component';
+import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,14 +49,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
-
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { AuthInterceptor } from 'auth.interceptor';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
-import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
-import { ParentDetailsComponent } from './parent-details/parent-details.component';
+
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { ParentDetailsComponent } from './parent-details/parent-details.componen
     AddChildComponent,
     ViewtransactionComponent,
     ParentDetailsComponent,
-    
+
+
   ],
   imports: [
     BrowserModule,
@@ -108,9 +110,10 @@ import { ParentDetailsComponent } from './parent-details/parent-details.componen
     HttpClientModule,
     MatPaginatorModule,
     MatSortModule,
-    MatRadioModule
-    
-    
+    MatRadioModule,
+    MatProgressSpinnerModule
+
+
   ],
   providers: [
     {

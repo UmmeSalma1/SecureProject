@@ -23,7 +23,7 @@ export class DialogSignupComponent implements OnInit {
   emailFormControl:any = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl:any = new FormControl('', [Validators.required, Validators.required, Validators.min(8)]);
   password_confirmationFormControl:any = new FormControl('', [Validators.required, Validators.required]);
-  
+
 
 
   matcher = new MyErrorStateMatcher();
@@ -32,19 +32,17 @@ export class DialogSignupComponent implements OnInit {
   constructor(
     public router: Router,
     public fb: FormBuilder,
-    public authService: AuthService) 
+    public authService: AuthService)
   {
     this.registerForm = this.fb.group({
-      name: null,
-      email: null,
-      password: null,
-      password_confirmation: null,
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      password_confirmation: ['', Validators.required],
     });
   }
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-  
   onSubmit() {
     console.log(this.registerForm.value);
     this.authService.register(this.registerForm.value).subscribe(
@@ -57,7 +55,7 @@ export class DialogSignupComponent implements OnInit {
       },
       () => {
         this.registerForm.reset();
-        // this.router.navigate(['login']);
+        this.router.navigate(['']);
       }
     );
   }
