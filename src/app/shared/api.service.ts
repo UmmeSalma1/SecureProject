@@ -29,5 +29,19 @@ export class ApiService {
   showParentDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'parents');
   }
-
+  showChildDetails(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'childs')
+  }
+  showCardDetails(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'cards')
+  }
+  showTransactionDetails(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'transaction')
+  }
+  showVendorDetails(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'vendor')
+  }
+  showRefundDetails(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'refunds')
+  }
 }

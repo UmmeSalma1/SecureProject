@@ -16,7 +16,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class ParentDialogComponent implements OnInit {
 
   status: any= false;
-  displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','is_approved', 'action'];
+  displayedColumns: string[] = ['id','name', 'email', 'gender','phone_number','pan_card','address','is_approved', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;

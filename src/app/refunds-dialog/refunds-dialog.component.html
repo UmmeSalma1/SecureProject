@@ -2,7 +2,7 @@
     <div class="col sm-11" >
       <!-- <h1>Signin</h1> -->
       <!-- <button mat-raised-button color="accent" (click)="openpuserDailog()" [disabled]="status" >Verify</button> -->
-  
+
     </div>
     <button mat-icon-button aria-label="close dialog" mat-dialog-close>
       <mat-icon>close</mat-icon>
@@ -10,7 +10,7 @@
 <!-- <div class="col">
 </div> -->
 <div class="container-fluid">
- 
+
   </div>
   <div class="container">
     <div style="margin-top:10px">
@@ -21,54 +21,54 @@
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
-  
+
       <!-- ID Column -->
-  
+
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
         <td mat-cell *matCellDef="let row"> {{row.id}} </td>
       </ng-container>
-  
-      
-      <ng-container matColumnDef="Transaction_ID">
+
+
+      <ng-container matColumnDef="transaction_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction_ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.Transaction_ID}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.transaction_id}} </td>
       </ng-container>
-  
+
       <!-- Product Column -->
-      <ng-container matColumnDef="Refund_Amount">
+      <ng-container matColumnDef="refund_amount">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Refund_Amount </th>
-        <td mat-cell *matCellDef="let row"> {{row.Refund_Amount}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.refund_amount}} </td>
       </ng-container>
-  
+
       <!-- Category  Column -->
-      <ng-container matColumnDef="Refund_Date">
+      <ng-container matColumnDef="refund_date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Refund_Date </th>
-        <td mat-cell *matCellDef="let row"> {{row.date | date}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.refund_date}} </td>
       </ng-container>
-  
+
       <!-- Freshness Column -->
-      
-  
-     
-  
+
+
+
+
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button>
+          <!-- <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button> -->
           <button mat-icon-button color="warn"  ><mat-icon>delete</mat-icon></button>
         </td>
       </ng-container>
-  
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
+
       <!-- Row shown when there is no matching data. -->
       <!-- <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
       </tr> -->
     </table>
-  
+
     <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
   </div>
   </div>

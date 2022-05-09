@@ -36,7 +36,7 @@ export interface PeriodicElement {
 })
 export class ProfileComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'id','name',  'email', 'phone_number','password','address', 'dob', 'joined_date'];
+  displayedColumns: string[] = [ 'id','name',  'email', 'phone_number','address', 'dob', 'joined_date'];
   dataSource!: MatTableDataSource<any>;
 
 

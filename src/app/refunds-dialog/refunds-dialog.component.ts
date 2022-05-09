@@ -16,7 +16,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class RefundsDialogComponent implements OnInit {
 
   status: any= false;
-  displayedColumns: string[] = ['id','Transaction_ID', 'Refund_Amount', 'Refund_Date',  'action'];
+  displayedColumns: string[] = ['id','transaction_id', 'refund_amount', 'refund_date',  'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -25,63 +25,20 @@ export class RefundsDialogComponent implements OnInit {
   constructor(private dialog: MatDialog, public api : ApiService) { }
 
   ngOnInit(): void {
+    this.showRefundDetails();
+  }
+  showRefundDetails(){
+    this.api.showRefundDetails().subscribe({
+      next:(response)=>{
+        this.dataSource= new MatTableDataSource(response);
+      },
+      error:(error)=>{
+        console.log("Error while fatching Records !! ");
+        alert('"Error while fatching Records !! "');
+      }
+    });
   }
 
-  // openpuserDailog(){
-  //   this.status=true;
-  //   this.dialog.open(PUserDailogComponent,{
-  //     width:'30%'
-  //   });
-  // }
-
-  // openDialog() {
-  //   this.dialog.open(PChildDailogComponent, {
-  //     width: '30%',
-  //   }).afterClosed().subscribe(val=>{
-  //     if(val==='Save'){
-  //       this.getAllChild();
-  //     }
-  //   });
-  // }
-
-  // editChild(row:any){
-  //   this.dialog.open(PChildDailogComponent,{
-  //   width:'30%',
-  //   data:row
-  //   }).afterClosed().subscribe(val=>{
-  //     if(val=='update'){
-  //       this.getAllChild();
-  //     }
-  //   });
-  // }
-
-  // deleteChild(id:number){
-  //     this.api.deleteChild(id)
-  //     .subscribe({
-  //       next:(response)=>{
-  //       alert("deleted Successfully !!");
-  //       this.getAllChild();
-  //       },
-  //       error:()=>{
-  //         alert("error while deleting the records");
-  //       }
-  //     });
-  // }
-
-  // getAllChild(){
-  //   this.api.getChildData().
-  //   subscribe({
-  //     next:(response)=>{
-  //       // console.log(response);
-  //       this.dataSource=new MatTableDataSource(response);
-  //       this.dataSource.paginator= this.paginator;
-  //       this.dataSource.sort=this.sort;
-  //     },
-  //     error:(error)=>{
-  //     alert("Error while fatching Records !!");
-  //     }
-  //   });
-  // }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
