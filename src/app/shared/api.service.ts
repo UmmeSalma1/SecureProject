@@ -26,5 +26,8 @@ export class ApiService {
   reject(id:string):Observable<any>{
     return this.http.get<any>(this.baseurl+'admin/reject/'+id);
   }
+  showParentDetails(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'parents');
+  }
 
 }

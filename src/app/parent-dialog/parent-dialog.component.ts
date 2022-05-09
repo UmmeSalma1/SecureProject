@@ -16,7 +16,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class ParentDialogComponent implements OnInit {
 
   status: any= false;
-  displayedColumns: string[] = ['id','Name', 'Email', 'Password', 'Gender','Phone_Number','Pan_Card','Address', 'action'];
+  displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','is_approved', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -25,63 +25,12 @@ export class ParentDialogComponent implements OnInit {
   constructor(private dialog: MatDialog, public api : ApiService) { }
 
   ngOnInit(): void {
+    this.requestKyc();
   }
 
-  // openpuserDailog(){
-  //   this.status=true;
-  //   this.dialog.open(PUserDailogComponent,{
-  //     width:'30%'
-  //   });
-  // }
 
-  // openDialog() {
-  //   this.dialog.open(PChildDailogComponent, {
-  //     width: '30%',
-  //   }).afterClosed().subscribe(val=>{
-  //     if(val==='Save'){
-  //       this.getAllChild();
-  //     }
-  //   });
-  // }
 
-  // editChild(row:any){
-  //   this.dialog.open(PChildDailogComponent,{
-  //   width:'30%',
-  //   data:row
-  //   }).afterClosed().subscribe(val=>{
-  //     if(val=='update'){
-  //       this.getAllChild();
-  //     }
-  //   });
-  // }
 
-  // deleteChild(id:number){
-  //     this.api.deleteChild(id)
-  //     .subscribe({
-  //       next:(response)=>{
-  //       alert("deleted Successfully !!");
-  //       this.getAllChild();
-  //       },
-  //       error:()=>{
-  //         alert("error while deleting the records");
-  //       }
-  //     });
-  // }
-
-  // getAllChild(){
-  //   this.api.getChildData().
-  //   subscribe({
-  //     next:(response)=>{
-  //       // console.log(response);
-  //       this.dataSource=new MatTableDataSource(response);
-  //       this.dataSource.paginator= this.paginator;
-  //       this.dataSource.sort=this.sort;
-  //     },
-  //     error:(error)=>{
-  //     alert("Error while fatching Records !!");
-  //     }
-  //   });
-  // }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -90,5 +39,28 @@ export class ParentDialogComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  requestKyc(){
+    this.api.showParentDetails().subscribe({
+      next:(response)=>{
+        this.dataSource= new MatTableDataSource(response);
+        console.log(this.dataSource);
+      },
+      error:(error)=>{
+        console.log("Error while fetching Records !! ");
+        alert("Error while fetching Records !! ");
+      }
+    });
+  }
+  delete(id:any){
+    this.api.reject(id).subscribe({
+      next:(response)=>{
+        alert("Data has been deleted");
+        this.requestKyc();
+      },
+      error:(error)=>{
+        console.log(error);
+        alert("Something wrong ");
+      }
+    })
+  }
 }
