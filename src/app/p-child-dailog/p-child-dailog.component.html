@@ -17,21 +17,21 @@
     </mat-form-field>
 
 
-    
+
     <mat-form-field appearance="outline">
       <mat-label>DOB</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="dob">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    
+
     <mat-form-field appearance="outline">
       <mat-label>Gender</mat-label>
       <mat-select placeholder="select gender" formControlName="gender">
       <mat-option value="male">Male</mat-option>
       <mat-option value="female">Female</mat-option>
       <mat-option value="others">Others</mat-option>
-      
+
       </mat-select>
     </mat-form-field>
 
@@ -43,6 +43,11 @@
     <mat-form-field appearance="outline">
       <mat-label>Monthly Limit</mat-label>
       <input matInput type="number" formControlName="monthly_limit" placeholder="monthly limits" min="0 ">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Parent ID</mat-label>
+      <input matInput type="text" formControlName="parent_id" placeholder="Enter Parent id" min="0 ">
     </mat-form-field>
 
 

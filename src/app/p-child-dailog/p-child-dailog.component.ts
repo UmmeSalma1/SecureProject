@@ -43,14 +43,14 @@ export class PChildDailogComponent implements OnInit {
 
   // matcher = new MyErrorStateMatcher();
 
-  
+
 
   //should be like your form name
   childForm !: FormGroup;
 
   actionBtn: string = 'Save'
   errors: any=null;
-  
+
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<PChildDailogComponent>) { }
@@ -63,7 +63,8 @@ export class PChildDailogComponent implements OnInit {
       'email': ['', Validators.required],
       'gender': ['', Validators.required],
       'phone_number': ['', Validators.required],
-      'monthly_limit': ['', Validators.required]
+      'monthly_limit': ['', Validators.required],
+      'parent_id': ['',Validators.required]
     })
     // if (this.editData) {
     //   this.actionBtn = 'update'

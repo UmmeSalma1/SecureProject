@@ -2,26 +2,41 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PChildDailogComponent } from '../p-child-dailog/p-child-dailog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../shared/api.service';
-
+import { MyDashboardComponent } from '../my-dashboard/my-dashboard.component';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { AuthService } from '../shared/auth.service';
+
 import { PUserDailogComponent } from '../p-user-dailog/p-user-dailog.component';
 
+export class User {
+  name: any;
+  email: any;
+}
 @Component({
   selector: 'app-parent-details',
   templateUrl: './parent-details.component.html',
   styleUrls: ['./parent-details.component.css']
 })
+
 export class ParentDetailsComponent implements OnInit {
   status: any= false;
-  displayedColumns: string[] = ['id','name', 'email','phone_number', 'password','address', 'pan_card','gender', 'is_approved'];
+  displayedColumns: string[] = ['id','name', 'email','phone_number','address', 'pan_card','gender', 'is_approved'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private dialog: MatDialog, public api : ApiService) { }
+  UserProfile!: User;
+
+  constructor(private dialog: MatDialog, public api : ApiService,private breakpointObserver: BreakpointObserver,
+    public authService: AuthService) {
+        this.authService.profileUser().subscribe((data: any) => {
+          this.UserProfile = data;
+        });
+   }
 
   ngOnInit(): void {
     this.requestKyc();
