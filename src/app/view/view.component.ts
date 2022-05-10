@@ -20,33 +20,39 @@ export class ViewComponent implements OnInit {
   }
   viewParent(){
     this.dialog.open(ParentDialogComponent,{
-      width:'70%', 
+      width:'70%',
+      height:'70%'
     });
 
   }
   viewChild(){
     this.dialog.open(ChildDialogComponent,{
-      width:'70%'
+      width:'70%',
+      height:'70%'
     });
   }
   viewCard(){
     this.dialog.open(CardDialogComponent,{
-      width:'60%'
+      width:'60%',
+      height:'70%'
     });
   }
   viewTransaction(){
     this.dialog.open(TransactionDialogComponent,{
-      width:'70%'
+      width:'70%',
+      height:'70%'
     });
   }
   viewVendor(){
     this.dialog.open(VendorsDialogComponent,{
-      width:'70%'
+      width:'70%',
+      height:'70%'
     });
   }
   viewRefund(){
     this.dialog.open(RefundsDialogComponent,{
-      width:'70%'
+      width:'70%',
+      height:'70%'
     });
   }
 }

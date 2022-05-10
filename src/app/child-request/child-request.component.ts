@@ -13,20 +13,51 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ChildRequestComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','first_name', 'last_name', 'dob', 'email','gender','phone_number','monthly_limit','parent_id', 'action'];
+  displayedColumns: string[] = ['id','first_name', 'last_name', 'dob', 'email','gender','phone_number','monthly_limit','parent_id','is_approved', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private dialog: MatDialog, public api : ApiService) { }
+  constructor(private dialog: MatDialog, public api : ApiService) {
+    this.api.showPendingChild();
+   }
 
   ngOnInit(): void {
-    this.showChildDetails();
+    this.showPendingChild();
+  }
+  childReject(id:any){
+    this.api.childReject(id).subscribe({
+      next:(response)=>{
+        alert("Request Rejected ");
+        this.showPendingChild();
+      },
+      error:(error)=>{
+        console.log(error);
+        alert("Something wrong ")
+      }
+    })
   }
 
-  showChildDetails(){
-    this.api.showChildDetails().subscribe({
+  approveChild(id:any){
+
+this.api.approveChild(id).subscribe({
+      next:(response)=>{
+        // console.error('Request Accepted ');
+        alert("Child Request Accepted ");
+        this.showPendingChild();
+        return 0;
+      },
+      error:(error)=>{
+        console.log(error);
+        alert("Something wrong ");
+      }
+    })
+  }
+
+
+  showPendingChild(){
+    this.api.showPendingChild().subscribe({
       next:(response)=>{
         this.dataSource= new MatTableDataSource(response);
         console.log(this.dataSource);

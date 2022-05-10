@@ -16,7 +16,7 @@
 
   td, th {
     height: 50px;
-    width: 350px;
+    width: auto;
     padding-left: 10px;
   }
   th{
@@ -25,7 +25,11 @@
     font-family: 'Times New Roman', Times, serif;
     color: navy;
   }
- 
+td{
+  // padding-right: 4rem;
+  // background-color;
+  border: 1rem solid white;
+}
 
   .container{
   max-width: 1200px;

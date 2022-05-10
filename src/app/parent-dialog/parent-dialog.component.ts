@@ -52,7 +52,7 @@ export class ParentDialogComponent implements OnInit {
     });
   }
   delete(id:any){
-    this.api.reject(id).subscribe({
+    this.api.rejectParent(id).subscribe({
       next:(response)=>{
         alert("Data has been deleted");
         this.requestKyc();

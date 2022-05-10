@@ -16,7 +16,7 @@ import {MatTable} from '@angular/material/table';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  displayedColumns: string[] = ['id','name', 'email', 'password', 'gender','phone_number','pan_card','address','is_approved', 'action'];
+  displayedColumns: string[] = ['id','name', 'email',  'gender','phone_number','pan_card','address','is_approved', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   // convertString(val:any){
@@ -48,19 +48,19 @@ export class RequestsComponent implements OnInit {
     })
   }
 
-  reject(id:any){
-    this.api.reject(id).subscribe({
+  rejectParent(id:any){
+    this.api.rejectParent(id).subscribe({
       next:(response)=>{
         alert("Request Rejected ");
         this.requestKyc();
       },
       error:(error)=>{
         console.log(error);
-        alert("Something wrong ");
+        alert("Something wrong ")
       }
     })
   }
-  
+
 
 
 
@@ -74,7 +74,7 @@ export class RequestsComponent implements OnInit {
 
   }
   requestKyc(){
-    this.api.requestKyc().subscribe({
+    this.api.pendingStatus().subscribe({
       next:(response)=>{
         this.dataSource= new MatTableDataSource(response);
         console.log(this.dataSource);

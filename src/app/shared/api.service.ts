@@ -19,29 +19,50 @@ export class ApiService {
     return this.http.get<any>(this.baseurl+'parents');
   }
 
+  pendingStatus(): Observable<any>{
+    return this.http.get<any>(this.baseurl+'pendingStatus');
+  }
+
   approve(id:string):Observable<any>{
     return this.http.get<any>(this.baseurl+'admin/approve/'+id);
   }
 
-  reject(id:string):Observable<any>{
+  rejectParent(id:string):Observable<any>{
     return this.http.get<any>(this.baseurl+'admin/reject/'+id);
   }
+
   showParentDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'parents');
   }
+
   showChildDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'childs')
+  }
+  showPendingChild() : Observable<any>{
+    return this.http.get<any>(this.baseurl+'childPendingStatus')
+  }
+
+  approveChild(id:string):Observable<any>{
+    return this.http.get<any>(this.baseurl+'admin/childApprove/'+id);
+  }
+
+  childReject(id:string){
+    return this.http.get<any>(this.baseurl+'admin/childReject/'+id);
   }
   showCardDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'cards')
   }
+
   showTransactionDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'transaction')
   }
+
   showVendorDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'vendor')
   }
+
   showRefundDetails(): Observable<any>{
     return this.http.get<any>(this.baseurl+'refunds')
   }
+
 }

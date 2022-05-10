@@ -15,7 +15,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class TransactionDialogComponent implements OnInit {
 
   status: any= false;
-  displayedColumns: string[] = ['id','card_number', 'vendor_name', 'transaction_amount', 'limit_balance','transaction_date','transaction_status','transaction_type', 'action'];
+  displayedColumns: string[] = ['id','card_number', 'vendor_name', 'transaction_amount', 'limit_balance','transaction_date','transaction_status','transaction_type', ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
