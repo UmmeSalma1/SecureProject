@@ -6,23 +6,31 @@ import { ApiService } from '../shared/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-
+import { ChildDetailsComponent } from '../child-details/child-details.component';
 @Component({
   selector: 'app-viewtransaction',
   templateUrl: './viewtransaction.component.html',
   styleUrls: ['./viewtransaction.component.css']
 })
-export class ViewtransactionComponent implements OnInit {
+export class ViewtransactionComponent  implements OnInit  {
   displayedColumns: string[] = ['id','card_number', 'vendor_name',  'transaction_amount','limit_balance','transaction_date','transaction_status'];
   dataSource!: MatTableDataSource<any>;
+
+  status :boolean = true;
+  id:any='760673206657253377';
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private dialog: MatDialog, public api : ApiService) { }
+  constructor(private dialog: MatDialog, public api : ApiService) {
+    console.log(this.id);
+    // this.id=id;
+
+   }
 
   ngOnInit(): void {
-    this.showChildTransaction(this.displayedColumns[0]);
+    this.showChildTransaction(this.id);
+
     }
 
   openadd_childDailog(){
@@ -31,21 +39,26 @@ export class ViewtransactionComponent implements OnInit {
     });
   }
 
-  showChildTransaction(id:any){
-    
+
+  showChildTransaction(id:any):void{
     this.api.showChildTransaction(id).subscribe({
       next:(response)=>{
         this.dataSource= new MatTableDataSource(response);
-        console.log(this.dataSource);
-        alert('Transaction has been fetched');
+        console.log(response);
+        // this.id = response;
+        // console.log(this.id);
+        // alert('Transaction has been fetched');
+
       },
       error:(error)=>{
+
         console.log("Error while fetching Records !! ");
         alert("Error while fetching Records !! ");
       }
     });
 
   }
+
   // openDialog() {
   //   this.dialog.open(PChildDailogComponent, {
   //     width: '30%',

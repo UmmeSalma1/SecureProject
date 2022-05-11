@@ -27,8 +27,11 @@ export class ChildDetailsComponent implements OnInit {
 
   }
 
+  userid: any ;
+
   ngOnInit(): void {
     this.showApproveChild();
+    // let objView = new ViewtransactionComponent();
   }
 
   openadd_childDailog(){
@@ -37,10 +40,13 @@ export class ChildDetailsComponent implements OnInit {
     });
   }
   opentransactionDailog(id:any){
+    console.log("initial" + id);
+    this.userid = id;
     this.dialogRef.close("View Transaction");
     this.dialog.open(ViewtransactionComponent,{
       width:'70%'
     });
+
   }
 
   // openDialog() {
@@ -95,6 +101,7 @@ export class ChildDetailsComponent implements OnInit {
     this.api.showApproveChild().subscribe({
       next:(response)=>{
         this.dataSource= new MatTableDataSource(response);
+        console.log(response);
         console.log(this.dataSource);
       },
       error:(error)=>{
@@ -104,9 +111,6 @@ export class ChildDetailsComponent implements OnInit {
     });
   }
 
-  viewTransaction(id:any){
-
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

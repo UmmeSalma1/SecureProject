@@ -26,6 +26,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class DialogComponent implements OnInit {
 
 actionBtn : string= 'Sign In';
+forgetBtn : string='Forget Password?'
 
   emailFormControl: any = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl: any = new FormControl('', [Validators.required, Validators.required]);
@@ -57,11 +58,13 @@ actionBtn : string= 'Sign In';
         this.authState.setAuthState(true);
         this.loginForm.reset();
         this.dialogRef.close("Sign In");
+        this.dialogRef.close("Forget Password?");
         this.router.navigate(['dashboard']);
         // obj = new DialogComponent()
       },
       (error) => {
         this.errors = error.error;
+        alert('errors');
       },
     );
   }

@@ -17,8 +17,8 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {
     SlNo: 1,
-    FirstName: 'Umme', 
-    LastName: 'Salma', 
+    FirstName: 'Umme',
+    LastName: 'Salma',
     DOB: '22/12/1998',
     Email:'ummesalma@gmail.com',
     PhoneNumber:9876543210,
@@ -57,7 +57,7 @@ export class ViewChildDailogComponent implements OnInit {
 
 }
 
- 
+
 
 
 

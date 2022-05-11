@@ -53,6 +53,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 
@@ -81,6 +82,7 @@ import {MatRadioModule} from '@angular/material/radio';
     AddChildComponent,
     ViewtransactionComponent,
     ParentDetailsComponent,
+    ForgetPasswordComponent,
 
 
   ],

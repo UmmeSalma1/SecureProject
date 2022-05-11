@@ -9,7 +9,7 @@ export interface PeriodicElement {
   Limit_Balance: number;
   Transaction_Date: any;
   transaction_Status: boolean;
- 
+
 }
  
 /* card no, vendor name, trans amt, limit bal,trans date, trans status */
@@ -17,13 +17,13 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {
     SlNo: 1,
-    CardNumber: 1010, 
-    VendorName: 'Salma', 
+    CardNumber: 1010,
+    VendorName: 'Salma',
     Transaction_Amount: 500,
     Limit_Balance:1500,
     Transaction_Date: '26/04/2022',
     transaction_Status: true,
-    
+
 }
 
 ];
