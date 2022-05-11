@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Inject,  OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
@@ -24,7 +25,7 @@ export class DialogSignupComponent implements OnInit {
   passwordFormControl:any = new FormControl('', [Validators.required, Validators.required, Validators.min(8)]);
   password_confirmationFormControl:any = new FormControl('', [Validators.required, Validators.required]);
 
-
+  actionBtn: string='Sign Up';
 
   matcher = new MyErrorStateMatcher();
   registerForm: FormGroup;
@@ -32,7 +33,8 @@ export class DialogSignupComponent implements OnInit {
   constructor(
     public router: Router,
     public fb: FormBuilder,
-    public authService: AuthService)
+    public api: AuthService,
+    private dialogRef: MatDialogRef<DialogSignupComponent>)
   {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
@@ -45,18 +47,18 @@ export class DialogSignupComponent implements OnInit {
 
   onSubmit() {
     console.log(this.registerForm.value);
-    this.authService.register(this.registerForm.value).subscribe(
+    this.api.register(this.registerForm.value).subscribe(
       (result) => {
         console.log(result);
         alert('Registered Successfully');
+        this.registerForm.reset();
+        this.dialogRef.close("Sign Up");
+        this.router.navigate(['']);
+
       },
       (error) => {
         this.errors = error.error;
       },
-      () => {
-        this.registerForm.reset();
-        this.router.navigate(['']);
-      }
     );
   }
 }

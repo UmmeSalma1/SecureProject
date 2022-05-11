@@ -7,12 +7,12 @@ import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 // import { ParentDetailsComponent } from '../parent-details/parent-details.component';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+// export class MyErrorStateMatcher implements ErrorStateMatcher {
+//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+//     const isSubmitted = form && form.submitted;
+//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+//   }
+// }
 interface Gender {
   value: string;
   viewValue: string;
@@ -46,7 +46,7 @@ export class PUserDailogComponent implements OnInit {
 
   parentForm !: FormGroup;
 
-  actionBtn: string = 'Save'
+  actionBtn: string = 'Verify'
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
@@ -57,26 +57,25 @@ export class PUserDailogComponent implements OnInit {
     this.parentForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      // password: ['', Validators.required],
       // date: ['', Validators.required],
       gender: ['', Validators.required],
       phone_number: ['', Validators.required],
       pan_card: ['', Validators.required],
       address: ['', Validators.required]
     })
-    if (this.editData) {
-      this.actionBtn = 'update'
-      this.parentForm.controls['name'].setValue(this.editData.name);
-      this.parentForm.controls['email'].setValue(this.editData.email);
-      this.parentForm.controls['password'].setValue(this.editData.password);
-      this.parentForm.controls['date'].setValue(this.editData.date);
-      this.parentForm.controls['gender'].setValue(this.editData.gender);
-      this.parentForm.controls['phone_number'].setValue(this.editData.phone_number);
-      this.parentForm.controls['pan_card'].setValue(this.editData.pan_card);
-      this.parentForm.controls['address'].setValue(this.editData.address);
-    }
-
   }
+    // if (this.editData) {
+    //   this.actionBtn = 'update'
+    //   this.parentForm.controls['name'].setValue(this.editData.name);
+    //   this.parentForm.controls['email'].setValue(this.editData.email);
+    //   this.parentForm.controls['password'].setValue(this.editData.password);
+    //   this.parentForm.controls['date'].setValue(this.editData.date);
+    //   this.parentForm.controls['gender'].setValue(this.editData.gender);
+    //   this.parentForm.controls['phone_number'].setValue(this.editData.phone_number);
+    //   this.parentForm.controls['pan_card'].setValue(this.editData.pan_card);
+    //   this.parentForm.controls['address'].setValue(this.editData.address);
+    // }
   // addparent() {
   //   // console.log(this.productForm.value);Best Laptop !
   //   // this.p.status= true;
@@ -122,6 +121,7 @@ this.api.postparentdata(this.parentForm.value).subscribe(
 (result: any) => {
 console.log(result);
 alert('kyc is done');
+this.dialogRef.close("Verify");
 },
 (error: any) => {
 this.errors = error.error;

@@ -7,16 +7,18 @@
     <button mat-icon-button aria-label="close dialog" mat-dialog-close>
       <mat-icon>close</mat-icon>
     </button>
-<!-- <div class="col">
-</div> -->
-<div class="container-fluid">
-  </div>
+
+
   <div class="container">
     <div style="margin-top:10px">
     <!-- <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field> -->
+
+
+
+
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
@@ -25,23 +27,23 @@
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email  ">{{row.id }}</span></td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email  ">{{row.id }}</span></td>
       </ng-container>
 
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved' && row.email== UserProfile?.email "> {{row.name}} </span></td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved' && row.email== UserProfile.email "> {{row.name}} </span></td>
       </ng-container>
 
       <!-- Product Column -->
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email">{{row.email }}</span></td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email">{{row.email }}</span></td>
       </ng-container>
       <ng-container matColumnDef="phone_number">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone_Number  </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email">{{row.phone_number }}</span></td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email">{{row.phone_number }}</span></td>
       </ng-container>
 
       <!-- Category  Column -->
@@ -53,21 +55,21 @@
 
       <ng-container matColumnDef="address">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email">{{row.address }}</span></td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email">{{row.address }}</span></td>
       </ng-container>
       <ng-container matColumnDef="pan_card">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Pan_Card </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email">{{row.pan_card }}</span> </td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email">{{row.pan_card }}</span> </td>
       </ng-container>
 
       <ng-container matColumnDef="gender">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email">{{row.gender }}</span> </td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email">{{row.gender }}</span> </td>
       </ng-container>
 
       <ng-container matColumnDef="is_approved">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile?.email">{{row.is_approved }}</span> </td>
+        <td mat-cell *matCellDef="let row"> <span *ngIf="row.is_approved=='approved'  && row.email== UserProfile.email">{{row.is_approved }}</span> </td>
       </ng-container>
 
 

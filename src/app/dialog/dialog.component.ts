@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -24,6 +25,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class DialogComponent implements OnInit {
 
+actionBtn : string= 'Sign In';
 
   emailFormControl: any = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl: any = new FormControl('', [Validators.required, Validators.required]);
@@ -35,36 +37,37 @@ export class DialogComponent implements OnInit {
   constructor(
     public router: Router,
     public fb: FormBuilder,
-    public authService: AuthService,
+    public api: AuthService,
     private token: TokenService,
-    private authState: AuthStateService
+    private authState: AuthStateService,
+    private dialogRef: MatDialogRef<DialogComponent>
   ) {
     this.loginForm = this.fb.group({
-      email: [],
-      password: [],
+      email: ['',Validators.required],
+      password: ['', Validators.required],
     });
   }
   ngOnInit() { }
   onSubmit() {
     console.log(this.loginForm.value);
-    this.authService.signin(this.loginForm.value).subscribe(
+    this.api.signin(this.loginForm.value).subscribe(
       (result) => {
         this.responseHandler(result);
+        alert('Successfully logged In');
+        this.authState.setAuthState(true);
+        this.loginForm.reset();
+        this.dialogRef.close("Sign In");
+        this.router.navigate(['dashboard']);
         // obj = new DialogComponent()
       },
       (error) => {
         this.errors = error.error;
       },
-      () => {
-        this.authState.setAuthState(true);
-        this.loginForm.reset();
-        this.router.navigate(['dashboard']);
-      }
     );
   }
   // Handle response
   responseHandler(data: any) {
     this.token.handleData(data.access_token);
   }
- 
+
 }

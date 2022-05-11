@@ -48,7 +48,7 @@ export class PChildDailogComponent implements OnInit {
   //should be like your form name
   childForm !: FormGroup;
 
-  actionBtn: string = 'Save'
+  actionBtn: string = 'Add Child'
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
@@ -125,6 +125,7 @@ this.api.postchilddata(this.childForm.value).subscribe({
 next :(response) => {
 console.log(response);
 alert('Child Added Successfullly');
+this.dialogRef.close("Add Child");
 },
 error:(error)=>{
 }

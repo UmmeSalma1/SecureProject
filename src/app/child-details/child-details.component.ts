@@ -2,10 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PChildDailogComponent } from '../p-child-dailog/p-child-dailog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../shared/api.service';
-
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { ViewtransactionComponent } from '../viewtransaction/viewtransaction.component';
 @Component({
   selector: 'app-child-details',
   templateUrl: './child-details.component.html',
@@ -13,15 +14,21 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ChildDetailsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','FirstName', 'LastName', 'DOB', 'Email','Gender','Phone_Number','Monthly_Limits', 'action'];
+  displayedColumns: string[] = ['id','first_name', 'last_name', 'dob', 'email','gender','phone_number','monthly_limit','is_approved','view_card','view_transaction'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private dialog: MatDialog, public api : ApiService) { }
+  actionBtn:string='View Transaction'
+
+  constructor(private dialog: MatDialog, public api : ApiService,
+    private dialogRef: MatDialogRef<PChildDailogComponent>) {
+
+  }
 
   ngOnInit(): void {
+    this.showApproveChild();
   }
 
   openadd_childDailog(){
@@ -29,55 +36,78 @@ export class ChildDetailsComponent implements OnInit {
       width:'30%'
     });
   }
-
-  openDialog() {
-    this.dialog.open(PChildDailogComponent, {
-      width: '30%',
-    }).afterClosed().subscribe(val=>{
-      if(val==='Save'){
-        this.getAllChild();
-      }
+  opentransactionDailog(id:any){
+    this.dialogRef.close("View Transaction");
+    this.dialog.open(ViewtransactionComponent,{
+      width:'70%'
     });
   }
 
-  editChild(row:any){
-    this.dialog.open(PChildDailogComponent,{
-    width:'30%',
-    data:row
-    }).afterClosed().subscribe(val=>{
-      if(val=='update'){
-        this.getAllChild();
-      }
-    });
-  }
+  // openDialog() {
+  //   this.dialog.open(PChildDailogComponent, {
+  //     width: '30%',
+  //   }).afterClosed().subscribe(val=>{
+  //     if(val==='Save'){
+  //       this.getAllChild();
+  //     }
+  //   });
+  // }
 
-  deleteChild(id:number){
-      this.api.deleteChild(id)
-      .subscribe({
-        next:(response)=>{
-        alert("deleted Successfully !!");
-        this.getAllChild();
-        },
-        error:()=>{
-          alert("error while deleting the records");
-        }
-      });
-  }
+  // editChild(row:any){
+  //   this.dialog.open(PChildDailogComponent,{
+  //   width:'30%',
+  //   data:row
+  //   }).afterClosed().subscribe(val=>{
+  //     if(val=='update'){
+  //       this.getAllChild();
+  //     }
+  //   });
+  // }
 
-  getAllChild(){
-    this.api.getChildData().
-    subscribe({
+  // deleteChild(id:number){
+  //     this.api.deleteChild(id)
+  //     .subscribe({
+  //       next:(response)=>{
+  //       alert("deleted Successfully !!");
+  //       this.getAllChild();
+  //       },
+  //       error:()=>{
+  //         alert("error while deleting the records");
+  //       }
+  //     });
+  // }
+
+  // getAllChild(){
+  //   this.api.getChildData().
+  //   subscribe({
+  //     next:(response)=>{
+  //       console.log(response);
+  //       this.dataSource=new MatTableDataSource(response);
+  //       this.dataSource.paginator= this.paginator;
+  //       this.dataSource.sort=this.sort;
+  //     },
+  //     error:(error)=>{
+  //     alert("Error while fatching Records !!");
+  //     }
+  //   });
+  // }
+  showApproveChild(){
+    this.api.showApproveChild().subscribe({
       next:(response)=>{
-        // console.log(response);
-        this.dataSource=new MatTableDataSource(response);
-        this.dataSource.paginator= this.paginator;
-        this.dataSource.sort=this.sort;
+        this.dataSource= new MatTableDataSource(response);
+        console.log(this.dataSource);
       },
       error:(error)=>{
-      alert("Error while fatching Records !!");
+        console.log("Error while fetching Records !! ");
+        alert("Error while fetching Records !! ");
       }
     });
   }
+
+  viewTransaction(id:any){
+
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

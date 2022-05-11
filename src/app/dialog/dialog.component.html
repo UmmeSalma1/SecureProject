@@ -1,6 +1,6 @@
 
 <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
- 
+
 <!-- <h1>SignIn</h1> -->
 
 <div class="row">
@@ -11,44 +11,51 @@
   <button mat-icon-button aria-label="close dialog" mat-dialog-close>
     <mat-icon>close</mat-icon>
   </button>
-  
+
 </div>
-  <mat-form-field class="example-full-width" appearance="fill">
+  <!-- <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Email</mat-label>
     <input type="email" matInput [formControl]="emailFormControl" formControlName="email" [errorStateMatcher]="matcher"
            placeholder="Ex. pat@example.com">
-    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
       Please enter a valid email address
     </mat-error>
     <mat-error *ngIf="emailFormControl.hasError('required')">
       Email is <strong>required</strong>
     </mat-error>
+  </mat-form-field> -->
+  <mat-form-field appearance="outline">
+    <mat-label> Email</mat-label>
+    <input formControlName="email" type="email" matInput placeholder="Enter email address ">
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
+  <!-- <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Password</mat-label>
     <input type="password" matInput [formControl]="passwordFormControl" formControlName="password" [errorStateMatcher]="matcher"
            placeholder="password">
-    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+
     <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
       Please enter your password
     </mat-error>
     <mat-error *ngIf="passwordFormControl.hasError('required')">
       Password is <strong>required</strong>
     </mat-error>
+  </mat-form-field> -->
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input formControlName="password" type="password" matInput placeholder="Enter Password ">
   </mat-form-field>
 
   <div class="row">
     <div class="col sm-8" >
-    <button mat-raised-button color="primary" type="submit" > 
-      Signin 
-    </button>
+    <button mat-raised-button color="primary" >{{ actionBtn }} </button>
     </div>
       <button mat-icon-button aria-label="reset" type="reset" color="primary" style="margin-right:10px;">
         Clear
       </button>
-   
+
       </div>
 </form>
 
