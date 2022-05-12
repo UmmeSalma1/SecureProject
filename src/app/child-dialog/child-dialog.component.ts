@@ -47,6 +47,19 @@ export class ChildDialogComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  childDelete(id:any){
+    this.api.childDelete(id).subscribe({
+      next:(response)=>{
+        alert(" Child Data has been deleted");
+        this.showChildDetails();
+      },
+      error:(error)=>{
+        console.log(error);
 
+        alert("Something goes  wrong ");
+        this.showChildDetails();
+      }
+    })
+  }
 
 }

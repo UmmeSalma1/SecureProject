@@ -47,6 +47,19 @@ export class RefundsDialogComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  refundDelete(id:any){
+    this.api.refundDelete(id).subscribe({
+      next:(response)=>{
+        alert(" Refund Data has been deleted");
+        this.showRefundDetails();
+      },
+      error:(error)=>{
+        console.log(error);
 
+        alert("Something goes  wrong ");
+        this.showRefundDetails();
+      }
+    })
+  }
 
 }

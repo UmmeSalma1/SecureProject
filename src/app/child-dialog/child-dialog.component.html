@@ -87,8 +87,8 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button color="warn"  ><mat-icon>delete</mat-icon></button>
+          <!-- <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button> -->
+          <button mat-icon-button color="warn" (click)="childDelete(row.id)" ><mat-icon>delete</mat-icon></button>
         </td>
       </ng-container>
 

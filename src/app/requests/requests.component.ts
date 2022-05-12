@@ -46,7 +46,7 @@ export class RequestsComponent implements OnInit {
         alert("Something wrong ");
       }
     })
-  }
+  } 
 
   rejectParent(id:any){
     this.api.rejectParent(id).subscribe({

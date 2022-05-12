@@ -47,4 +47,19 @@ export class CardDialogComponent implements OnInit {
     }
   }
 
+
+  cardDelete(id:any){
+    this.api.cardDelete(id).subscribe({
+      next:(response)=>{
+        alert(" Card Data has been deleted");
+        this.showCardDetails();
+      },
+      error:(error)=>{
+        console.log(error);
+
+        alert("Something goes  wrong ");
+        this.showCardDetails();
+      }
+    })
+  }
 }

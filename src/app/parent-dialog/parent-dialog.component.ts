@@ -51,15 +51,17 @@ export class ParentDialogComponent implements OnInit {
       }
     });
   }
-  delete(id:any){
-    this.api.rejectParent(id).subscribe({
+  parentDelete(id:any){
+    this.api.parentDelete(id).subscribe({
       next:(response)=>{
-        alert("Data has been deleted");
+        alert(" Parent Data has been deleted");
         this.requestKyc();
       },
       error:(error)=>{
         console.log(error);
-        alert("Something wrong ");
+
+        alert("Something goes  wrong ");
+        this.requestKyc();
       }
     })
   }

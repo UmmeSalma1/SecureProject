@@ -65,4 +65,20 @@ export class ApiService {
     return this.http.get<any>(this.baseurl+'refunds')
   }
 
+  parentDelete(id:any): Observable<any>{
+    return this.http.get<any>(this.baseurl+'parentDelete/'+id)
+  }
+
+  childDelete(id:any): Observable<any>{
+    return this.http.get<any>(this.baseurl+'childDelete/'+id)
+  }
+  cardDelete(id:any): Observable<any>{
+    return this.http.get<any>(this.baseurl+'cardDelete/'+id)
+  }
+  vendorDelete(id:any): Observable<any>{
+    return this.http.get<any>(this.baseurl+'vendorDelete/'+id)
+  }
+  refundDelete(id:any): Observable<any>{
+    return this.http.get<any>(this.baseurl+'refundDelete/'+id)
+  }
 }

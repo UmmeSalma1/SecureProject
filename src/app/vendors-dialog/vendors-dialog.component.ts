@@ -45,6 +45,19 @@ export class VendorsDialogComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  vendorDelete(id:any){
+    this.api.vendorDelete(id).subscribe({
+      next:(response)=>{
+        alert(" Vendor Data has been deleted");
+        this.showVendorDetails();
+      },
+      error:(error)=>{
+        console.log(error);
 
+        alert("Something goes  wrong ");
+        this.showVendorDetails();
+      }
+    })
+  }
 
 }
