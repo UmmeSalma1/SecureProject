@@ -8,6 +8,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ParentComponent } from './parent/parent.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'parent', component: ParentComponent },
   { path: 'child', component: ChildComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent},
-  { path: 'forgetpopup', component: ForgetPasswordDailogComponent}
+  { path: 'forgetpopup', component: ForgetPasswordDailogComponent},
+  { path: 'resetpassword', component: ResetpasswordComponent}
 ];
 
 @NgModule({

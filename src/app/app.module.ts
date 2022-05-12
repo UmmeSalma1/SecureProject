@@ -56,6 +56,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 
@@ -87,6 +88,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     ParentDetailsComponent,
     ForgetPasswordComponent,
     ForgetPasswordDailogComponent,
+    ResetpasswordComponent,
 
 
   ],
