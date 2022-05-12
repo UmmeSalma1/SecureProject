@@ -6,12 +6,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+
 interface Gender {
   value: string;
   viewValue: string;
@@ -52,7 +47,7 @@ export class PChildDailogComponent implements OnInit {
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public editData: any,
+    // @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<PChildDailogComponent>) { }
 
   ngOnInit(): void {
@@ -66,6 +61,7 @@ export class PChildDailogComponent implements OnInit {
       'monthly_limit': ['', Validators.required],
       'parent_id': ['',Validators.required]
     })
+  }
     // if (this.editData) {
     //   this.actionBtn = 'update'
     //   this.childForm.controls['fName'].setValue(this.editData.fName);
@@ -78,7 +74,7 @@ export class PChildDailogComponent implements OnInit {
 
     // }
 
-  }
+
   // addChild() {
   //   // console.log(this.productForm.value);Best Laptop !
   //   if (!this.editData) {

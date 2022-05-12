@@ -29,6 +29,7 @@ import { AddChildComponent } from './add-child/add-child.component';
 import { ParentDetailsComponent } from './parent-details/parent-details.component';
 import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ForgetPasswordDailogComponent } from './forget-password-dailog/forget-password-dailog.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,6 +59,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +86,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     ViewtransactionComponent,
     ParentDetailsComponent,
     ForgetPasswordComponent,
+    ForgetPasswordDailogComponent,
 
 
   ],

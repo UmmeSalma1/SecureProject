@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ChildComponent } from './child/child.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { ForgetPasswordDailogComponent } from './forget-password-dailog/forget-password-dailog.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'parent', component: ParentComponent },
   { path: 'child', component: ChildComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent},
+  { path: 'forgetpopup', component: ForgetPasswordDailogComponent}
 ];
 
 @NgModule({
