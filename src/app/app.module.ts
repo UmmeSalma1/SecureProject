@@ -28,6 +28,7 @@ import { ChildDetailsComponent } from './child-details/child-details.component';
 import { AddChildComponent } from './add-child/add-child.component';
 import { ParentDetailsComponent } from './parent-details/parent-details.component';
 import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,7 +54,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -113,7 +114,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     MatPaginatorModule,
     MatSortModule,
     MatRadioModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatStepperModule
 
 
   ],
