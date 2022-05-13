@@ -19,6 +19,8 @@ export class AuthService {
   // User registration
   register(user: User): Observable<any> {
     return this.http.post<any>('http://127.0.0.1:8000/api/auth/register', user);
+
+
   }
   // Login
   signin(user: User): Observable<any> {

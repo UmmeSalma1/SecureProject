@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AddChildComponent } from './add-child/add-child.component';
 import { ChildComponent } from './child/child.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ForgetPasswordDailogComponent } from './forget-password-dailog/forget-password-dailog.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'child', component: ChildComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent},
   { path: 'forgetpopup', component: ForgetPasswordDailogComponent},
-  { path: 'resetpassword', component: ResetpasswordComponent}
+  { path: 'resetpassword', component: ResetpasswordComponent},
+  { path: 'demo', component: AddChildComponent}
 ];
 
 @NgModule({

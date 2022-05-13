@@ -1,103 +1,183 @@
-@import url('https://fonts.googleapis.com/css?family=Mina:400,700');
+body{ display: flex; flex-wrap: wrap; justify-content: center; background: grey; padding-top: 20px;
+  background-image: url("https://pbs.twimg.com/media/E3_guXtX0AUihWN.jpg");
 
+  /*   https://media.istockphoto.com/vectors/travel-concept-seamless-pattern-abstract-airplane-routes-travel-and-vector-id936346770?k=20&m=936346770&s=612x612&w=0&h=pNoiIGyr4aF7H_gmwI38xlKT4oOCouCYj8Tw0WaKYhI= */
 
-/**
-* Variables
-*/
-/* $circle-image-size: 90px;
-$circle-image-border-size: 10px; */
-
-
-html, body {
-  min-height: 100%;
-}
-
-body {
-  padding: 20px 20px 40px 20px;
-  background-color: #f5f5f5;
-}
-
-
-.title {
-  font-family: "Mina", sans-serif;
-  font-size: 2em;
-  font-weight: 700;
-  color: #404040;
-  text-transform: uppercase;
-  margin: 35px 0;
-  white-space: nowrap;
-}
-
-.custom-card {
-  /* &:hover {
-    box-shadow: 0px 13px 38px 0px rgba( 0, 0, 0, 0.15 );
-  } */
-  position: relative;
-  margin-bottom: -3px;
-  box-shadow: 0px 6px 38px 0px rgba( 0, 0, 0, 0.085 );
-  will-change: box-shadow;
-  transition: box-shadow .3s ease;
-}
-  /* .card-body {
-    padding-top: $circle-image-border-size + $circle-image-size / 2 + 10px;
-  } */
-
-  .card-cover {
-    position: relative;
-    background: none no-repeat center center / cover;
-    height: 140px;
   }
-  .card-cover:before {
-    content: '';
+
+  .card{margin-top: 50px;
+  background: #17141d;
+  background: white;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: "image" "text" "bottom";
+  font-family: roboto;
+  border-radius: 18px;
+  box-shadow: -1rem 0 3rem #000;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.6s ease;
+    /* //color: white; */
+
+  }
+
+  .card-img{
+    grid-area: image;
+    background: linear-gradient(#fff0 0%, #fff0, 70%, #1d1d1d 100%), url("../../assets/Salma.jpg");
+    background-size: cover;
+   /* //border-radius: 0 0 60% 60% /0 0 20% 20%; */
+
+  }
+
+  .card-discription{
+    grid-area: text;
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 10px;
+  }
+
+  .card-discription > p{
+  margin: 15px; margin-top: -10px;
+  }
+
+  #visit-header, #visit-state{
+    font-family: arial;
+    text-transform: uppercase;
+  }
+
+  #visit-state{font-size: 18px;
+  margin-top: -18px; margin-bottom: 20px;
+   color: #aaa;
+  }
+
+  #booknowbtn{
+  /* // background: #e9443c; */
+    background: #54c3dd;
+    background:
+  #38596c;
+     background:linear-gradient(#f2eecb, #cfb997);
+   grid-area: bottom;
+   border: none;
+   font-size: 20px;
+   color: white;
+   margin-top: 30px;
+  }
+
+  #booknowbtn:hover{cursor: pointer; background: #54c3dd;
+  background: #029be6;
+    background: #51a7e1;
+    background: #2e709a;
+  }
+
+  .card:hover{
+    transform: translateY(-1rem);
+  }
+
+  .card:hover~.card{
+    transform: translateX(130px);
+  }
+
+  .card:not(:first-child){
+    margin-left: -130px;
+  }
+
+
+
+  /* LOCATION IMG */
+  /* #sb{background-image: url("https://miro.medium.com/max/1000/1*HXChk_VSESSUYNR3VgCo_Q.jpeg")} */
+
+
+  #sb{
+    background-position: bottom;
+    background-image: url("https://i.imgur.com/ZnaN89ql.jpg")}
+
+  /* //https://prod-virtuoso.dotcmscloud.com/dA/b3bd129b-efda-486b-8290-ccb35cd0f167/previewImage/MissionSantaBarbara_hero.jpg */
+  #yosemite{background-image: url("https://parentology.com/wp-content/uploads/2020/12/swissmediavision1163571314.jpg")}
+
+  #marin{background-image: url("https://i.imgur.com/BvrDOz2.jpg")}
+
+  a{text-decoration: none;
+  color: white;}
+
+  /* RGB */
+
+  .rgb::after {
+    content:"";
+    background: linear-gradient(45deg,
+    #ff0000 0%,
+    #ff9a00 10%,
+    #d0de21 20%,
+    #4fdc4a 30%,
+    #3fdad8 40%,
+    #2fc9e2 50%,
+    #1c7fee 60%,
+    #5f15f2 70%,
+    #ba0cf8 80%,
+    #fb07d9 90%,
+    #ff0000 100%  )
+    repeat 0% 0% / 300% 100%;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba( 0, 0, 0, 0.45 );
+    inset: -3px;
+  }
+
+  @keyframes rgb {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .rgb::after {
+  /* ... */
+    border-radius: 16px;
+    filter: blur(8px);
+    transform: translateZ(-1px); /*or z-index */
+    animation: rgb 6s linear infinite;
   }
 
 
-  .circle-image {
-    position: absolute;
-    background: none no-repeat center center / cover;
-    /* width: $circle-image-size;
-    height: $circle-image-size; */
-    bottom: -50px;
-    left: 50%;
-    transform: translateX( -50% );
-    border-radius: 50%;
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:fangsong;
   }
-  .circle-image:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate( -50%, -50% );
-    /* box-shadow: inset 0 0 0 #{ $circle-image-border-size / 2 + 1 };
-    width: calc( 100% + #{ $circle-image-border-size } );
-    height: calc( 100% + #{ $circle-image-border-size } );
-    border-radius: 50%; */
+  body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    /* background:black */
   }
-
-  @media screen and ( max-width: 768px ) {
-    .card-cover {
-      background: none;
-      height: 0;
+  .artisan{
+    position:relative;
+    font-size:6em;
+    letter-spacing:20px;
+    color:black;
+    text-transform:uppercase;
+    width:100%;
+    text-align:center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,white);
+      line-height:.7em;
+    outline:none;
+    animation : animate 5s linear infinite alternate-reverse;
+  }
+  @keyframes animate {
+    0%{
+      color:white;
+      text-shadow:none;
     }
-    .circle-image {
-      position: relative;
-      bottom: inherit;
-      top: 20px;
-      left: 10px;
-      transform: none;
-      /* &:before {
-        box-shadow: none;
-      } */
+    50%{
+      text-shadow: 0 0 5px white,
+        0 0 20px white,
+        0 0 40px white,
+        0 0 80px white,
+        0 0 160px white
     }
-    .card-body {
-      padding-top:  20px;
-      padding-left: 120px;
+    100%{
+      text-shadow: 0 0 5px white,
+        0 0 20px cyan,
+        0 0 40px cyan,
+        0 0 80px cyan,
+        0 0 160px cyan
     }
   }
-
