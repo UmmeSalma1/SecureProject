@@ -10,7 +10,7 @@ import { AuthStateService } from './shared/auth-state.service';
 })
 export class AppComponent {
   title = 'Demo';
-  data : boolean = true; 
+  data : boolean = true;
   toggleForm(){
     return !this.data;
   }
@@ -26,10 +26,10 @@ export class AppComponent {
     });
   }
   // Signout
-  signOut() {
-    this.auth.setAuthState(false);
-    this.token.removeToken();
-    this.router.navigate(['']);
-  }
+  // signOut() {
+  //   this.auth.setAuthState(false);
+  //   this.token.removeToken();
+  //   this.router.navigate(['']);
+  // }
 }
 

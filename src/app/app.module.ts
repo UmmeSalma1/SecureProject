@@ -57,6 +57,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -89,6 +90,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     ForgetPasswordComponent,
     ForgetPasswordDailogComponent,
     ResetpasswordComponent,
+    FooterComponent,
 
 
   ],

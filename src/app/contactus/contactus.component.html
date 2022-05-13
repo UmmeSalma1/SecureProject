@@ -1,6 +1,5 @@
-
 <app-toolbar></app-toolbar>
-<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+<!-- <div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
   <div class="w3-row">
     <div class="w3-col m5">
     <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
@@ -12,27 +11,112 @@
     </div>
     <div class="w3-col m7">
       <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
-      <div class="w3-section">      
+      <div class="w3-section">
         <label>Name</label>
         <input class="w3-input" type="text" name="Name" required>
       </div>
-      <div class="w3-section">      
+      <div class="w3-section">
         <label>Email</label>
         <input class="w3-input" type="text" name="Email" required>
       </div>
-      <div class="w3-section">      
+      <div class="w3-section">
         <label>Message</label>
         <textarea class="w3-input" type="text" name="Message" required></textarea>
-      </div>  
-      
+      </div>
+
       <button mat-raised-button color="primary" type="submit" >Send</button>
       </form>
     </div>
   </div>
 </div>
-
-<!-- Image of location/map -->
 <div class="container">
 
+
+
     <img src="../../assets/loc.png" class="w3-image w3-greyscale-min" style="width: 75%; margin-left: 100px;">
+</div> -->
+<div class="container contact card center" style="text-align: center;
+margin-top: 30px;
+padding-top: 15px;
+padding-bottom: 15px;
+background: rgba(255,0,0,0.05);">
+
+  <!--Google map-->
+  <div id="map-container-google-1" class="z-depth-1-half map-container">
+    <iframe src="https://maps.google.com/maps?q=Bangalure&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+      style="border:0; width:100%;" allowfullscreen></iframe>
+  </div>
+
+  <!--Google Maps-->
+  <!-- <h1 class="center ">CONTACT US</h1>
+    <h2 class="center">Artisans</h2>
+    <h1>Name:</h1>
+    <p>Umme Salma<br>Latha Raj<br>Siva Lomada<br>GuruKiran Badiger </p>
+
+    <h1>Mail Us:</h1>
+    <p><a routerLink="#">umme.salma@mpokket.com</a> <br>
+      <a routerLink="#">latha.raj@mpokket.com</a> <br>
+      <a routerLink="#">siva.lomada@mpokket.com</a> <br>
+      <a routerLink="#">gurukiran.badiger@mpokket.com</a> <br></p>
+    <h1 class="center">Give Us a Call:</h1>
+    <p class="center">+91 7892871590<br>+91 8123054062 <br>+91 7997221184  <br> +91 7411527065</p> -->
+
+  <div class="container">
+    <div class="title d-flex justify-content-center">
+      Artisans 😎
+    </div>
+    <div class="d-flex flex-column flex-md-row">
+      <div class="col-sm">
+        <div class="card custom-card">
+          <div class="card-cover" style="background-image: url( https://picsum.photos/600/400/?random );">
+            <div class="circle-image" style="background-image: url( https://picsum.photos/200/110/?random );"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" style=" font-size: larger;"><strong>Umme Salma </strong><br>(Associate Software Engineer) </h5>
+            <p class="card-text"><a routerLink="#">umme.salma@mpokket.com</a> </p>
+            <h3>+91 7892871590</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm">
+        <div class="card custom-card">
+          <div class="card-cover" style="background-image: url( https://picsum.photos/600/400/?random );">
+            <div class="circle-image" style="background-image: url( https://picsum.photos/200/110/?random );"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" style=" font-size: larger;"><strong>Latha Raj</strong><br>(Associate Software Engineer) </h5>
+            <p class="card-text"> <a routerLink="#">latha.raj@mpokket.com</a></p>
+            <h3>+91 8123054062</h3>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm">
+        <div class="card custom-card">
+          <div class="card-cover" style="background-image: url( https://picsum.photos/605/405/?random );">
+            <div class="circle-image" style="background-image: url( https://picsum.photos/205/115/?random );"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" style=" font-size: larger;"><strong>Siva Lomada</strong><br>(Associate Software Engineer) </h5>
+            <p class="card-text"><a routerLink="#">siva.lomada@mpokket.com</a></p>
+            <h3>+91 7997221184</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card custom-card">
+          <div class="card-cover" style="background-image: url( https://picsum.photos/610/410/?random );">
+            <div class="circle-image" style="background-image: url( https://picsum.photos/210/120/?random );"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" style=" font-size: larger;"><strong>Gurukiran Badiger </strong><br>(Associate Software Engineer) </h5>
+            <p class="card-text"> <a routerLink="#">gurukiran.badiger@mpokket.com</a> </p>
+            <h3>+91 7411527065</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

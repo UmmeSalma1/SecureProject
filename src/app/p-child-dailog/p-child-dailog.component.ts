@@ -59,7 +59,7 @@ export class PChildDailogComponent implements OnInit {
       'gender': ['', Validators.required],
       'phone_number': ['', Validators.required],
       'monthly_limit': ['', Validators.required],
-      'parent_id': ['',Validators.required]
+      // 'parent_id': ['',Validators.required]
     })
   }
     // if (this.editData) {
@@ -77,9 +77,9 @@ export class PChildDailogComponent implements OnInit {
 
   // addChild() {
   //   // console.log(this.productForm.value);Best Laptop !
-  //   if (!this.editData) {
+  //   if (!this.editData) {first_name
   //     if (this.childForm.valid) {
-  //       this.api.postChildData(this.childForm.value)
+  //       this.api.postChildData(thsis.childForm.value)
   //         .subscribe({
   //           // next is the observer type
   //           next: (response) => {
