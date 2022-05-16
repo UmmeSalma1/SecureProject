@@ -5,6 +5,12 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { AuthService } from '../shared/auth.service';
+
+
+
 // import { ParentDetailsComponent } from '../parent-details/parent-details.component';
 
 // export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -13,11 +19,17 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 //     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
 //   }
 // }
-interface Gender {
-  value: string;
-  viewValue: string;
-}
+// interface Gender {
+//   value: string;
+//   viewValue: string;
+// }
 
+
+export class User {
+  name: any;
+  email: any;
+  id: any;
+}
 @Component({
   selector: 'app-p-user-dailog',
   templateUrl: './p-user-dailog.component.html',
@@ -45,16 +57,24 @@ export class PUserDailogComponent implements OnInit {
   // parentForm:FormGroup;
 
   parentForm !: FormGroup;
+  UserProfile!: User;
 
   actionBtn: string = 'Verify'
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialogRef: MatDialogRef<PUserDailogComponent>) { }
+    private breakpointObserver: BreakpointObserver,
+    public authService: AuthService ,
+    private dialogRef: MatDialogRef<PUserDailogComponent>) {
+      this.authService.profileUser().subscribe((data: any) => {
+        this.UserProfile = data;
+      });
+    }
 
   ngOnInit(): void {
     this.parentForm = this.formBuilder.group({
+      user_id: [this.UserProfile?.id, Validators.required],
       name: ['', Validators.required],
       email: ['', Validators.required],
       // password: ['', Validators.required],
@@ -115,6 +135,7 @@ export class PUserDailogComponent implements OnInit {
   //     });
   // }
 
+
   addparent(){
     console.log(this.parentForm.value);
 this.api.postparentdata(this.parentForm.value).subscribe(
@@ -132,5 +153,7 @@ this.parentForm.reset();
 );
 
 }
+
+
   }
 

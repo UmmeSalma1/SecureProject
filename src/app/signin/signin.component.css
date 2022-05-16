@@ -47,7 +47,7 @@ button:hover{
   .button {
     display: inline-flex;
     height: 40px;
-    width: 150px;
+    width: 100px;
     border: 2px solid #BFC0C0;
     margin: 20px 20px 20px 20px;
     color: #BFC0C0;
@@ -58,6 +58,9 @@ button:hover{
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    border-radius: 10px;
+    color: blanchedalmond;
+    text-align: center;
   }
 
   a {
@@ -90,7 +93,7 @@ button:hover{
     height: 250%;
     left: -200px;
     top: -30px;
-    background: #BFC0C0;
+    background: blanchedalmond;
     position: absolute;
     transition: all .8s ease-Out;
   }
@@ -100,10 +103,12 @@ button:hover{
   }
 
   #button-5:hover a {
-    color: #2D3142;
+    color: black;
   }
 
-
+button:hover{
+  color: black;
+}
 
 
 
