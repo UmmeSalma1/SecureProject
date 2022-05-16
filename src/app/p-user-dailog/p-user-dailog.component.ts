@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../shared/auth.service';
+import { NgToastService } from 'ng-angular-popup';
 
 
 
@@ -59,13 +60,14 @@ export class PUserDailogComponent implements OnInit {
   parentForm !: FormGroup;
   UserProfile!: User;
 
+
   actionBtn: string = 'Verify'
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public editData: any,
     private breakpointObserver: BreakpointObserver,
     public authService: AuthService ,
+    private toast: NgToastService,
     private dialogRef: MatDialogRef<PUserDailogComponent>) {
       this.authService.profileUser().subscribe((data: any) => {
         this.UserProfile = data;
@@ -74,7 +76,7 @@ export class PUserDailogComponent implements OnInit {
 
   ngOnInit(): void {
     this.parentForm = this.formBuilder.group({
-      user_id: [this.UserProfile?.id, Validators.required],
+      id: ['', Validators.required],
       name: ['', Validators.required],
       email: ['', Validators.required],
       // password: ['', Validators.required],
@@ -120,31 +122,22 @@ export class PUserDailogComponent implements OnInit {
   //   }
 
 
-  // }
-  // updateChild() {
-  //   return this.api.putChild(this.parentForm.value, this.editData.id)
-  //     .subscribe({
-  //       next: (response) => {
-  //         alert("data updated Succcessfully !!");
-  //         this.parentForm.reset();
-  //         this.dialogRef.close("update");
-  //       },
-  //       error: () => {
-  //         alert("Error While Update");
-  //       }
-  //     });
-  // }
 
 
   addparent(){
-    console.log(this.parentForm.value);
+    this.parentForm.controls['id'].setValue(this.UserProfile?.id);
+    // console.log(this.parentForm.value);
 this.api.postparentdata(this.parentForm.value).subscribe(
 (result: any) => {
 console.log(result);
-alert('kyc is done');
+// alert('kyc is done');
+this.toast.success({detail:"Success Message", summary:"KYC request send successfully, Wait for approval...", duration:3000})
 this.dialogRef.close("Verify");
 },
 (error: any) => {
+  // alert('something went wrong');
+  this.toast.info({detail:"Failed Message", summary:"Something is wrong, Try again later!!!", duration:3000})
+
 this.errors = error.error;
 },
 () => {

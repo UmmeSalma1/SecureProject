@@ -5,11 +5,14 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgToastService } from 'ng-angular-popup';
+import { AuthService } from '../shared/auth.service';
 
 
-interface Gender {
-  value: string;
-  viewValue: string;
+export class User {
+  name: any;
+  email: any;
+  id: any;
 }
 
 @Component({
@@ -42,16 +45,24 @@ export class PChildDailogComponent implements OnInit {
 
   //should be like your form name
   childForm !: FormGroup;
+  UserProfile!: User;
 
   actionBtn: string = 'Add Child'
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     // @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialogRef: MatDialogRef<PChildDailogComponent>) { }
+    public auth : AuthService,
+    public toast: NgToastService,
+    private dialogRef: MatDialogRef<PChildDailogComponent>) {
+      this.auth.profileUser().subscribe((data: any) => {
+        this.UserProfile = data;
+      });
+    }
 
   ngOnInit(): void {
     this.childForm = this.formBuilder.group({
+      'id': ['', Validators.required],
       'first_name': ['', Validators.required],
       'last_name': ['', Validators.required],
       'dob': ['', Validators.required],
@@ -116,14 +127,20 @@ export class PChildDailogComponent implements OnInit {
 
 
   addchild(){
-    console.log(this.childForm.value);
+    this.childForm.controls['id'].setValue(this.UserProfile?.id);
+    // console.log(this.childForm.value);
+
 this.api.postchilddata(this.childForm.value).subscribe({
 next :(response) => {
 console.log(response);
 alert('Child Added Successfullly');
+this.toast.success({detail:"Success Message", summary:"Child Added successfully, Wait for approval...", duration:3000})
+
 this.dialogRef.close("Add Child");
 },
 error:(error)=>{
+  this.toast.info({detail:"Failed Message", summary:"Something is wrong, Try again later!!!", duration:3000})
+
 }
 })
 

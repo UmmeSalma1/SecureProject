@@ -30,6 +30,8 @@ import { ParentDetailsComponent } from './parent-details/parent-details.componen
 import { ViewtransactionComponent } from './viewtransaction/viewtransaction.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ForgetPasswordDailogComponent } from './forget-password-dailog/forget-password-dailog.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -56,8 +58,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { FooterComponent } from './footer/footer.component';
+import { NgToastModule } from 'ng-angular-popup';
+
+
 
 
 
@@ -122,7 +125,9 @@ import { FooterComponent } from './footer/footer.component';
     MatSortModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatStepperModule
+    MatStepperModule,
+    NgToastModule
+
 
 
   ],
