@@ -34,6 +34,7 @@ export class MyDashboardComponent {
   //     ];
   //   })
   // );
+   
   UserProfile!: User;
   constructor(private breakpointObserver: BreakpointObserver,
     public authService: AuthService ) {
@@ -42,3 +43,4 @@ export class MyDashboardComponent {
       });
     }
 }
+

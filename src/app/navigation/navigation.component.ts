@@ -16,7 +16,7 @@ export class NavigationComponent {
       shareReplay()
     );
 
-    
+
   constructor(private breakpointObserver: BreakpointObserver) {}
   open(){
     this.opened = !this.opened;

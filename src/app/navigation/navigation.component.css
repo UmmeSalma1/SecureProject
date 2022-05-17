@@ -28,7 +28,35 @@ background-color: antiquewhite;
 }
 mat-drawer{
 width: 260px;
-background-color:#0f1111;
+/* background-color:#0f1111; */
+/* background-color: rgb(145, 238, 238); */
+  /* background: linear-gradient(90deg, transparent, darkorange); */
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  background-color: transparent;
+  background: transparent;
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #2703f4,
+      0 0 25px #03e9f4,
+      0 0 50px #2f03f4,
+      0 0 100px #03e9f4;
+  top: 0;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+  color: navy;
+  text-decoration: solid;
+  cursor: progress;
+  border: none;
+  outline: none;
+  color: #fff;
+  color: #2703f4;
+  color: darkred;
+  /* background:#FFDECD; */
+  cursor: pointer;
+  z-index: 0;
+  border-radius: 10px;
+  /* height: 100%; */
 }
 mat-drawer-container{
 height: 100%;
