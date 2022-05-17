@@ -8,7 +8,7 @@ import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TokenService } from '../shared/token.service';
 import { AuthStateService } from '../shared/auth-state.service';
-
+import { NgToastService } from 'ng-angular-popup';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -24,7 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 
 export class DialogComponent implements OnInit {
-
+ hide:boolean=true;
 actionBtn : string= 'Sign In';
 forgetBtn : string='Forget Password?'
 
@@ -32,7 +32,9 @@ forgetBtn : string='Forget Password?'
   passwordFormControl: any = new FormControl('', [Validators.required, Validators.required]);
 
   matcher = new MyErrorStateMatcher();
-
+  get passwordInput() {
+    return this.loginForm.get('password');
+  }
   loginForm: FormGroup;
   errors: any = null;
   constructor(
@@ -41,7 +43,8 @@ forgetBtn : string='Forget Password?'
     public api: AuthService,
     private token: TokenService,
     private authState: AuthStateService,
-    private dialogRef: MatDialogRef<DialogComponent>
+    private dialogRef: MatDialogRef<DialogComponent>,
+    private toast : NgToastService
   ) {
     this.loginForm = this.fb.group({
       email: ['',Validators.required],
@@ -54,7 +57,8 @@ forgetBtn : string='Forget Password?'
     this.api.signin(this.loginForm.value).subscribe(
       (result) => {
         this.responseHandler(result);
-        alert('Successfully logged In');
+        // alert('Successfully logged In');
+        this.toast.success({detail:"Success Message",summary:"Login is Successfully !!",duration:5000})
         this.authState.setAuthState(true);
         this.loginForm.reset();
         this.dialogRef.close("Sign In");
@@ -63,8 +67,10 @@ forgetBtn : string='Forget Password?'
         // obj = new DialogComponent()
       },
       (error) => {
-        this.errors = error.error;
-        alert('errors');
+        this.toast.error({detail:"error Message",summary:"Login Failed, Try Again !!",duration:5000})
+
+        // this.errors = error.error;
+        // alert('errors');
       },
     );
   }
@@ -72,9 +78,13 @@ forgetBtn : string='Forget Password?'
   responseHandler(data: any) {
     this.token.handleData(data.access_token);
   }
-  forget_password(){
-    this.dialogRef.close("Forget Password?");
+
+  forgetPassword(){
+    this.toast.success({detail:"Enter Email",summary:"Your Email for Forget Password !!",duration:5000})
+    this.dialogRef.close("Sign In");
     this.router.navigate(['/forgetPassword']);
 
+
   }
+
 }
