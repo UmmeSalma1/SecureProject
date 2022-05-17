@@ -1,8 +1,8 @@
 <div class="row">
+  <!-- <h1>{{ UserProfile.name }}</h1> -->
   <div class="col sm-6" style="padding-right: 300px;">
     <h1 mat-dialog-title>Parent KYC</h1>
 
-    <!-- <h2 class="list-group-item" style="margin-bottom: 1rem"><strong> id :</strong> <i> {{UserProfile?.id}} </i></h2> -->
   </div>
   <div class="col sm-6">
     <button mat-icon-button aria-label="close dialog" mat-dialog-close>
@@ -14,7 +14,7 @@
 <div mat-dialog-content>
   <form [formGroup]="parentForm">
 
-      <input formControlName="id" type="text"  matInput hidden="true">
+      <input formControlName="id" matInput placeholder="id" [hidden]="true">
 
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
@@ -72,11 +72,11 @@
 
 <div class="row">
   <div class="col sm-10" style="padding-right: 300px;">
-    <button mat-raised-button color="primary" (click)="addparent()">{{ actionBtn }}
+    <button mat-raised-button color="primary" class="animation" (click)="addparent()">{{ actionBtn }}
     </button>
   </div>
   <div class="col sm-2 float-right">
-    <button class="float-right" mat-icon-button aria-label="reset" type="reset" color="primary"
+    <button class="float-right animation" mat-icon-button aria-label="reset" type="reset" color="primary"
       style="margin-right:10px;">
       Clear
     </button>

@@ -5,13 +5,9 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../shared/auth.service';
 import { NgToastService } from 'ng-angular-popup';
-
-
-
 // import { ParentDetailsComponent } from '../parent-details/parent-details.component';
 
 // export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -20,17 +16,18 @@ import { NgToastService } from 'ng-angular-popup';
 //     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
 //   }
 // }
-// interface Gender {
-//   value: string;
-//   viewValue: string;
-// }
+interface Gender {
+  value: string;
+  viewValue: string;
+}
 
-
+// User interface
 export class User {
+  id:any
   name: any;
   email: any;
-  id: any;
 }
+
 @Component({
   selector: 'app-p-user-dailog',
   templateUrl: './p-user-dailog.component.html',
@@ -58,17 +55,17 @@ export class PUserDailogComponent implements OnInit {
   // parentForm:FormGroup;
 
   parentForm !: FormGroup;
-  UserProfile!: User;
-
 
   actionBtn: string = 'Verify'
   errors: any=null;
 
+  UserProfile!: User;
+
+
   constructor(private formBuilder: FormBuilder, private api: ApiService,
-    private breakpointObserver: BreakpointObserver,
-    public authService: AuthService ,
-    public toast: NgToastService,
-    private dialogRef: MatDialogRef<PUserDailogComponent>) {
+    @Inject(MAT_DIALOG_DATA) public editData: any,
+    private dialogRef: MatDialogRef<PUserDailogComponent>, private breakpointObserver: BreakpointObserver,
+    public authService: AuthService, private toast:NgToastService ) {
       this.authService.profileUser().subscribe((data: any) => {
         this.UserProfile = data;
       });
@@ -120,25 +117,38 @@ export class PUserDailogComponent implements OnInit {
   //   else {
   //     this.updateChild();
   //   }
-    // console.log(this.parentForm.value);
 
 
-
+  // }
+  // updateChild() {
+  //   return this.api.putChild(this.parentForm.value, this.editData.id)
+  //     .subscribe({
+  //       next: (response) => {
+  //         alert("data updated Succcessfully !!");
+  //         this.parentForm.reset();
+  //         this.dialogRef.close("update");
+  //       },
+  //       error: () => {
+  //         alert("Error While Update");
+  //       }
+  //     });
+  // }
 
   addparent(){
-    this.parentForm.controls['id'].setValue(this.UserProfile?.id);
     // console.log(this.parentForm.value);
+    // alert(this.UserProfile.id);
+  this.parentForm.controls['id'].setValue(this.UserProfile?.id);
+console.log(this.parentForm.value);
 this.api.postparentdata(this.parentForm.value).subscribe(
 (result: any) => {
 console.log(result);
-alert('kyc is done');
-this.toast.success({detail:"Success Message", summary:"KYC request send successfully, Wait for approval...", duration:3000})
+// alert('kyc is done');
+this.toast.success({detail:"Success Message",summary:"Kyc Request Send Succcessfully , Wait for approval !!",duration:5000})
+
 this.dialogRef.close("Verify");
 },
 (error: any) => {
-  alert('something went wrong');
-  this.toast.info({detail:"Failed Message", summary:"Something is wrong, Try again later!!!", duration:3000})
-
+  this.toast.error({detail:"Fail Message",summary:"Something wrong ,Please Try Again Later !!",duration:5000})
 this.errors = error.error;
 },
 () => {
@@ -147,7 +157,5 @@ this.parentForm.reset();
 );
 
 }
-
-
   }
 
