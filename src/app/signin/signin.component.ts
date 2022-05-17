@@ -17,7 +17,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openSignin() 
+  openSignin()
   {
     // this.signup.signup=false;
     // this.signin=true;
