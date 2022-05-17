@@ -59,6 +59,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NgToastModule } from 'ng-angular-popup';
+import { DashboardfooterComponent } from './dashboardfooter/dashboardfooter.component';
 
 
 
@@ -94,6 +95,7 @@ import { NgToastModule } from 'ng-angular-popup';
     ForgetPasswordDailogComponent,
     ResetpasswordComponent,
     FooterComponent,
+    DashboardfooterComponent,
 
 
   ],
