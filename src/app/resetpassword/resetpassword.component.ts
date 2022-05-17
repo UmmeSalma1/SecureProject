@@ -6,6 +6,7 @@ import { AuthService } from '../shared/auth.service';
 // import { Router } from '@angular/router';
 
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 export class User {
 
   email: any;
@@ -27,38 +28,43 @@ export class ResetpasswordComponent implements OnInit {
     private auth: AuthService,
     private formBuilder: FormBuilder,
     public router: Router,
-    private route:ActivatedRoute,) {
+    private route:ActivatedRoute,
+    private toast : NgToastService) {
       route.queryParams.subscribe(params => {
         // this.resetPasswordForm.resetToken = params['token']
         });
     }
 
-    token:any = "xISluWWVM6SHXe4EOjFvaQQH4IFOF9IHR3eSYDbQ";
+    token:any ;
 
   ngOnInit(): void {
     this.resetPasswordForm = this.formBuilder.group({
       'email': ['', Validators.required],
       'password': ['', Validators.required],
       'password_confirmation': ['', Validators.required],
-      'token': ['', Validators.required],
+      'token': [''],
 
     })
   }
 
   passwordReset(){
-    this.resetPasswordForm.controls['token'].setValue("FmgrpqryXjqaUpWAJBNv9MerMDCkJFQwjKUn3Dxe");
+    this.resetPasswordForm.controls['token'].setValue(this.token);
     console.log(this.resetPasswordForm.value);
     this.auth.resetPassword(this.resetPasswordForm.value).subscribe(
       (result) => {
         console.log(result);
-        alert('Password has been updated Successfully');
+        this.toast.success({detail:"Success Message",summary:" Password has been Updated Successfully!!",duration:5000})
+
+        // alert('Password has been updated Successfully');
         this.resetPasswordForm.reset();
         // this.dialogRef.close("Sign Up");
     this.router.navigate(['']);
   },
   (error) => {
+    this.toast.info({detail:"info Message",summary:"Something Wrong !!, Try Again !!",duration:5000})
+
     this.errors = error.error;
-    alert('something went wrong');
+    // alert('something went wrong');
   },
   );
   }
