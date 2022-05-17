@@ -134,7 +134,6 @@ export class ChildDetailsComponent implements OnInit {
   showApproveChild(id:any){
     this.api.showApproveChild(id).subscribe({
       next:(response)=>{
-        // alert('child added successfully');
         this.toast.success({detail:"Success Message",summary:"Show Child Details",duration:5000})
         this.dataSource= new MatTableDataSource(response);
         console.log(response);
@@ -142,7 +141,6 @@ export class ChildDetailsComponent implements OnInit {
       },
       error:(error)=>{
         console.log("Error while fetching Records !! ");
-        alert('Something went wrong');
         // alert("Error while fetching Records !! ");
         this.toast.warning({detail:"warning Message",summary:"Something wrong while fetching data !!",duration:5000})
 
