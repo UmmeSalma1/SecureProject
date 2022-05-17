@@ -1,6 +1,9 @@
 .logo{
   text-align: center;
   padding: 2.6rem 1rem;
+  margin-bottom: 20px;
+  /* background: #03e9f4; */
+  /* background: fixed; */
 }
 img{
   width: 200px;
@@ -36,16 +39,29 @@ color: rgb(7, 1, 19) !important;
 }
 .mat-subheader{
 color: blanchedalmond;
-font-size: 0.6;
+font-size: 0.7;
 font-weight: bolder;
 letter-spacing:1px;
 font-family: 'Times New Roman', Times, serif;
 }
+
 button{
   color: white;
   size: 20px;
+  border: 2px solid wheat;
+  border-radius: 20%;
+  margin-top: 20px;
 }
 button:hover{
-  background-color: rgb(241, 62, 122);
-  text-transform: uppercase;
+  background-color:whitesmoke;
+  color: black;
+  /* text-transform: uppercase; */
+}
+
+mat-nav-list{
+  /* background: ; */
+  height: 100%;
+  /* border: 2px solid blue; */
+  overflow: hidden;
+  background: linear-gradient(20deg, transparent, rgb(111, 111, 216));
 }

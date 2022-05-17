@@ -1,21 +1,23 @@
 <mat-nav-list>
+  <!-- <div class="logo py-4" style="background-image:linear-gradient(200deg,   blanchedalmond 30%, #D1F2E8 100%, #85929E ,blanchedalmond 20%); border: solid blanchedalmond; border-radius: 50%;"> -->
     <div class="logo py-4" style="background-image:linear-gradient(200deg,   blanchedalmond 30%, #D1F2E8 100%, #85929E ,blanchedalmond 20%); border: solid blanchedalmond; border-radius: 50%;">
-    <!-- <h1 style="text-align: center;">$ecure</h1> -->
-    <img class="pic" src="../../assets/secure_pic.gif" alt="pic">
+
+  <!-- <h1 style="text-align: center;">$ecure</h1> -->
+  <img class="pic" src="../../assets/secure_pic.gif" alt="pic">
+  </div>
+  <mat-divider></mat-divider>
+  <!-- <h2 matSubheader class="mt-2">Application </h2> -->
+  <div class="row">
+
+      <button mat-button  routerLink="/dashboard" class="" (click)="openparent_profileDailog()">Profile</button>
+      <button mat-button  routerLink="/dashboard" class="" (click)="openchild_detailsDailog()">Add Child </button>
+      <!-- <button mat-button  routerLink="/dashboard" (click)="opentransactionDailog()">View Transaction </button> -->
+      <!-- <button mat-button  routerLink="/contact">Contact</button> -->
     </div>
-    <mat-divider></mat-divider>
-    <!-- <h2 matSubheader class="mt-2">Application </h2> -->
-    <div class="row">
+  <!-- <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link1</a>
+  <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link2</a>
+  <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link3</a>
+  <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link4</a>
+  <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link5</a> -->
 
-        <button mat-button  routerLink="/dashboard" (click)="openparent_profileDailog()">Profile</button>
-        <button mat-button  routerLink="/dashboard" (click)="openchild_detailsDailog()">Add Child </button>
-        <!-- <button mat-button  routerLink="/dashboard" (click)="opentransactionDailog()">View Transaction </button> -->
-        <!-- <button mat-button  routerLink="/contact">Contact</button> -->
-      </div>
-    <!-- <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link1</a>
-    <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link2</a>
-    <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link3</a>
-    <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link4</a>
-    <a mat-list-item routerLink="#"><mat-icon>edit</mat-icon> Link5</a> -->
-
-    </mat-nav-list>
+  </mat-nav-list>
