@@ -7,7 +7,7 @@
 
     </div>
     <button mat-icon-button aria-label="close dialog" mat-dialog-close>
-      <mat-icon>close</mat-icon>
+      <mat-icon class="animation">close</mat-icon>
     </button>
 
   </div>
@@ -66,7 +66,8 @@
       </mat-form-field> -->
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input formControlName="password" type="password" matInput placeholder="Enter Password ">
+        <input formControlName="password" matInput placeholder="Enter Password " [type]="hidePassword ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
       <!-- <mat-form-field class="example-full-width" appearance="fill">
@@ -84,7 +85,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
-        <input formControlName="password_confirmation" type="password" matInput placeholder="Re-Enter Password ">
+        <input formControlName="password_confirmation" [type]="hideConfirmPassword ? 'password' : 'text'" matInput placeholder="Re-Enter Password ">
+        <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
       <!-- <section>
@@ -106,9 +108,9 @@
 
       <div class="row">
         <div class="col sm-8" >
-          <button mat-raised-button color="primary">{{ actionBtn }}</button>
+          <button mat-raised-button color="primary" class="animation">{{ actionBtn }}</button>
         </div>
-          <button mat-icon-button aria-label="reset" type="reset" color="primary" style="margin-right:10px;">
+          <button mat-icon-button aria-label="reset" type="reset" color="primary" class="animation" style="margin-right:10px;">
             Clear
           </button>
 
