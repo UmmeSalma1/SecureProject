@@ -8,6 +8,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../shared/auth.service';
+import { NgToastService } from 'ng-angular-popup';
 
 import { PUserDailogComponent } from '../p-user-dailog/p-user-dailog.component';
 
@@ -32,7 +33,7 @@ export class ParentDetailsComponent implements OnInit {
   UserProfile!: User;
 
   constructor(private dialog: MatDialog, public api : ApiService,private breakpointObserver: BreakpointObserver,
-    public authService: AuthService) {
+    public authService: AuthService, public toast:NgToastService) {
         this.authService.profileUser().subscribe((data: any) => {
           this.UserProfile = data;
         });
@@ -110,12 +111,15 @@ export class ParentDetailsComponent implements OnInit {
   requestKyc(){
     this.api.showParentDetails().subscribe({
       next:(response)=>{
+        this.toast.success({detail:"Success Message",summary:"Parent Details Fatch Successfully !!",duration:5000})
         this.dataSource= new MatTableDataSource(response);
         console.log(this.dataSource);
       },
       error:(error)=>{
-        console.log("Error while fetching Records !! ");
-        alert("Error while fetching Records !! ");
+        this.toast.info({detail:"info Message",summary:"Something wrong while fatching data of Parent !!",duration:5000})
+
+        // console.log("Error while fetching Records !! ");
+        // alert("Error while fetching Records !! ");
       }
     });
   }
