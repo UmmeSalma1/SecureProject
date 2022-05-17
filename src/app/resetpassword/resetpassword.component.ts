@@ -21,9 +21,14 @@ export class User {
   styleUrls: ['./resetpassword.component.css']
 })
 
+
 export class ResetpasswordComponent implements OnInit {
   resetPasswordForm !: FormGroup;
   errors: any = null;
+
+  hidePassword : boolean= true;
+  hideConfirmPassword : boolean =true;
+
   constructor(private api: ApiService,
     private auth: AuthService,
     private formBuilder: FormBuilder,
