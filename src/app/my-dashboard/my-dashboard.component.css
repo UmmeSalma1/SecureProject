@@ -8,7 +8,10 @@
 }
 .page__box {
   min-height: 120px;
-  background: #0c0e0d;
+  /* background: darkorange; */
+  /* background: #03e9f4; */
+  /* background: linear-gradient(90deg, transparent, darkorange); */
+  background: linear-gradient(90deg, transparent, #03e9f4);
   margin: 0 -1rem;
   font-size: 36px;
 }
@@ -53,3 +56,4 @@ div{
       transform: scaleY(1.05);
       padding-top: 5px;
   }
+
