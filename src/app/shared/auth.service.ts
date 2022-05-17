@@ -16,8 +16,6 @@ export class User {
 export class AuthService {
 
   constructor(private http: HttpClient) {}
-
-  // baseurl:string= "http://127.0.0.1:8000/api/";
   // User registration
   register(user: User): Observable<any> {
     return this.http.post<any>('http://127.0.0.1:8000/api/auth/register', user);
@@ -36,8 +34,16 @@ export class AuthService {
     return this.http.get('http://127.0.0.1:8000/api/auth/logout');
   }
 
-  sendEmail(email:any): Observable<any> {
+  _isLogedIn(){
+    // console.log(!!localStorage.getItem('auth_token'));
+    return !!localStorage.getItem('auth_token');
+    // return false;
+   }
+   sendEmail(email:any): Observable<any> {
     return this.http.post<any>('http://127.0.0.1:8000/api/auth/sendPasswordResetLink', email);
+  }
+  passwordResetProcess(email:any): Observable<any> {
+    return this.http.post<any>('http://127.0.0.1:8000/api/auth/resetPassword', email);
   }
   resetPassword(user:User): Observable<any> {
     return this.http.post<any>('http://127.0.0.1:8000/api/resetPassword', user);
