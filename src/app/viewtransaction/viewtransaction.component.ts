@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PChildDailogComponent } from '../p-child-dailog/p-child-dailog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../shared/api.service';
-
+import { NgToastService } from 'ng-angular-popup';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -22,7 +22,7 @@ export class ViewtransactionComponent  implements OnInit  {
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private dialog: MatDialog, public api : ApiService) {
+  constructor(private dialog: MatDialog, public api : ApiService, private toast:NgToastService) {
     console.log(this.id);
     // this.id=id;
 
@@ -45,6 +45,8 @@ export class ViewtransactionComponent  implements OnInit  {
       next:(response)=>{
         this.dataSource= new MatTableDataSource(response);
         console.log(response);
+        this.toast.success({detail:"Success Message",summary:"Successfully Fetch Transaction Data !!",duration:5000})
+
         // this.id = response;
         // console.log(this.id);
         // alert('Transaction has been fetched');
@@ -52,8 +54,10 @@ export class ViewtransactionComponent  implements OnInit  {
       },
       error:(error)=>{
 
+        this.toast.info({detail:"info Message",summary:"Something wrong while fetch Data !!",duration:5000})
+
         console.log("Error while fetching Records !! ");
-        alert("Error while fetching Records !! ");
+        // alert("Error while fetching Records !! ");
       }
     });
 
