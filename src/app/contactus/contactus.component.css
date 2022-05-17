@@ -1,12 +1,12 @@
-body{ display: flex; flex-wrap: wrap; justify-content: center; background: blanchedalmond; padding-top: 20px;
-  /* background-image: url("https://pbs.twimg.com/media/E3_guXtX0AUihWN.jpg"); */
+body{ display: flex; flex-wrap: wrap; justify-content: center; background: grey; padding-top: 20px;
+  background-image: url("https://pbs.twimg.com/media/E3_guXtX0AUihWN.jpg");
 
   /*   https://media.istockphoto.com/vectors/travel-concept-seamless-pattern-abstract-airplane-routes-travel-and-vector-id936346770?k=20&m=936346770&s=612x612&w=0&h=pNoiIGyr4aF7H_gmwI38xlKT4oOCouCYj8Tw0WaKYhI= */
 
   }
 
   .card{margin-top: 50px;
-  background: blanchedalmond;
+  background: #17141d;
   background: white;
   display: grid;
   grid-template-columns: 300px;
@@ -89,12 +89,12 @@ body{ display: flex; flex-wrap: wrap; justify-content: center; background: blanc
 
   #sb{
     background-position: bottom;
-    background-image: url("../../assets/latha.png")}
+    background-image: url("https://i.imgur.com/ZnaN89ql.jpg")}
 
   /* //https://prod-virtuoso.dotcmscloud.com/dA/b3bd129b-efda-486b-8290-ccb35cd0f167/previewImage/MissionSantaBarbara_hero.jpg */
-  #yosemite{background-image: url("../../assets/siva.png")}
+  #yosemite{background-image: url("https://parentology.com/wp-content/uploads/2020/12/swissmediavision1163571314.jpg")}
 
-  #marin{background-image: url("../../assets/Guru.png")}
+  #marin{background-image: url("https://i.imgur.com/BvrDOz2.jpg")}
 
   a{text-decoration: none;
   color: white;}
@@ -181,3 +181,6 @@ body{ display: flex; flex-wrap: wrap; justify-content: center; background: blanc
         0 0 160px cyan
     }
   }
+  h2.artisan {
+    margin-top: -10px;
+}
