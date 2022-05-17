@@ -1,7 +1,5 @@
-<mat-toolbar color="primary">
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
+<!-- <mat-toolbar color="primary">
+
     <div class="span"><span class="some" >$</span>ecure</div>
     <div class="link">
 
@@ -10,15 +8,208 @@
       <button mat-button  routerLink="/contact">Contact</button>
     </div>
     <span class="example-spacer"></span>
-    <!-- <app-home></app-home> -->
-    <!-- <app-aboutus></app-aboutus> -->
     <app-signup></app-signup>
     <app-signin></app-signin>
-    
-    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button> -->
-  </mat-toolbar>
+
+  </mat-toolbar> -->
+
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+<div class="navigation">
+  <ul class="withoutHover">
+    <li class="list animate " data-color="#dc143c">
+      <a [routerLink]="['/']">
+        <span class="icon"><i class="animation" aria-hidden="true" ><span class="some" >$</span>ecure</i></span>
+        <span class="title">Home</span>
+      </a>
+    </li>
+
+    <li class="list animate" data-color="#dc143c">
+      <a [routerLink]="['/']">
+        <span class="icon"><i class="fa fa-home animation" aria-hidden="true">Home</i></span>
+        <span class="title">Home</span>
+      </a>
+    </li>
+    <li class="list animate" data-color="#3c40c6">
+      <a [routerLink]="['/aboutus']">
+        <span class="icon"><i class="fa fa-info-circle animation" aria-hidden="true">About</i></span>
+        <span class="title">About</span>
+      </a>
+    </li>
+
+    <li class="list animate" data-color="#05c46b">
+      <a [routerLink]="['/contact']">
+        <span class="icon"><i class="fa fa-phone-square f-56 animation"> Contact</i></span>
+        <span class="title">Contact</span>
+      </a>
+    </li>
+
+    <li class="list position-absolute top-0 end-0" data-color="#05c46b" style="margin-right: 20px;">
+      <a>
+        <span class="icon"><i class="fa f-56">
+          <app-signin class="animate"></app-signin>
+          </i></span>
+          <span class="icon"><i class="fa f-56" style="margin-left: 20px;">
+            <app-signup class="animate"></app-signup>
+            </i></span>
+
+      </a>
+    </li>
+
+
+
+
+    <!-- <app-signup></app-signup> -->
+    <!-- <app-signin></app-signin> -->
+
+    <!-- <li class="list" data-color="#05c46b">
+      <a href="#">
+        <span class="icon"><i class="far fa-comment"></i></span>
+        <span class="title">Messages</span>
+      </a>
+    </li> -->
+    <!-- <li class="list" data-color="#0fbcf9">
+      <a href="#">
+        <span class="icon"><i class="far fa-question-circle"></i></span>
+        <span class="title">Help</span>
+      </a>
+    </li> -->
+    <!-- <li class="list" data-color="#ffa801">
+      <a href="#">
+        <span class="icon"><i class="far fa-cog"></i></span>
+        <span class="title">Settings</span>
+      </a>
+    </li> -->
+    <div class="indicator"></div>
+  </ul>
+</div>
+
+<!-- <div class="float-right">
+    <app-signup></app-signup>
+    <app-signin></app-signin>
+
+  </div> -->
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
+
+  li {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: auto;
+    transition: 0.5s;
+    /* background-color: crimson; */
+    margin-top: -30px;
+  }
+
+  .navigation {
+    position: relative;
+    width: auto;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #fff;
+    background-color: #FFDECD;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+  }
+
+  .navigation ul li {
+    position: relative;
+    list-style: none;
+    width: auto;
+    height: 70px;
+    z-index: 1;
+  }
+
+  .navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    text-align: center;
+    transition: 0.5s;
+  }
+
+  /* .navigation ul li.active a .icon {
+    color: #fff;
+  } */
+
+  .navigation ul li a .icon i {
+    font-size: 20px;
+  }
+
+  .navigation ul li a .title {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translate(-50%, 15%);
+    width: auto;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 7px;
+    transition: 0.5s;
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+  }
+
+  .navigation ul li:hover a .title {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 50%);
+  }
+
+  .navigation ul li a .title::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    bottom: -8px;
+    left: 48%;
+    transform: rotate(45deg) translateX(-50%);
+    border-radius: 2px;
+  }
+
+  .navigation ul .indicator {
+    position: absolute;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    transition: all 0.5s;
+  }
+
+</style>
+
