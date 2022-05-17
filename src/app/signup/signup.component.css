@@ -1,8 +1,34 @@
+/*
+button{
+  border-radius: 20%;
 
- button:hover{
-    background-color:blanchedalmond;
-    text-transform: uppercase;
-  }
+}
+button:hover{
+background: #03e9f4;
+color: #fff;
+border-radius: 5px;
+box-shadow: 0 0 5px #2703f4,
+    0 0 25px #03e9f4,
+    0 0 50px #2f03f4,
+    0 0 100px #03e9f4;
+top: 0;
+background: linear-gradient(90deg, transparent, #03e9f4);
+animation: btn-anim1 1s linear infinite;
+color: navy;
+text-decoration: solid;
+cursor: progress;
+border: none;
+outline: none;
+color: #fff;
+background: navy;
+cursor: pointer;
+position: relative;
+z-index: 0;
+border-radius: 10px;
 
+}
+ */
+ button{
+  border-radius: 20%;
 
-  
+}

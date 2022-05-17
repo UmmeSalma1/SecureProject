@@ -13,11 +13,11 @@ export class SignupComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   signup:boolean=true;
-  
+
   ngOnInit(): void {
   }
- 
-  openSignup() 
+
+  openSignup()
   {
     this.dialog.open(DialogSignupComponent,{
       width:'30%'
