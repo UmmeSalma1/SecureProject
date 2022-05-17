@@ -72,5 +72,9 @@ forgetBtn : string='Forget Password?'
   responseHandler(data: any) {
     this.token.handleData(data.access_token);
   }
+  forget_password(){
+    this.dialogRef.close("Forget Password?");
+    this.router.navigate(['/forgetPassword']);
 
+  }
 }

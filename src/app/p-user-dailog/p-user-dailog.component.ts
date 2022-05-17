@@ -67,7 +67,7 @@ export class PUserDailogComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     private breakpointObserver: BreakpointObserver,
     public authService: AuthService ,
-    private toast: NgToastService,
+    public toast: NgToastService,
     private dialogRef: MatDialogRef<PUserDailogComponent>) {
       this.authService.profileUser().subscribe((data: any) => {
         this.UserProfile = data;
@@ -120,6 +120,7 @@ export class PUserDailogComponent implements OnInit {
   //   else {
   //     this.updateChild();
   //   }
+    // console.log(this.parentForm.value);
 
 
 
@@ -130,12 +131,12 @@ export class PUserDailogComponent implements OnInit {
 this.api.postparentdata(this.parentForm.value).subscribe(
 (result: any) => {
 console.log(result);
-// alert('kyc is done');
+alert('kyc is done');
 this.toast.success({detail:"Success Message", summary:"KYC request send successfully, Wait for approval...", duration:3000})
 this.dialogRef.close("Verify");
 },
 (error: any) => {
-  // alert('something went wrong');
+  alert('something went wrong');
   this.toast.info({detail:"Failed Message", summary:"Something is wrong, Try again later!!!", duration:3000})
 
 this.errors = error.error;

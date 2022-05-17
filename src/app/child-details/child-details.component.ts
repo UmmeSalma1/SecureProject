@@ -5,8 +5,20 @@ import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 import {MatTableDataSource} from '@angular/material/table';
 import { ViewtransactionComponent } from '../viewtransaction/viewtransaction.component';
+import { NgToastService } from 'ng-angular-popup';
+import { AuthService } from '../shared/auth.service';
+
+export class User {
+  id:any
+  name: any;
+  email: any;
+}
+
 @Component({
   selector: 'app-child-details',
   templateUrl: './child-details.component.html',
@@ -22,15 +34,25 @@ export class ChildDetailsComponent implements OnInit {
 
   actionBtn:string='View Transaction'
 
-  constructor(private dialog: MatDialog, public api : ApiService,
-    private dialogRef: MatDialogRef<PChildDailogComponent>) {
+  UserProfile!: User;
+
+  constructor(private dialog: MatDialog, public api : ApiService,private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<PChildDailogComponent>, private toast:NgToastService, private auth : AuthService) {
+      this.auth.profileUser().subscribe((data: any) => {
+        this.UserProfile = data;
+      });
 
   }
 
-  userid: any ;
+  showForm !: FormGroup;
+
+  id: any ;
 
   ngOnInit(): void {
-    this.showApproveChild();
+    this.showForm = this.formBuilder.group({
+      'id': ['',Validators.required],
+    })
+    // this.showApproveChild();
     // let objView = new ViewtransactionComponent();
   }
 
@@ -39,9 +61,10 @@ export class ChildDetailsComponent implements OnInit {
       width:'30%'
     });
   }
+
   opentransactionDailog(id:any){
     console.log("initial" + id);
-    this.userid = id;
+    // this.userid = id;
     this.dialogRef.close("View Transaction");
     this.dialog.open(ViewtransactionComponent,{
       width:'70%'
@@ -97,16 +120,32 @@ export class ChildDetailsComponent implements OnInit {
   //     }
   //   });
   // }
-  showApproveChild(){
-    this.api.showApproveChild().subscribe({
+
+  showchild()
+  {
+      this.showForm.controls['id'].setValue(this.UserProfile?.id);
+      // this.showForm.controls['id'].value;
+      this.id = this.showForm.controls['id'].value;
+      this.showApproveChild(this.id);
+    // alert(this.showForm.controls['id'].value);
+    // alert(this.id);
+  }
+
+  showApproveChild(id:any){
+    this.api.showApproveChild(id).subscribe({
       next:(response)=>{
+        alert('child added successfully');
+        this.toast.success({detail:"Success Message",summary:"Show Child Details",duration:5000})
         this.dataSource= new MatTableDataSource(response);
         console.log(response);
         console.log(this.dataSource);
       },
       error:(error)=>{
         console.log("Error while fetching Records !! ");
-        alert("Error while fetching Records !! ");
+        alert('Something went wrong');
+        // alert("Error while fetching Records !! ");
+        this.toast.warning({detail:"warning Message",summary:"Something wrong while fetching data !!",duration:5000})
+
       }
     });
   }

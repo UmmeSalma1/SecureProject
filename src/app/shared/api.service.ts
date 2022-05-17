@@ -41,8 +41,8 @@ export class ApiService {
     return this.http.get<any>(this.baseurl+'parents');
   }
 
-  showApproveChild(): Observable<any>{
-    return this.http.get<any>(this.baseurl+'approvedChild');
+  showApproveChild(id:any): Observable<any>{
+    return this.http.get<any>(this.baseurl+'approvedChild/'+id);
   }
 
   showChildTransaction(id:any): Observable<any>{

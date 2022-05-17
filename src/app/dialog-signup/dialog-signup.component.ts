@@ -8,26 +8,26 @@ import { AuthService } from '../shared/auth.service';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+// export class MyErrorStateMatcher implements ErrorStateMatcher {
+//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+//     const isSubmitted = form && form.submitted;
+//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+//   }
+// }
 @Component({
   selector: 'app-dialog-signup',
   templateUrl: './dialog-signup.component.html',
   styleUrls: ['./dialog-signup.component.css']
 })
 export class DialogSignupComponent implements OnInit {
-  nameFormControl:any = new FormControl('', [Validators.required, Validators.required]);
-  emailFormControl:any = new FormControl('', [Validators.required, Validators.email]);
-  passwordFormControl:any = new FormControl('', [Validators.required, Validators.required, Validators.min(8)]);
-  password_confirmationFormControl:any = new FormControl('', [Validators.required, Validators.required]);
+  // nameFormControl:any = new FormControl('', [Validators.required, Validators.required]);
+  // emailFormControl:any = new FormControl('', [Validators.required, Validators.email]);
+  // passwordFormControl:any = new FormControl('', [Validators.required, Validators.required, Validators.min(8)]);
+  // password_confirmationFormControl:any = new FormControl('', [Validators.required, Validators.required]);
 
   actionBtn: string='Sign Up';
 
-  matcher = new MyErrorStateMatcher();
+  // matcher = new MyErrorStateMatcher();
   registerForm: FormGroup;
   errors: any = null;
   constructor(
