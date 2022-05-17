@@ -5,14 +5,20 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NgToastService } from 'ng-angular-popup';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../shared/auth.service';
+import { NgToastService } from 'ng-angular-popup';
 
 
 export class User {
+  id:any
   name: any;
   email: any;
-  id: any;
+}
+
+interface Gender {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -23,7 +29,6 @@ export class User {
 export class PChildDailogComponent implements OnInit {
 
   // selectedValue: string;
-
   // gender: Gender[] = [
   //   {value: 'male-0', viewValue: 'Male'},
   //   {value: 'female-1', viewValue: 'Female'},
@@ -41,21 +46,19 @@ export class PChildDailogComponent implements OnInit {
 
   // matcher = new MyErrorStateMatcher();
 
-
+  UserProfile!: User;
 
   //should be like your form name
   childForm !: FormGroup;
-  UserProfile!: User;
 
   actionBtn: string = 'Add Child'
   errors: any=null;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     // @Inject(MAT_DIALOG_DATA) public editData: any,
-    public auth : AuthService,
-    public toast: NgToastService,
-    private dialogRef: MatDialogRef<PChildDailogComponent>) {
-      this.auth.profileUser().subscribe((data: any) => {
+    private dialogRef: MatDialogRef<PChildDailogComponent>, private breakpointObserver: BreakpointObserver,
+    public authService: AuthService,private toast:NgToastService) {
+      this.authService.profileUser().subscribe((data: any) => {
         this.UserProfile = data;
       });
     }
@@ -124,22 +127,33 @@ export class PChildDailogComponent implements OnInit {
   //     });
   // }
 
+db :any;
 
 
   addchild(){
     this.childForm.controls['id'].setValue(this.UserProfile?.id);
-    // console.log(this.childForm.value);
+    // this.childForm.controls['id'].setValue(1);
+    // console.log(this.childForm.controls['dob'].value);
 
+    // console.log(this.childForm.value);
+    //  this.db =  this.childForm.controls['dob'].value.toISOString().slice(0, 10);
+    //  alert(this.db);
+    //  console.log(this.db);
+    // this.db =moment(this.childForm.controls['dob'].value).format('D MMMM YYYY');
+    this.childForm.controls['dob'].setValue(this.childForm.controls['dob'].value.toISOString().slice(0, 10));
+    console.log(this.childForm.value);
+
+    // this.db = this.childForm.controls['dob'].value;
+    // console.log(this.childForm.value);
 this.api.postchilddata(this.childForm.value).subscribe({
 next :(response) => {
 console.log(response);
-alert('Child Added Successfullly');
-this.toast.success({detail:"Success Message", summary:"Child Added successfully, Wait for approval...", duration:3000})
-
+this.toast.success({detail:"Success Message",summary:"Child Register Successfull, Wait for approval !!",duration:5000})
+// alert('Child Added Successfullly');
 this.dialogRef.close("Add Child");
 },
 error:(error)=>{
-  this.toast.info({detail:"Failed Message", summary:"Something is wrong, Try again later!!!", duration:3000})
+  this.toast.info({detail:"info Message",summary:"Something Wrong , Try Again Later !!",duration:5000})
 
 }
 })

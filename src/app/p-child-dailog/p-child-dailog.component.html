@@ -1,10 +1,9 @@
 <h1 mat-dialog-title>Add Child</h1>
-<!-- <h1 class="list-group-item" style="margin-bottom: 1rem"><strong> id :</strong> <i> {{UserProfile?.id}} </i></h1> -->
-
 <div mat-dialog-content>
   <form [formGroup]="childForm">
 
-    <input formControlName="id" type="text"  matInput hidden="true">
+      <input formControlName="id" matInput [hidden]="true">
+
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
       <input formControlName="first_name" matInput placeholder="Enter First Name">
@@ -26,6 +25,7 @@
       <mat-label>DOB</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="dob">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
@@ -59,6 +59,6 @@
    </div>
 
 <div mat-dialog-actions [align]="'end'">
-  <button mat-raised-button [color]="'warn'" mat-dialog-close>Close</button>
-  <button mat-raised-button [color]="'primary'" (click)="addchild()" >{{ actionBtn }}</button>
+  <button mat-raised-button [color]="'warn'" class="animation" mat-dialog-close>Close</button>
+  <button mat-raised-button [color]="'primary'" class="animation" (click)="addchild()" >{{ actionBtn }}</button>
 </div>
