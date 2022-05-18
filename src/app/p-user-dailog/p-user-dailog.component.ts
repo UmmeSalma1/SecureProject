@@ -143,12 +143,12 @@ this.api.postparentdata(this.parentForm.value).subscribe(
 (result: any) => {
 console.log(result);
 // alert('kyc is done');
-this.toast.success({detail:"Success Message",summary:"Kyc Request Send Succcessfully , Wait for approval !!",duration:5000})
+this.toast.success({detail:"Success Message",summary:"KycRequest Send Succcessfully !!",duration:3000})
 
 this.dialogRef.close("Verify");
 },
 (error: any) => {
-  this.toast.error({detail:"Fail Message",summary:"Something wrong ,Please Try Again Later !!",duration:5000})
+  this.toast.error({detail:"Fail Message",summary:"Something wrong ,Please Try Again Later !!",duration:3000})
 this.errors = error.error;
 },
 () => {

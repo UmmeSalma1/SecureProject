@@ -148,12 +148,12 @@ db :any;
 this.api.postchilddata(this.childForm.value).subscribe({
 next :(response) => {
 console.log(response);
-this.toast.success({detail:"Success Message",summary:"Child Register Successfull, Wait for approval !!",duration:5000})
+this.toast.success({detail:"Success Message",summary:"Child Register Successfully!!",duration:3000})
 // alert('Child Added Successfullly');
 this.dialogRef.close("Add Child");
 },
 error:(error)=>{
-  this.toast.info({detail:"info Message",summary:"Something Wrong , Try Again Later !!",duration:5000})
+  this.toast.info({detail:"info Message",summary:"Something Wrong , Try Again Later !!",duration:3000})
 
 }
 })

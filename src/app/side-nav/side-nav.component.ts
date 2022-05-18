@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { ViewTransactionComponent } from '../view-transaction/view-transaction.component';
 import { ViewtransactionComponent } from '../viewtransaction/viewtransaction.component';
 import { ParentDetailsComponent } from '../parent-details/parent-details.component';
+import { CardsComponent } from '../cards/cards.component';
 
 @Component({
   selector: 'app-side-nav',
@@ -34,6 +35,13 @@ export class SideNavComponent implements OnInit {
 opentransactionDailog(){
   this.dialog.open(ViewtransactionComponent,{
     width:'70%'
+  });
+}
+
+openCardDailog(){
+  this.dialog.open(CardsComponent,{
+    width:'50%',
+    height:'60%'
   });
 }
 }

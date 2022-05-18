@@ -60,6 +60,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NgToastModule } from 'ng-angular-popup';
 import { DashboardfooterComponent } from './dashboardfooter/dashboardfooter.component';
+import { CardsComponent } from './cards/cards.component';
 
 
 
@@ -96,6 +97,7 @@ import { DashboardfooterComponent } from './dashboardfooter/dashboardfooter.comp
     ResetpasswordComponent,
     FooterComponent,
     DashboardfooterComponent,
+    CardsComponent,
 
 
   ],

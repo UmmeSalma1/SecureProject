@@ -43,3 +43,8 @@ th{
 td{
   border: 1rem solid white;
 }
+button{
+  border-radius: 20%;
+  background-color: #9fcdf0;
+
+}

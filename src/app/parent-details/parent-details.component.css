@@ -32,3 +32,8 @@ th{
   font-family: 'Times New Roman', Times, serif;
   color: navy;
 }
+button{
+  border-radius: 20%;
+  background-color: #9fcdf0;
+
+}

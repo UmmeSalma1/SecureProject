@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col sm-11">
     <!-- <h1>Signin</h1> -->
-    <button mat-raised-button color="accent" class="animation" (click)="openadd_childDailog()">Add Child</button>
+    <button mat-raised-button class="animation" (click)="openadd_childDailog()" style="background-color: #9fcdf0;">Add Child</button>
+    <button mat-raised-button  class="animation" (click)="showchild()" style="margin-left: 20px;">showchild</button>
 
   </div>
   <div class="col sm-2">
   <form [formGroup]="showForm">
     <input formControlName="id" matInput [hidden]="true">
   </form>
-  <button mat-flat-button [color]="'primary'" class="animation" (click)="showchild()" >showchild</button>
 </div>
-  <button mat-icon-button aria-label="close dialog" class="animation" mat-dialog-close>
+  <button mat-icon-button aria-label="close dialog" class="animation" mat-dialog-close style="background-color: transparent;">
     <mat-icon>close</mat-icon>
   </button>
 
