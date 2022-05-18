@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z8">
+<mat-toolbar class="mat-elevation-z8 withoutHover" >
     <button
       mat-icon-button
       *ngIf="sidenav.mode === 'over'"
@@ -12,12 +12,12 @@
     <div class="row mr-2 ml-auto" style="position: fixed; right: 0;">
         <ul class="row m-0 align-items-center">
 
-            <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+            <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center" style="background: transparent;">
               <img src="../../assets/login.png" alt="" class="user-image mr-1 p-2" />
               <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
             </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item  (click)="logout()" style="color: rgb(36, 33, 33);">
+            <mat-menu #menu="matMenu" >
+              <button mat-menu-item  (click)="logout()" style="color: rgb(36, 33, 33);background-color: transparent;">
                 <mat-icon>exit_to_app</mat-icon>
                 Logout
               </button>
@@ -25,9 +25,8 @@
         </ul>
       </div>
   </mat-toolbar>
-
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+  <mat-sidenav-container class="">
+    <mat-sidenav #sidenav="matSidenav"  class="mat-elevation-z8 withoutHover">
       <div class="logo py-4" style="background-image:linear-gradient(200deg,   blanchedalmond 30%, #D1F2E8 100%, #85929E ,blanchedalmond 20%); border: solid blanchedalmond; border-radius: 50%;">
         <!-- <h1 style="text-align: center;">$ecure</h1> -->
         <img class="pic" src="../../assets/secure_pic.gif" alt="pic">
@@ -41,7 +40,7 @@
       </button> -->
       <button mat-button class="menu-button" routerLink="/profile">
         <mat-icon>person</mat-icon>
-        <span>Profile</span>
+        <span >Profile</span>
       </button>
       <button mat-button class="menu-button" routerLink="/requestkyc">
         <mat-icon>group</mat-icon>
@@ -70,3 +69,12 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
   <app-footer></app-footer>
+<style>
+  button{
+    background: bisque;
+    color: black;
+    margin-bottom: 10px;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+  }
+</style>

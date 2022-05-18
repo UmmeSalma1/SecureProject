@@ -36,6 +36,8 @@ import { ChildRequestComponent } from './child-request/child-request.component';
 import { MatSortModule } from '@angular/material/sort';
 import { FooterComponent } from './footer/footer.component';
 
+
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, ProfileComponent, AboutComponent, HelpComponent, NotFoundComponent, DashboardComponent, RequestsComponent, ViewComponent, ParentDialogComponent, ChildDialogComponent, CardDialogComponent, TransactionDialogComponent, VendorsDialogComponent, RefundsDialogComponent, ChildRequestComponent, FooterComponent],
   imports: [
@@ -54,7 +56,7 @@ import { FooterComponent } from './footer/footer.component';
     MatDialogModule,
     MatInputModule,
     HttpClientModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

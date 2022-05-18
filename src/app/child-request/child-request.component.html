@@ -4,9 +4,7 @@
       <!-- <button mat-raised-button color="accent" (click)="openpuserDailog()" [disabled]="status" >Verify</button> -->
 
     </div>
-    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
-      <mat-icon>close</mat-icon>
-    </button>
+
 <!-- <div class="col">
 </div> -->
 <div class="container-fluid">
@@ -89,7 +87,7 @@
         <td mat-cell *matCellDef="let row">
           <!-- <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button> -->
           <button mat-icon-button color="warn" (click)="childReject(row.id)" ><mat-icon>clear</mat-icon></button>
-          <button mat-raised-button color="primary" (click)="approveChild(row.id)" >Generate Card</button>
+          <button mat-icon-button  (click)="approveChild(row.id)" ><mat-icon>check_circle</mat-icon></button>
         </td>
       </ng-container>
 

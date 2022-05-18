@@ -1,16 +1,16 @@
 
- 
-  
+
+
   mat-icon{
   vertical-align: center;
   margin-right: 1rem;
   }
-  
+
   mat-divider{
   border-top-width: 2px ;
   border-color: white;
   }
-  
+
   .mat-list-item{
   /* color: rgb(195, 146, 245) !important; */
  color: blanchedalmond;
@@ -37,11 +37,16 @@
   font-family: 'Times New Roman', Times, serif;
   }
   button:hover{
-    background-color: rgb(241, 62, 122);
-    text-transform: uppercase;
+    // background-color: rgb(241, 62, 122);
+    // text-transform: uppercase;
   }
+
   button{
     margin-left: 1rem;
+    background: #03E9F4;
+    color: black;
+    margin-bottom: 10px;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
   }
-  
-  
+
