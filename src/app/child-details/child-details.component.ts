@@ -26,7 +26,7 @@ export class User {
 })
 export class ChildDetailsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','first_name', 'last_name', 'dob', 'email','gender','phone_number','monthly_limit','is_approved','view_card','view_transaction'];
+  displayedColumns: string[] = ['id','first_name', 'last_name', 'dob', 'email','gender','phone_number','monthly_limit','is_approved','view_transaction'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;

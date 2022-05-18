@@ -10,18 +10,18 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ParentComponent } from './parent/parent.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-
+import { AuthGuardGuard } from './shared/auth-guard.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'contact', component: ContactusComponent },
-  { path: 'dashboard', component: NavigationComponent },
-  { path: 'parent', component: ParentComponent },
-  { path: 'child', component: ChildComponent },
+  { path: 'dashboard', component: NavigationComponent ,canActivate:[AuthGuardGuard]},
+  { path: 'parent', component: ParentComponent,canActivate:[AuthGuardGuard] },
+  { path: 'child', component: ChildComponent,canActivate:[AuthGuardGuard] },
   { path: 'forgetPassword', component: ForgetPasswordComponent},
   { path: 'forgetpopup', component: ForgetPasswordDailogComponent},
   { path: 'resetpassword', component: ResetpasswordComponent},
-  { path: 'demo', component: AddChildComponent}
+  { path: 'demo', component: AddChildComponent,canActivate:[AuthGuardGuard]}
 ];
 
 @NgModule({
