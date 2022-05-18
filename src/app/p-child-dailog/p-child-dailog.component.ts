@@ -66,12 +66,12 @@ export class PChildDailogComponent implements OnInit {
   ngOnInit(): void {
     this.childForm = this.formBuilder.group({
       'id': ['', Validators.required],
-      'first_name': ['', Validators.required],
-      'last_name': ['', Validators.required],
+      'first_name': ['', [Validators.required,Validators.pattern('[a-zA-Z][a-zA-Z ]*'),Validators.minLength(4)]],
+      'last_name': ['', [Validators.required,Validators.pattern('[a-zA-Z][a-zA-Z ]*'),Validators.minLength(4)]],
       'dob': ['', Validators.required],
-      'email': ['', Validators.required],
+      'email': ['', [Validators.required,Validators.email]],
       'gender': ['', Validators.required],
-      'phone_number': ['', Validators.required],
+      'phone_number': ['', [Validators.required,Validators.pattern(/([7-9]){1}([0-5]){1}([6-9]){1}([0-9]){9}$/)]],
       'monthly_limit': ['', Validators.required],
       // 'parent_id': ['',Validators.required]
     })
@@ -148,12 +148,12 @@ db :any;
 this.api.postchilddata(this.childForm.value).subscribe({
 next :(response) => {
 console.log(response);
-this.toast.success({detail:"Success Message",summary:"Child Register Successfully!!",duration:3000})
+this.toast.success({detail:"Success Message",summary:"Child Register Successfull, Wait for approval !!",duration:5000})
 // alert('Child Added Successfullly');
 this.dialogRef.close("Add Child");
 },
 error:(error)=>{
-  this.toast.info({detail:"info Message",summary:"Something Wrong , Try Again Later !!",duration:3000})
+  this.toast.info({detail:"info Message",summary:"Something Wrong , Try Again Later !!",duration:5000})
 
 }
 })
@@ -161,4 +161,3 @@ error:(error)=>{
 
 }
 }
-

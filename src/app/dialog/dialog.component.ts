@@ -24,6 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 
 export class DialogComponent implements OnInit {
+
  hide:boolean=true;
 actionBtn : string= 'Sign In';
 forgetBtn : string='Forget Password?'
@@ -47,8 +48,8 @@ forgetBtn : string='Forget Password?'
     private toast : NgToastService
   ) {
     this.loginForm = this.fb.group({
-      email: ['',Validators.required],
-      password: ['', Validators.required],
+      email: ['',[Validators.required,Validators.email]],
+      password: ['', [Validators.required,Validators.minLength(8)]],
     });
   }
   ngOnInit() { }

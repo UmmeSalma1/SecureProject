@@ -74,13 +74,13 @@ export class PUserDailogComponent implements OnInit {
   ngOnInit(): void {
     this.parentForm = this.formBuilder.group({
       id: ['', Validators.required],
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      name: ['', [Validators.required,Validators.pattern('[a-zA-Z][a-zA-Z ]*'),Validators.minLength(4)]],
+      email: ['',[Validators.required,Validators.email]],
       // password: ['', Validators.required],
       // date: ['', Validators.required],
       gender: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      pan_card: ['', Validators.required],
+      phone_number: ['', [Validators.required,Validators.pattern(/([7-9]){1}([0-5]){1}([6-9]){1}([0-9]){9}$/)]],
+      pan_card: ['', [Validators.required,Validators.pattern(/([A-Z]){5}([0-9]){4}([A-Z]){1}$/)]],
       address: ['', Validators.required]
     })
   }
@@ -143,12 +143,12 @@ this.api.postparentdata(this.parentForm.value).subscribe(
 (result: any) => {
 console.log(result);
 // alert('kyc is done');
-this.toast.success({detail:"Success Message",summary:"KycRequest Send Succcessfully !!",duration:3000})
+this.toast.success({detail:"Success Message",summary:"Kyc Request Send Succcessfully , Wait for approval !!",duration:5000})
 
 this.dialogRef.close("Verify");
 },
 (error: any) => {
-  this.toast.error({detail:"Fail Message",summary:"Something wrong ,Please Try Again Later !!",duration:3000})
+  this.toast.error({detail:"Fail Message",summary:"Something wrong ,Please Try Again Later !!",duration:5000})
 this.errors = error.error;
 },
 () => {
@@ -158,4 +158,3 @@ this.parentForm.reset();
 
 }
   }
-

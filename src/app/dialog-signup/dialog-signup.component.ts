@@ -9,12 +9,12 @@ import { AuthService } from '../shared/auth.service';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-// export class MyErrorStateMatcher implements ErrorStateMatcher {
-//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-//     const isSubmitted = form && form.submitted;
-//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-//   }
-// }
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 @Component({
   selector: 'app-dialog-signup',
   templateUrl: './dialog-signup.component.html',
@@ -30,7 +30,7 @@ export class DialogSignupComponent implements OnInit {
 
   actionBtn: string='Sign Up';
 
-  // matcher = new MyErrorStateMatcher();
+  matcher = new MyErrorStateMatcher();
   registerForm: FormGroup;
   errors: any = null;
   constructor(
@@ -38,16 +38,37 @@ export class DialogSignupComponent implements OnInit {
     public fb: FormBuilder,
     public api: AuthService,
     private dialogRef: MatDialogRef<DialogSignupComponent>,
-    private toast : NgToastService
+    private toast : NgToastService,
     )
   {
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      password_confirmation: ['', Validators.required],
-    });
+      name: ['', [Validators.required,Validators.pattern('[a-zA-Z][a-zA-Z ]*'),Validators.minLength(4)]],
+      email: ['', [Validators.required,Validators.email]],
+      password: ['', [Validators.required,Validators.minLength(8)]],
+      password_confirmation: ['', [Validators.required]],
+    },{
+      Validators:this.MustMatch('password','password_confirmation')
+    })
+  }
 
+  mustMatch : any;
+
+  MustMatch(ControlName:string, MatchingControlName:string)
+  {
+    return (formGroup:FormGroup)=>{
+      const control= formGroup.controls[ControlName];
+      const matchingControl= formGroup.controls[MatchingControlName];
+
+      if(matchingControl.errors){
+        return
+      }
+      if(control.value!=matchingControl.value){
+        matchingControl.setErrors({MustMatch:true})
+      }else{
+        matchingControl.setErrors(null);
+      }
+
+    }
   }
 
  get f(){
@@ -55,7 +76,9 @@ export class DialogSignupComponent implements OnInit {
   }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.MustMatch(this.registerForm.controls['password'].value,this.registerForm.controls['password_confirmation'].value);
+  }
 
   onSubmit() {
     console.log(this.registerForm.value);
